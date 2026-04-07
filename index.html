@@ -1154,9 +1154,17 @@
       });
     });
 
-    // Staggered entrance (UIUX Pro Max: 30–50ms per item)
+    // Staggered entrance — rootMargin ensures elements already in view on load fire immediately
     const observer = new IntersectionObserver(entries => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
           setTimeout(() => entry.target.classList.add('revealed'), i * 40);
-          observer.unobserve(entry.target)
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+
+    document.querySelectorAll('.js-reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
