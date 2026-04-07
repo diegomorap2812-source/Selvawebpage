@@ -6,41 +6,39 @@
   <title>Selva Cleaning Services — Nosara, Costa Rica</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Reset & Base ─────────────────────────────────────────── */
+    /* ── Reset ───────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green-dark:   #284010;
-      --green-mid:    #59733F;
-      --green-light:  #A7BF8F;
-      --green-pale:   #A7BF8F;
-      --green-mist:   #F2D5C4;
-      --brown:        #735439;
-      --white:        #ffffff;
-      --off-white:    #FAF6F1;
-      --gray-100:     #f5f5f4;
-      --gray-300:     #d6d3d1;
-      --gray-500:     #78716c;
-      --gray-700:     #44403c;
-      --gray-900:     #1c1917;
-      --font:         'DM Sans', sans-serif;
-      --radius:       14px;
-      --shadow-sm:    0 1px 3px rgba(0,0,0,.08);
-      --shadow-md:    0 4px 20px rgba(0,0,0,.10);
-      --shadow-lg:    0 12px 40px rgba(0,0,0,.13);
-      --nav-h:        68px;
+      --green-dark:  #284010;
+      --green-mid:   #59733F;
+      --green-light: #A7BF8F;
+      --brown:       #735439;
+      --cream:       #F2D5C4;
+      --off-white:   #FAF6F1;
+      --white:       #ffffff;
+      --ink-light:   #78706a;
+      --ink:         #3d3630;
+      --ink-dark:    #1c1917;
+      --serif:       'Cormorant Garamond', Georgia, serif;
+      --sans:        'DM Sans', sans-serif;
+      --radius:      12px;
+      --nav-h:       72px;
+      --shadow-sm:   0 1px 4px rgba(40,64,16,.07);
+      --shadow-md:   0 6px 28px rgba(40,64,16,.11);
+      --shadow-lg:   0 18px 52px rgba(40,64,16,.16);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font);
-      color: var(--gray-900);
+      font-family: var(--sans);
+      color: var(--ink-dark);
       background: var(--off-white);
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -49,70 +47,108 @@
 
     .container {
       width: 100%;
-      max-width: 1120px;
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 28px;
     }
 
-    /* ── Buttons ──────────────────────────────────────────────── */
+    /* ── Typography tokens ───────────────────────────────────── */
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 16px;
+    }
+
+    .display {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -.3px;
+      color: var(--ink-dark);
+    }
+    .display em {
+      font-style: italic;
+      color: var(--green-dark);
+    }
+
+    .body-copy {
+      font-size: 1rem;
+      line-height: 1.78;
+      color: var(--ink-light);
+      font-weight: 300;
+    }
+
+    /* ── Buttons ─────────────────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 13px 26px;
-      border-radius: 50px;
-      font-family: var(--font);
-      font-size: 15px;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 13px;
       font-weight: 600;
+      letter-spacing: .6px;
       cursor: pointer;
       border: none;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
       white-space: nowrap;
+      touch-action: manipulation;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
     }
-    .btn:hover { transform: translateY(-1px); }
+    .btn:focus-visible { outline: 2px solid var(--green-mid); outline-offset: 3px; }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
       background: var(--green-dark);
       color: var(--white);
-      box-shadow: 0 4px 16px rgba(40,64,16,.30);
+      box-shadow: 0 4px 18px rgba(40,64,16,.28);
     }
     .btn-primary:hover {
       background: var(--green-mid);
-      box-shadow: 0 6px 22px rgba(40,64,16,.38);
+      box-shadow: 0 8px 28px rgba(40,64,16,.36);
     }
 
     .btn-outline {
       background: transparent;
       color: var(--green-dark);
-      border: 2px solid var(--green-dark);
+      border: 1.5px solid var(--green-dark);
     }
     .btn-outline:hover {
-      background: var(--green-pale);
+      background: var(--green-dark);
+      color: var(--white);
     }
 
-    .btn-white {
-      background: var(--white);
-      color: var(--green-dark);
-      box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    .btn-ghost {
+      background: rgba(255,255,255,.10);
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.38);
+      backdrop-filter: blur(6px);
     }
-    .btn-white:hover {
-      background: var(--green-pale);
-      box-shadow: 0 6px 22px rgba(0,0,0,.18);
+    .btn-ghost:hover {
+      background: rgba(255,255,255,.20);
     }
 
-    /* ── NAV ──────────────────────────────────────────────────── */
+    /* ── NAV ─────────────────────────────────────────────────── */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
       height: var(--nav-h);
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,.07);
+      background: rgba(250,246,241,.93);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(115,84,57,.09);
       display: flex;
       align-items: center;
+      transition: box-shadow .25s;
     }
+    nav.is-scrolled { box-shadow: 0 2px 24px rgba(40,64,16,.09); }
 
     .nav-inner {
       display: flex;
@@ -124,51 +160,43 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
-
-    .logo-icon {
-      width: 36px;
-      height: 36px;
+    .logo-mark {
+      width: 38px; height: 38px;
       background: var(--green-dark);
-      border-radius: 10px;
+      border-radius: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
-
-    .logo-icon svg {
-      width: 20px;
-      height: 20px;
-      fill: none;
-      stroke: #fff;
+    .logo-mark svg {
+      width: 19px; height: 19px;
+      fill: none; stroke: #fff;
       stroke-width: 1.8;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.15;
-    }
-
+    .logo-wordmark { line-height: 1.18; }
     .logo-name {
-      font-size: 16px;
+      font-family: var(--serif);
+      font-size: 17px;
       font-weight: 600;
       color: var(--green-dark);
-      letter-spacing: -.2px;
+      display: block;
+      letter-spacing: .1px;
     }
-
     .logo-sub {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 400;
-      color: var(--gray-500);
-      letter-spacing: .3px;
+      color: var(--brown);
       text-transform: uppercase;
+      letter-spacing: 1.6px;
+      opacity: .7;
     }
 
-    .nav-cta { padding: 10px 22px; font-size: 14px; }
+    .nav-btn { padding: 11px 22px; font-size: 13px; }
 
     /* ── HERO ─────────────────────────────────────────────────── */
     .hero {
@@ -184,204 +212,213 @@
       inset: 0;
       z-index: 0;
     }
+    .hero-bg img { height: 100%; object-position: 60% center; }
 
-    .hero-bg img {
-      height: 100%;
-      object-position: center;
-    }
-
-    .hero-overlay {
+    /* Multi-layer overlay for depth */
+    .hero-bg::after {
+      content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        105deg,
-        rgba(40, 64, 16, .80) 0%,
-        rgba(40, 64, 16, .55) 55%,
-        rgba(40, 64, 16, .15) 100%
-      );
+      background:
+        linear-gradient(108deg,
+          rgba(40,64,16,.88) 0%,
+          rgba(40,64,16,.62) 48%,
+          rgba(40,64,16,.22) 100%
+        );
+    }
+
+    /* Grain texture layer */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .055;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 220px;
     }
 
     .hero-content {
       position: relative;
-      z-index: 1;
-      max-width: 620px;
-      padding: 80px 0;
+      z-index: 2;
+      max-width: 640px;
+      padding: 100px 0 130px;
     }
 
-    .hero-badge {
+    .hero-pill {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      background: rgba(255,255,255,.15);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,.25);
-      color: #fff;
-      font-size: 12.5px;
+      gap: 9px;
+      border: 1px solid rgba(167,191,143,.38);
+      background: rgba(167,191,143,.10);
+      color: rgba(255,255,255,.82);
+      font-size: 11px;
       font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 50px;
-      margin-bottom: 28px;
-      letter-spacing: .3px;
+      padding: 7px 15px;
+      border-radius: 100px;
+      margin-bottom: 34px;
+      letter-spacing: .5px;
     }
-
-    .hero-badge span { font-size: 14px; }
+    .hero-dot {
+      width: 6px; height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 7.5vw, 6rem);
       font-weight: 300;
-      color: #fff;
-      line-height: 1.12;
-      letter-spacing: -.5px;
-      margin-bottom: 22px;
+      color: var(--white);
+      line-height: .98;
+      letter-spacing: -.4px;
+      margin-bottom: 28px;
     }
-
     .hero h1 em {
-      font-style: normal;
-      font-weight: 600;
+      font-style: italic;
+      color: rgba(167,191,143,.92);
+      display: block;
+      margin-top: 6px;
     }
 
-    .hero p {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: rgba(255,255,255,.85);
-      max-width: 500px;
-      margin-bottom: 40px;
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.72);
+      max-width: 470px;
+      margin-bottom: 44px;
+      line-height: 1.72;
       font-weight: 300;
-      line-height: 1.65;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
+    /* Animated scroll line */
     .hero-scroll {
       position: absolute;
-      bottom: 36px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 1;
+      z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
-      color: rgba(255,255,255,.5);
-      font-size: 11px;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      animation: bounce 2.4s ease-in-out infinite;
+      gap: 0;
+    }
+    .hero-scroll-bar {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
+      animation: scrollDrop 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0%   { opacity: .3; transform: scaleY(.5) translateY(-10px); }
+      50%  { opacity: .9; transform: scaleY(1) translateY(0); }
+      100% { opacity: .3; transform: scaleY(.5) translateY(10px); }
     }
 
-    .hero-scroll svg {
-      width: 18px;
-      height: 18px;
-      stroke: rgba(255,255,255,.5);
-      fill: none;
-      stroke-width: 1.8;
+    /* Organic wave transition */
+    .hero-wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      z-index: 3;
+      line-height: 0;
     }
+    .hero-wave svg { display: block; width: 100%; }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(6px); }
-    }
+    /* ── SECTION BASE ────────────────────────────────────────── */
+    section { padding: 108px 0; }
 
-    /* ── SECTION SHARED ───────────────────────────────────────── */
-    section { padding: 96px 0; }
+    /* ── WHY SELVA ───────────────────────────────────────────── */
+    .why { background: var(--off-white); }
 
-    .section-label {
-      display: inline-block;
-      font-size: 11.5px;
-      font-weight: 600;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--brown);
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 300;
-      color: var(--gray-900);
-      line-height: 1.2;
-      letter-spacing: -.3px;
-      margin-bottom: 20px;
-    }
-
-    .section-title strong { font-weight: 600; }
-
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: var(--gray-500);
-      max-width: 560px;
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    .section-header { margin-bottom: 60px; }
-
-    /* ── WHY SELVA ────────────────────────────────────────────── */
-    .why {
-      background: var(--green-mist);
-    }
-
-    .why-inner {
+    .why-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 72px;
+      gap: 88px;
       align-items: center;
     }
 
-    .why-image {
-      border-radius: var(--radius);
+    .why-visual { position: relative; }
+
+    .why-photo {
+      border-radius: 20px;
       overflow: hidden;
       aspect-ratio: 4/5;
       box-shadow: var(--shadow-lg);
     }
+    .why-photo img { height: 100%; }
 
-    .why-image img { height: 100%; }
-
-    .why-text .section-subtitle {
-      max-width: 100%;
-      font-size: 1.08rem;
-      margin-bottom: 36px;
+    /* Floating stat card */
+    .why-float {
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 22px 26px;
+      box-shadow: var(--shadow-md);
+      min-width: 170px;
     }
-
-    .why-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .stat {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 22px 20px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .stat-number {
-      font-size: 2rem;
+    .why-float-num {
+      font-family: var(--serif);
+      font-size: 2.6rem;
       font-weight: 600;
       color: var(--green-dark);
       line-height: 1;
-      margin-bottom: 5px;
     }
-
-    .stat-label {
-      font-size: 13px;
-      color: var(--gray-500);
+    .why-float-label {
+      font-size: 11.5px;
+      color: var(--ink-light);
+      margin-top: 5px;
+      line-height: 1.4;
       font-weight: 400;
     }
 
-    /* ── SERVICES ─────────────────────────────────────────────── */
-    .services { background: var(--white); }
+    .why-body { padding-bottom: 4px; }
+    .why-body .display { margin-bottom: 22px; }
+    .why-body .body-copy { margin-bottom: 40px; }
 
-    .services-header {
+    .why-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .stat-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 15px 20px;
+      background: var(--white);
+      border-radius: 10px;
+      border-left: 3px solid var(--green-light);
+      box-shadow: var(--shadow-sm);
+      transition: border-color .2s;
+    }
+    .stat-row:hover { border-color: var(--green-dark); }
+    .stat-val {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      min-width: 72px;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.4;
+    }
+
+    /* ── SERVICES ────────────────────────────────────────────── */
+    .services { background: var(--cream); }
+
+    .services-head {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 48px;
+      margin-bottom: 56px;
       gap: 24px;
       flex-wrap: wrap;
     }
@@ -389,206 +426,224 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 18px;
     }
 
-    .service-card {
+    .svc-card {
       background: var(--off-white);
       border-radius: var(--radius);
-      padding: 32px 28px;
-      border: 1px solid var(--gray-100);
-      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+      padding: 36px 28px 32px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+
+    /* Animated gradient border on hover */
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      padding: 1px;
+      background: linear-gradient(135deg, var(--green-light), var(--green-dark) 70%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .svc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); background: var(--white); }
+    .svc-card:hover::before { opacity: 1; }
+
+    .svc-num {
+      font-family: var(--serif);
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: rgba(167,191,143,.35);
+      line-height: 1;
+      margin-bottom: 18px;
+      transition: color .25s;
+    }
+    .svc-card:hover .svc-num { color: var(--green-light); }
+
+    .svc-icon {
+      width: 44px; height: 44px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      transition: background .2s;
+    }
+    .svc-card:hover .svc-icon { background: var(--green-dark); }
+    .svc-icon svg {
+      width: 19px; height: 19px;
+      stroke: var(--green-dark);
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke .2s;
+    }
+    .svc-card:hover .svc-icon svg { stroke: var(--white); }
+
+    .svc-card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--ink-dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .svc-card p {
+      font-size: .88rem;
+      color: var(--ink-light);
+      line-height: 1.72;
+      font-weight: 300;
+    }
+
+    .services-row2 {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      max-width: calc(66.66% - 6px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── HOW IT WORKS ────────────────────────────────────────── */
+    .how {
+      background: var(--green-dark);
       position: relative;
       overflow: hidden;
     }
 
-    .service-card::before {
+    /* Grain on dark bg */
+    .how::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--green-light), var(--green-dark));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .3s ease;
+      inset: 0;
+      opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 220px;
+      pointer-events: none;
     }
 
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      background: var(--white);
+    .how-inner { position: relative; z-index: 1; }
+
+    .how-header {
+      margin-bottom: 64px;
+    }
+    .how .eyebrow { color: var(--green-light); }
+    .how .display { color: var(--white); }
+    .how .display em { color: var(--green-light); }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.07);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
-    .service-card:hover::before { transform: scaleX(1); }
+    .how-step {
+      padding: 52px 38px;
+      background: var(--green-dark);
+      position: relative;
+      transition: background .25s;
+    }
+    .how-step:hover { background: rgba(89,115,63,.2); }
 
-    .service-card:nth-child(4),
-    .service-card:nth-child(5) {
-      grid-column: span 1;
+    .how-step-num {
+      font-family: var(--serif);
+      font-size: 5.5rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.06);
+      line-height: 1;
+      position: absolute;
+      top: 20px; right: 24px;
+      user-select: none;
+      pointer-events: none;
     }
 
-    /* last row center alignment */
-    .services-grid .service-card:nth-last-child(-n+2):first-child,
-    .services-grid .service-card:nth-child(4) {
-      margin-left: auto;
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--green-pale);
-      border-radius: 12px;
+    .how-icon {
+      width: 48px; height: 48px;
+      border: 1.5px solid rgba(167,191,143,.28);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 26px;
+      transition: border-color .2s, background .2s;
     }
-
-    .service-icon svg {
-      width: 22px;
-      height: 22px;
-      stroke: var(--green-dark);
+    .how-step:hover .how-icon {
+      border-color: var(--green-light);
+      background: rgba(167,191,143,.10);
+    }
+    .how-icon svg {
+      width: 20px; height: 20px;
+      stroke: var(--green-light);
       fill: none;
       stroke-width: 1.7;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    .service-card h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--gray-900);
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
-    .service-card p {
-      font-size: .925rem;
-      color: var(--gray-500);
-      line-height: 1.65;
-      font-weight: 300;
-    }
-
-    /* last 2 cards: center in row */
-    .services-grid-wrap {
-      display: contents;
-    }
-
-    .services-last-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: calc(66.66% - 8px);
-      margin: 0 auto;
-    }
-
-    /* ── HOW IT WORKS ─────────────────────────────────────────── */
-    .how { background: var(--green-dark); }
-
-    .how .section-label { color: var(--green-light); }
-    .how .section-title { color: var(--white); }
-
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-top: 56px;
-      position: relative;
-    }
-
-    .how-grid::before {
-      content: '';
-      position: absolute;
-      top: 36px;
-      left: calc(16.66% + 16px);
-      right: calc(16.66% + 16px);
-      height: 1px;
-      background: rgba(255,255,255,.15);
-      pointer-events: none;
-    }
-
-    .how-step {
-      text-align: center;
-      padding: 0 16px;
-    }
-
-    .step-number {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255,255,255,.2);
-      background: rgba(255,255,255,.07);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 28px;
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: rgba(255,255,255,.5);
-      position: relative;
-      z-index: 1;
-    }
-
-    .step-number span {
-      font-size: 2rem;
-    }
-
     .how-step h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 400;
       color: var(--white);
       margin-bottom: 12px;
     }
-
     .how-step p {
-      font-size: .93rem;
-      color: rgba(255,255,255,.6);
-      line-height: 1.65;
+      font-size: .9rem;
+      color: rgba(255,255,255,.52);
+      line-height: 1.7;
       font-weight: 300;
     }
 
-    /* ── WHY TRUST ────────────────────────────────────────────── */
-    .trust { background: var(--green-mist); }
+    /* ── WHY TRUST ───────────────────────────────────────────── */
+    .trust { background: var(--off-white); }
 
-    .trust-inner {
+    .trust-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 72px;
+      gap: 88px;
       align-items: center;
     }
 
-    .trust-image {
-      border-radius: var(--radius);
+    .trust-content { order: 1; }
+
+    .trust-photo {
+      order: 2;
+      border-radius: 20px;
       overflow: hidden;
       aspect-ratio: 5/4;
       box-shadow: var(--shadow-lg);
-      order: 2;
     }
-
-    .trust-image img { height: 100%; }
-
-    .trust-content { order: 1; }
+    .trust-photo img { height: 100%; }
 
     .trust-list {
+      margin-top: 38px;
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 36px;
     }
-
-    .trust-list li {
+    .trust-item {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      font-size: .975rem;
-      color: var(--gray-700);
-      line-height: 1.5;
+      gap: 16px;
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(115,84,57,.09);
     }
+    .trust-item:first-of-type { border-top: 1px solid rgba(115,84,57,.09); }
 
     .trust-check {
-      width: 24px;
-      height: 24px;
-      background: var(--green-pale);
+      width: 26px; height: 26px;
+      background: var(--green-light);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -596,168 +651,177 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
-
     .trust-check svg {
-      width: 13px;
-      height: 13px;
+      width: 12px; height: 12px;
       stroke: var(--green-dark);
       fill: none;
-      stroke-width: 2.5;
+      stroke-width: 2.6;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
-    /* ── CONTACT ──────────────────────────────────────────────── */
-    .contact {
-      background: var(--white);
-      text-align: center;
+    .trust-item-label {
+      font-size: .96rem;
+      color: var(--ink);
+      line-height: 1.55;
     }
 
-    .contact .section-title { margin: 0 auto 16px; }
-    .contact .section-subtitle { margin: 0 auto 40px; }
+    /* ── CONTACT ─────────────────────────────────────────────── */
+    .contact { background: var(--cream); text-align: center; }
 
-    .contact-details {
+    .contact-inner { max-width: 600px; margin: 0 auto; }
+    .contact .display { margin-bottom: 18px; }
+    .contact .body-copy { margin-bottom: 40px; }
+
+    .contact-meta {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px 32px;
-      margin-bottom: 44px;
-      font-size: .93rem;
-      color: var(--gray-500);
+      gap: 10px 28px;
+      margin-bottom: 40px;
     }
-
-    .contact-details span {
+    .contact-meta-item {
       display: flex;
       align-items: center;
       gap: 7px;
+      font-size: .88rem;
+      color: var(--ink-light);
     }
-
-    .contact-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
+    .contact-meta-item svg {
+      width: 15px; height: 15px;
+      stroke: var(--brown);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
     }
+    .contact-meta-item a {
+      color: var(--brown);
+      font-weight: 500;
+      transition: color .15s;
+    }
+    .contact-meta-item a:hover { color: var(--green-dark); }
 
-    /* ── FOOTER ───────────────────────────────────────────────── */
+    .contact-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
     footer {
       background: var(--green-dark);
-      padding: 36px 0;
+      padding: 44px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 220px;
+      pointer-events: none;
     }
 
-    .footer-inner {
+    .footer-row {
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-logo .logo-name { color: rgba(255,255,255,.9); font-size: 15px; }
-    .footer-logo .logo-sub  { color: rgba(255,255,255,.4); }
-    .footer-logo .logo-icon { background: rgba(255,255,255,.12); }
-
-    .footer-copy {
-      font-size: 13px;
-      color: rgba(255,255,255,.4);
-    }
-
-    .footer-links {
-      display: flex;
       gap: 20px;
     }
 
-    .footer-links a {
-      font-size: 13px;
-      color: rgba(255,255,255,.5);
+    .footer-logo .logo-name { color: rgba(255,255,255,.88); }
+    .footer-logo .logo-sub  { color: rgba(255,255,255,.32); }
+    .footer-logo .logo-mark { background: rgba(255,255,255,.10); }
+
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,.35); }
+
+    .footer-nav { display: flex; gap: 22px; }
+    .footer-nav a {
+      font-size: 12px;
+      color: rgba(255,255,255,.42);
       transition: color .15s;
     }
-    .footer-links a:hover { color: rgba(255,255,255,.85); }
+    .footer-nav a:hover { color: rgba(255,255,255,.82); }
 
-    /* ── FLOATING WHATSAPP ────────────────────────────────────── */
-    .wa-float {
+    /* ── FLOATING WHATSAPP ───────────────────────────────────── */
+    .wa-fab {
       display: none;
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: 24px; right: 24px;
       z-index: 200;
-      width: 56px;
-      height: 56px;
+      width: 58px; height: 58px;
       background: #25d366;
       border-radius: 50%;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 24px rgba(37,211,102,.40);
+      box-shadow: 0 6px 26px rgba(37,211,102,.38);
       transition: transform .2s ease, box-shadow .2s ease;
     }
+    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 8px 34px rgba(37,211,102,.52); }
+    .wa-fab:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    .wa-fab svg { width: 28px; height: 28px; fill: #fff; }
 
-    .wa-float:hover {
-      transform: scale(1.08);
-      box-shadow: 0 8px 30px rgba(37,211,102,.50);
-    }
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .why-grid,
+      .trust-grid { grid-template-columns: 1fr; gap: 48px; }
 
-    .wa-float svg {
-      width: 28px;
-      height: 28px;
-      fill: #fff;
-    }
+      .trust-photo { order: -1; aspect-ratio: 16/9; border-radius: var(--radius); }
+      .why-photo   { aspect-ratio: 16/9; border-radius: var(--radius); }
+      .why-float   { right: 8px; bottom: -18px; }
 
-    /* ── RESPONSIVE ───────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .why-inner,
-      .trust-inner {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .trust-image { order: -1; }
-      .why-image   { aspect-ratio: 16/9; max-height: 340px; }
-      .trust-image { aspect-ratio: 16/9; max-height: 320px; }
+      .services-grid  { grid-template-columns: 1fr 1fr; }
+      .services-row2  { max-width: 100%; grid-template-columns: 1fr 1fr; }
 
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .services-last-row {
-        max-width: 100%;
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .how-grid { grid-template-columns: 1fr; gap: 40px; }
-      .how-grid::before { display: none; }
+      .how-steps { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
       section { padding: 72px 0; }
-
       .services-grid,
-      .services-last-row { grid-template-columns: 1fr; }
+      .services-row2 { grid-template-columns: 1fr; }
+      .services-head { gap: 20px; }
+      .footer-row { flex-direction: column; text-align: center; }
+      .footer-nav { justify-content: center; }
+      .wa-fab { display: flex; }
+      .hero-content { padding: 72px 0 100px; }
+      .hero h1 { font-size: 3rem; }
+    }
 
-      .why-stats { grid-template-columns: 1fr 1fr; }
+    /* ── Entrance animations ─────────────────────────────────── */
+    .js-reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .js-reveal.revealed {
+      opacity: 1;
+      transform: none;
+    }
 
-      .footer-inner { flex-direction: column; text-align: center; }
-      .footer-links { justify-content: center; }
-
-      .wa-float { display: flex; }
-
-      .hero-content { padding: 60px 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .js-reveal { opacity: 1; transform: none; transition: none; }
+      .hero-scroll-bar { animation: none; }
     }
   </style>
 </head>
 <body>
 
   <!-- ── NAV ───────────────────────────────────────────────────── -->
-  <nav>
+  <nav id="site-nav">
     <div class="container nav-inner">
-      <a href="#" class="logo">
-        <div class="logo-icon">
-          <!-- Leaf icon -->
+      <a href="#" class="logo" aria-label="Selva Cleaning Services — home">
+        <div class="logo-mark">
           <svg viewBox="0 0 24 24"><path d="M12 22C6 16 4 10 6 4c4 0 10 2 12 8-2 2-4 3-6 3 1-2 1-4 0-6-2 4-2 8 0 13"/></svg>
         </div>
-        <div class="logo-text">
+        <div class="logo-wordmark">
           <span class="logo-name">Selva Cleaning</span>
           <span class="logo-sub">Nosara · Costa Rica</span>
         </div>
       </a>
-      <a href="#contact" class="btn btn-primary nav-cta">Book now</a>
+      <a href="#contact" class="btn btn-primary nav-btn">Book now</a>
     </div>
   </nav>
 
@@ -766,158 +830,189 @@
     <div class="hero-bg">
       <img
         src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&auto=format&fit=crop&q=80"
-        alt="Clean modern home interior"
+        alt="Clean, sunlit home interior"
         loading="eager"
       />
     </div>
-    <div class="hero-overlay"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
 
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">
-          <span>🌿</span> Eco-certified · Nosara, Costa Rica
+        <div class="hero-pill">
+          <span class="hero-dot"></span>
+          Eco-certified &nbsp;·&nbsp; Nosara, Costa Rica
         </div>
-        <h1>A cleaner home.<br><em>A cleaner planet.</em></h1>
-        <p>Professional cleaning services in Nosara — powered by eco-friendly products that are safe for your family, your pets, and the environment.</p>
+        <h1>
+          A cleaner home.
+          <em>A cleaner planet.</em>
+        </h1>
+        <p class="hero-sub">Professional cleaning services in Nosara — powered by eco-friendly products that are safe for your family, your pets, and the environment.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-white">Book a cleaning →</a>
-          <a href="#services" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.45);">See our services</a>
+          <a href="#contact" class="btn btn-primary">Book a cleaning →</a>
+          <a href="#services" class="btn btn-ghost">See our services</a>
         </div>
       </div>
     </div>
 
-    <div class="hero-scroll">
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="hero-scroll-bar"></span>
+    </div>
+
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 36C200 72 400 0 720 36C1040 72 1240 0 1440 36V72H0V36Z" fill="#FAF6F1"/>
+      </svg>
     </div>
   </section>
 
-  <!-- ── WHY SELVA ──────────────────────────────────────────────── -->
+  <!-- ── WHY SELVA ─────────────────────────────────────────────── -->
   <section class="why" id="why">
     <div class="container">
-      <div class="why-inner">
-        <div class="why-image">
-          <img
-            src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=900&auto=format&fit=crop&q=80"
-            alt="Eco-friendly cleaning products"
-            loading="lazy"
-          />
+      <div class="why-grid">
+
+        <div class="why-visual">
+          <div class="why-photo">
+            <img
+              src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=900&auto=format&fit=crop&q=80"
+              alt="Natural eco-friendly cleaning products"
+              loading="lazy"
+            />
+          </div>
+          <div class="why-float js-reveal" aria-hidden="true">
+            <div class="why-float-num">100%</div>
+            <div class="why-float-label">Eco-certified<br>products</div>
+          </div>
         </div>
-        <div class="why-text">
-          <span class="section-label">Why Selva</span>
-          <h2 class="section-title">Clean spaces.<br><strong>Cleaner conscience.</strong></h2>
-          <p class="section-subtitle">
+
+        <div class="why-body">
+          <span class="eyebrow">Why Selva</span>
+          <h2 class="display">Clean spaces.<br><em>Cleaner conscience.</em></h2>
+          <p class="body-copy" style="margin-top:20px;margin-bottom:40px;">
             We believe a clean space shouldn't come at the cost of the world outside your door. That's why every product we use is biodegradable, non-toxic, and locally sourced when possible — without compromising on results. Trusted by Nosara families, vacation rentals, and expat residents who expect more.
           </p>
           <div class="why-stats">
-            <div class="stat">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Eco-certified products</div>
+            <div class="stat-row js-reveal">
+              <span class="stat-val">5★</span>
+              <span class="stat-label">Vacation rental reviews</span>
             </div>
-            <div class="stat">
-              <div class="stat-number">5★</div>
-              <div class="stat-label">Vacation rental reviews</div>
+            <div class="stat-row js-reveal">
+              <span class="stat-val">Local</span>
+              <span class="stat-label">Rooted in Nosara</span>
             </div>
-            <div class="stat">
-              <div class="stat-number">Local</div>
-              <div class="stat-label">Rooted in Nosara</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">Insured</div>
-              <div class="stat-label">Background-checked team</div>
+            <div class="stat-row js-reveal">
+              <span class="stat-val">Insured</span>
+              <span class="stat-label">Background-checked team</span>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ── SERVICES ───────────────────────────────────────────────── -->
+  <!-- ── SERVICES ──────────────────────────────────────────────── -->
   <section class="services" id="services">
     <div class="container">
-      <div class="services-header">
+      <div class="services-head">
         <div>
-          <span class="section-label">Services</span>
-          <h2 class="section-title">Everything your<br><strong>space needs.</strong></h2>
+          <span class="eyebrow">Services</span>
+          <h2 class="display">Everything your<br><em>space needs.</em></h2>
         </div>
         <a href="#contact" class="btn btn-outline">Get a quote →</a>
       </div>
 
       <div class="services-grid">
-        <!-- Card 1 -->
-        <div class="service-card">
-          <div class="service-icon">
+
+        <div class="svc-card js-reveal">
+          <div class="svc-num">01</div>
+          <div class="svc-icon">
             <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
           </div>
           <h3>Regular Home Cleaning</h3>
           <p>Weekly, biweekly, or monthly. We keep your home consistently fresh so you never have to think about it.</p>
         </div>
 
-        <!-- Card 2 -->
-        <div class="service-card">
-          <div class="service-icon">
+        <div class="svc-card js-reveal">
+          <div class="svc-num">02</div>
+          <div class="svc-icon">
             <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
           </div>
-          <h3>Airbnb & Vacation Rental Turnover</h3>
+          <h3>Airbnb &amp; Vacation Rental Turnover</h3>
           <p>Fast, thorough, and guest-ready. We work with your checkout and check-in times so your reviews stay five stars.</p>
         </div>
 
-        <!-- Card 3 -->
-        <div class="service-card">
-          <div class="service-icon">
+        <div class="svc-card js-reveal">
+          <div class="svc-num">03</div>
+          <div class="svc-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
           </div>
           <h3>Deep Cleaning</h3>
           <p>Moving in, moving out, or just due for a reset. Every corner, every surface — done right.</p>
         </div>
+
       </div>
 
-      <!-- Last 2 cards centered -->
-      <div style="margin-top:24px;">
-        <div class="services-last-row">
-          <!-- Card 4 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-            </div>
-            <h3>Office & Commercial Cleaning</h3>
-            <p>A clean workspace is a productive workspace. Flexible scheduling around your business hours.</p>
-          </div>
+      <div class="services-row2">
 
-          <!-- Card 5 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            </div>
-            <h3>Specific Services</h3>
-            <p>Only need the windows, the oven, or one room? We adapt to exactly what you need — without paying for what you don't.</p>
+        <div class="svc-card js-reveal">
+          <div class="svc-num">04</div>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
           </div>
+          <h3>Office &amp; Commercial Cleaning</h3>
+          <p>A clean workspace is a productive workspace. Flexible scheduling around your business hours.</p>
         </div>
+
+        <div class="svc-card js-reveal">
+          <div class="svc-num">05</div>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3>Specific Services</h3>
+          <p>Only need the windows, the oven, or one room? We adapt to exactly what you need — without paying for what you don't.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- ── HOW IT WORKS ───────────────────────────────────────────── -->
   <section class="how" id="how">
-    <div class="container">
-      <span class="section-label">How it works</span>
-      <h2 class="section-title">Three steps to<br><strong style="color:#fff">a spotless home.</strong></h2>
+    <div class="container how-inner">
+      <div class="how-header">
+        <span class="eyebrow">How it works</span>
+        <h2 class="display">Three steps to a<br><em>spotless home.</em></h2>
+      </div>
 
-      <div class="how-grid">
-        <div class="how-step">
-          <div class="step-number"><span>01</span></div>
+      <div class="how-steps">
+
+        <div class="how-step js-reveal">
+          <span class="how-step-num" aria-hidden="true">01</span>
+          <div class="how-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+          </div>
           <h3>Book online</h3>
           <p>Pick your service, date, and time in minutes.</p>
         </div>
-        <div class="how-step">
-          <div class="step-number"><span>02</span></div>
+
+        <div class="how-step js-reveal">
+          <span class="how-step-num" aria-hidden="true">02</span>
+          <div class="how-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
           <h3>We show up</h3>
           <p>Punctual, equipped, and ready to work.</p>
         </div>
-        <div class="how-step">
-          <div class="step-number"><span>03</span></div>
+
+        <div class="how-step js-reveal">
+          <span class="how-step-num" aria-hidden="true">03</span>
+          <div class="how-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
           <h3>You enjoy it</h3>
           <p>Come home to a space that actually feels clean.</p>
         </div>
+
       </div>
     </div>
   </section>
@@ -925,50 +1020,53 @@
   <!-- ── WHY NOSARA TRUSTS US ───────────────────────────────────── -->
   <section class="trust" id="trust">
     <div class="container">
-      <div class="trust-inner">
+      <div class="trust-grid">
+
         <div class="trust-content">
-          <span class="section-label">Why Nosara trusts us</span>
-          <h2 class="section-title">Every detail.<br><strong>Every time.</strong></h2>
-          <ul class="trust-list">
-            <li>
-              <div class="trust-check">
+          <span class="eyebrow">Why Nosara trusts us</span>
+          <h2 class="display">Every detail.<br><em>Every time.</em></h2>
+          <ul class="trust-list" role="list">
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span>Eco-certified cleaning products — safe for kids, pets, and the reef</span>
+              <span class="trust-item-label">Eco-certified cleaning products — safe for kids, pets, and the reef</span>
             </li>
-            <li>
-              <div class="trust-check">
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span>Punctual, reliable, and detail-oriented</span>
+              <span class="trust-item-label">Punctual, reliable, and detail-oriented</span>
             </li>
-            <li>
-              <div class="trust-check">
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span>Flexible scheduling — we work around your calendar</span>
+              <span class="trust-item-label">Flexible scheduling — we work around your calendar</span>
             </li>
-            <li>
-              <div class="trust-check">
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span>Locally rooted in Nosara</span>
+              <span class="trust-item-label">Locally rooted in Nosara</span>
             </li>
-            <li>
-              <div class="trust-check">
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span>Fully insured and background-checked team</span>
+              <span class="trust-item-label">Fully insured and background-checked team</span>
             </li>
           </ul>
         </div>
-        <div class="trust-image">
+
+        <div class="trust-photo">
           <img
             src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&auto=format&fit=crop&q=80"
-            alt="Professional cleaning service"
+            alt="Professional cleaning team at work"
             loading="lazy"
           />
         </div>
+
       </div>
     </div>
   </section>
@@ -976,37 +1074,50 @@
   <!-- ── CONTACT ────────────────────────────────────────────────── -->
   <section class="contact" id="contact">
     <div class="container">
-      <span class="section-label">Get in touch</span>
-      <h2 class="section-title">Ready for a<br><strong>cleaner home?</strong></h2>
-      <p class="section-subtitle">Get in touch and we'll put together the right plan for you.</p>
+      <div class="contact-inner">
+        <span class="eyebrow">Get in touch</span>
+        <h2 class="display">Ready for a<br><em>cleaner home?</em></h2>
+        <p class="body-copy">Get in touch and we'll put together the right plan for you.</p>
 
-      <div class="contact-details">
-        <span>📍 Serving Nosara and surrounding areas</span>
-        <span>📱 <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." style="color:var(--green-mid);">[WhatsApp number]</a></span>
-        <span>📧 <a href="mailto:hello@selvaclean.com" style="color:var(--green-mid);">[email]</a></span>
-      </div>
+        <div class="contact-meta">
+          <span class="contact-meta-item">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Serving Nosara and surrounding areas
+          </span>
+          <span class="contact-meta-item">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.1 5.6C.1 4.5.9 3.6 2 3.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 11a16 16 0 006.09 6.09l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
+            <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." target="_blank" rel="noopener">[WhatsApp number]</a>
+          </span>
+          <span class="contact-meta-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:hello@selvaclean.com">[email]</a>
+          </span>
+        </div>
 
-      <div class="contact-actions">
-        <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." class="btn btn-primary">Get a free quote →</a>
-        <a href="mailto:hello@selvaclean.com" class="btn btn-outline">Send an email</a>
+        <div class="contact-btns">
+          <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." class="btn btn-primary" target="_blank" rel="noopener">Get a free quote →</a>
+          <a href="mailto:hello@selvaclean.com" class="btn btn-outline">Send an email</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ── FOOTER ─────────────────────────────────────────────────── -->
   <footer>
-    <div class="container footer-inner">
-      <a href="#" class="logo footer-logo">
-        <div class="logo-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6 16 4 10 6 4c4 0 10 2 12 8-2 2-4 3-6 3 1-2 1-4 0-6-2 4-2 8 0 13"/></svg>
+    <div class="container footer-row">
+      <a href="#" class="logo footer-logo" aria-label="Selva Cleaning Services home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22C6 16 4 10 6 4c4 0 10 2 12 8-2 2-4 3-6 3 1-2 1-4 0-6-2 4-2 8 0 13"/>
+          </svg>
         </div>
-        <div class="logo-text">
+        <div class="logo-wordmark">
           <span class="logo-name">Selva Cleaning</span>
           <span class="logo-sub">Nosara · Costa Rica</span>
         </div>
       </a>
       <p class="footer-copy">© 2025 Selva Cleaning Services. Nosara, Costa Rica.</p>
-      <nav class="footer-links">
+      <nav class="footer-nav" aria-label="Footer links">
         <a href="#why">About</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
@@ -1015,31 +1126,44 @@
   </footer>
 
   <!-- ── FLOATING WHATSAPP (mobile) ────────────────────────────── -->
-  <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." class="wa-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <a
+    href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza."
+    class="wa-fab"
+    aria-label="Chat on WhatsApp"
+    target="_blank"
+    rel="noopener"
+  >
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
 
   <script>
-    // Smooth-scroll polyfill for older Safari
+    // Nav scroll class
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('is-scrolled', window.scrollY > 8);
+    }, { passive: true });
+
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
       });
     });
 
-    // Nav shadow on scroll
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      nav.style.boxShadow = window.scrollY > 10
-        ? '0 2px 20px rgba(0,0,0,.10)'
-        : 'none';
-    }, { passive: true });
+    // Staggered entrance (UIUX Pro Max: 30–50ms per item)
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('revealed'), i * 40);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.js-reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
