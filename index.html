@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Selva Cleaning Services — Nosara, Costa Rica</title>
+  <link rel="stylesheet" href="https://use.typekit.net/guk2ekc.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
 
   <style>
     /* ── Reset ───────────────────────────────────────────────── */
@@ -23,7 +24,7 @@
       --ink-light:   #78706a;
       --ink:         #3d3630;
       --ink-dark:    #1c1917;
-      --serif:       'Cormorant Garamond', Georgia, serif;
+      --serif:       'the-seasons', 'Cormorant Garamond', Georgia, serif;
       --sans:        'DM Sans', sans-serif;
       --radius:      12px;
       --nav-h:       72px;
@@ -268,7 +269,7 @@
 
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(3.2rem, 7.5vw, 6rem);
+      font-size: clamp(2.8rem, 4.5vw, 4rem);
       font-weight: 300;
       color: var(--white);
       line-height: .98;
@@ -787,7 +788,7 @@
       .footer-nav { justify-content: center; }
       .wa-fab { display: flex; }
       .hero-content { padding: 44px 0 56px; }
-      .hero h1 { font-size: 3rem; }
+      .hero h1 { font-size: 2.6rem; }
     }
 
     /* ── Entrance animations ─────────────────────────────────── */
@@ -1090,13 +1091,13 @@
           </span>
           <span class="contact-meta-item">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:hello@selvaclean.com">[email]</a>
+            <a href="/cdn-cgi/l/email-protection#7119141d1d1e3102141d0710121d14101f5f121e1c">[email]</a>
           </span>
         </div>
 
         <div class="contact-btns">
           <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." class="btn btn-primary" target="_blank" rel="noopener">Get a free quote →</a>
-          <a href="mailto:hello@selvaclean.com" class="btn btn-outline">Send an email</a>
+          <a href="/cdn-cgi/l/email-protection#e088858c8c8fa093858c9681838c85818ece838f8d" class="btn btn-outline">Send an email</a>
         </div>
       </div>
     </div>
@@ -1138,7 +1139,7 @@
     </svg>
   </a>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Nav scroll class
     const nav = document.getElementById('site-nav');
     window.addEventListener('scroll', () => {
@@ -1158,12 +1159,4 @@
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
           setTimeout(() => entry.target.classList.add('revealed'), i * 40);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
-
-    document.querySelectorAll('.js-reveal').forEach(el => observer.observe(el));
-  </script>
-</body>
-</html>
+          observer.unobserve(entry.target)
