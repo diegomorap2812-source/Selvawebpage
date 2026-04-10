@@ -7,30 +7,33 @@
   <link rel="stylesheet" href="https://use.typekit.net/guk2ekc.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Reset ───────────────────────────────────────────────── */
+    /* ── Reset ───────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green-dark:  #284010;
-      --green-mid:   #59733F;
-      --green-light: #A7BF8F;
+      --green-dark:  #2d5a1b;
+      --green-mid:   #4a7a2e;
+      --green-light: #a8c98a;
+      --green-pale:  #eef5e8;
       --brown:       #735439;
-      --cream:       #F7F5F0;
-      --off-white:   #F7F5F0;
+      --cream:       #f8f6f1;
+      --off-white:   #f4f1ec;
       --white:       #ffffff;
-      --ink-light:   #78706a;
       --ink:         #3d3630;
+      --ink-light:   #6b6460;
       --ink-dark:    #1c1917;
+      --border:      rgba(45,90,27,.12);
       --serif:       'the-seasons', 'Cormorant Garamond', Georgia, serif;
       --sans:        'DM Sans', sans-serif;
-      --radius:      12px;
-      --nav-h:       72px;
-      --shadow-sm:   0 1px 4px rgba(40,64,16,.07);
-      --shadow-md:   0 6px 28px rgba(40,64,16,.11);
-      --shadow-lg:   0 18px 52px rgba(40,64,16,.16);
+      --radius:      10px;
+      --radius-lg:   18px;
+      --nav-h:       68px;
+      --shadow-sm:   0 1px 4px rgba(0,0,0,.06);
+      --shadow-md:   0 4px 20px rgba(0,0,0,.09);
+      --shadow-lg:   0 12px 44px rgba(0,0,0,.13);
     }
 
     html { scroll-behavior: smooth; }
@@ -38,45 +41,41 @@
     body {
       font-family: var(--sans);
       color: var(--ink-dark);
-      background: var(--off-white);
+      background: var(--cream);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
-    img { display: block; width: 100%; object-fit: cover; }
-    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
 
     .container {
       width: 100%;
-      max-width: 1140px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 24px;
     }
 
-    /* ── Typography tokens ───────────────────────────────────── */
+    /* ── Typography helpers ──────────────────────────────── */
     .eyebrow {
       display: inline-block;
-      font-family: var(--sans);
       font-size: 10.5px;
       font-weight: 600;
-      letter-spacing: 2.8px;
+      letter-spacing: 2.6px;
       text-transform: uppercase;
-      color: var(--brown);
-      margin-bottom: 16px;
+      color: var(--green-mid);
+      margin-bottom: 14px;
     }
 
     .display {
       font-family: var(--serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 300;
-      line-height: 1.08;
-      letter-spacing: -.3px;
+      line-height: 1.1;
+      letter-spacing: -.2px;
       color: var(--ink-dark);
     }
-    .display em {
-      font-style: italic;
-      color: var(--green-dark);
-    }
+    .display em { font-style: italic; color: var(--green-dark); }
 
     .body-copy {
       font-size: 1rem;
@@ -85,71 +84,77 @@
       font-weight: 300;
     }
 
-    /* ── Buttons ─────────────────────────────────────────────── */
+    /* ── Buttons ─────────────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      padding: 14px 28px;
-      border-radius: 4px;
+      min-height: 48px;
+      padding: 13px 26px;
+      border-radius: 6px;
       font-family: var(--sans);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: .6px;
+      letter-spacing: .3px;
       cursor: pointer;
       border: none;
       white-space: nowrap;
       touch-action: manipulation;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+      transition: background .18s, color .18s, box-shadow .18s, transform .18s;
     }
     .btn:focus-visible { outline: 2px solid var(--green-mid); outline-offset: 3px; }
-    .btn:hover { transform: translateY(-2px); }
+    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
       background: var(--green-dark);
       color: var(--white);
-      box-shadow: 0 4px 18px rgba(40,64,16,.28);
+      box-shadow: 0 4px 16px rgba(45,90,27,.30);
     }
-    .btn-primary:hover {
-      background: var(--green-mid);
-      box-shadow: 0 8px 28px rgba(40,64,16,.36);
-    }
+    .btn-primary:hover { background: var(--green-mid); box-shadow: 0 6px 22px rgba(45,90,27,.38); }
 
     .btn-outline {
       background: transparent;
       color: var(--green-dark);
       border: 1.5px solid var(--green-dark);
     }
-    .btn-outline:hover {
-      background: var(--green-dark);
-      color: var(--white);
-    }
+    .btn-outline:hover { background: var(--green-dark); color: var(--white); }
 
     .btn-ghost {
-      background: rgba(255,255,255,.10);
+      background: rgba(255,255,255,.13);
       color: var(--white);
-      border: 1.5px solid rgba(255,255,255,.38);
+      border: 1.5px solid rgba(255,255,255,.40);
       backdrop-filter: blur(6px);
     }
-    .btn-ghost:hover {
-      background: rgba(255,255,255,.20);
+    .btn-ghost:hover { background: rgba(255,255,255,.22); }
+
+    .btn-wa {
+      background: #25d366;
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(37,211,102,.32);
+    }
+    .btn-wa:hover { background: #20bc5a; }
+
+    .btn-wa svg, .btn-primary svg, .btn-outline svg {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
     }
 
-    /* ── NAV ─────────────────────────────────────────────────── */
-    nav {
+    /* ── NAV ─────────────────────────────────────────────── */
+    .site-nav {
       position: sticky;
       top: 0;
       z-index: 100;
       height: var(--nav-h);
-      background: rgba(250,246,241,.93);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(115,84,57,.09);
+      background: rgba(248,246,241,.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
-      transition: box-shadow .25s;
+      transition: box-shadow .2s;
     }
-    nav.is-scrolled { box-shadow: 0 2px 24px rgba(40,64,16,.09); }
+    .site-nav.scrolled { box-shadow: 0 2px 18px rgba(0,0,0,.07); }
 
     .nav-inner {
       display: flex;
@@ -158,51 +163,18 @@
       width: 100%;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .logo-mark {
-      width: 38px; height: 38px;
-      background: var(--green-dark);
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .logo-mark svg {
-      width: 19px; height: 19px;
-      fill: none; stroke: #fff;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .logo-wordmark { line-height: 1.18; }
-    .logo-name {
-      font-family: var(--serif);
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--green-dark);
+    .nav-logo img {
+      height: 46px;
+      width: auto;
       display: block;
-      letter-spacing: .1px;
-    }
-    .logo-sub {
-      font-size: 10px;
-      font-weight: 400;
-      color: var(--brown);
-      text-transform: uppercase;
-      letter-spacing: 1.6px;
-      opacity: .7;
     }
 
-    .nav-btn { padding: 11px 22px; font-size: 13px; }
+    .nav-cta { padding: 11px 22px; font-size: 13.5px; min-height: 42px; }
 
-    /* ── HERO ─────────────────────────────────────────────────── */
+    /* ── HERO ─────────────────────────────────────────────── */
     .hero {
       position: relative;
-      min-height: 72vh;
+      min-height: 78vh;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -213,604 +185,656 @@
       inset: 0;
       z-index: 0;
     }
-    .hero-bg img { height: 100%; object-position: 40% center; }
-
-    /* Multi-layer overlay for depth */
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 42% center; }
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(108deg,
-          rgba(40,64,16,.88) 0%,
-          rgba(40,64,16,.62) 48%,
-          rgba(40,64,16,.22) 100%
-        );
-    }
-
-    /* Grain texture layer */
-    .hero-grain {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      opacity: .055;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
-      background-size: 220px;
+      background: linear-gradient(110deg, rgba(22,50,10,.86) 0%, rgba(22,50,10,.60) 52%, rgba(22,50,10,.22) 100%);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 640px;
-      padding: 60px 0 80px;
+      max-width: 620px;
+      padding: 72px 0 88px;
     }
 
-    .hero-pill {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      border: 1px solid rgba(167,191,143,.38);
-      background: rgba(167,191,143,.10);
-      color: rgba(255,255,255,.82);
+      gap: 8px;
+      background: rgba(168,201,138,.14);
+      border: 1px solid rgba(168,201,138,.32);
+      color: rgba(255,255,255,.80);
       font-size: 11px;
       font-weight: 500;
-      padding: 7px 15px;
+      padding: 6px 14px;
       border-radius: 100px;
-      margin-bottom: 34px;
-      letter-spacing: .5px;
+      margin-bottom: 28px;
+      letter-spacing: .4px;
     }
     .hero-dot {
       width: 6px; height: 6px;
       background: var(--green-light);
       border-radius: 50%;
-      flex-shrink: 0;
     }
 
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(2.8rem, 4.5vw, 4rem);
+      font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 300;
       color: var(--white);
-      line-height: .98;
-      letter-spacing: -.4px;
-      margin-bottom: 28px;
+      line-height: 1.0;
+      letter-spacing: -.3px;
+      margin-bottom: 22px;
     }
     .hero h1 em {
       font-style: italic;
-      color: rgba(167,191,143,.92);
+      color: rgba(168,201,138,.92);
       display: block;
       margin-top: 6px;
     }
 
     .hero-sub {
       font-size: 1.05rem;
-      color: rgba(255,255,255,.72);
-      max-width: 470px;
-      margin-bottom: 44px;
-      line-height: 1.72;
+      color: rgba(255,255,255,.74);
+      max-width: 480px;
+      margin-bottom: 38px;
+      line-height: 1.74;
       font-weight: 300;
     }
 
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* Animated scroll line */
-    .hero-scroll {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-    }
-    .hero-scroll-bar {
-      width: 1px;
-      height: 44px;
-      background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
-      animation: scrollDrop 2.2s ease-in-out infinite;
-    }
-    @keyframes scrollDrop {
-      0%   { opacity: .3; transform: scaleY(.5) translateY(-10px); }
-      50%  { opacity: .9; transform: scaleY(1) translateY(0); }
-      100% { opacity: .3; transform: scaleY(.5) translateY(10px); }
+    .hero-microcopy {
+      margin-top: 18px;
+      font-size: 12px;
+      color: rgba(255,255,255,.46);
+      font-weight: 400;
+      letter-spacing: .3px;
     }
 
-    /* Organic wave transition */
     .hero-wave {
       position: absolute;
-      bottom: -1px;
-      left: 0; right: 0;
-      z-index: 3;
-      line-height: 0;
+      bottom: -1px; left: 0; right: 0;
+      z-index: 3; line-height: 0;
     }
     .hero-wave svg { display: block; width: 100%; }
 
-    /* ── SECTION BASE ────────────────────────────────────────── */
-    section { padding: 64px 0; }
+    /* ── SERVICES ────────────────────────────────────────── */
+    .services { background: var(--off-white); padding: 72px 0; }
 
-    /* ── WHY SELVA ───────────────────────────────────────────── */
-    .why { background: var(--off-white); }
+    .section-head { margin-bottom: 40px; }
+    .section-head.centered { text-align: center; }
 
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .why-visual { position: relative; }
-
-    .why-photo {
-      border-radius: 20px;
-      overflow: hidden;
-      aspect-ratio: 4/5;
-      box-shadow: var(--shadow-lg);
-    }
-    .why-photo img { height: 100%; }
-
-    /* Floating stat card */
-    .why-float {
-      position: absolute;
-      bottom: -28px;
-      right: -28px;
-      background: var(--cream);
-      border-radius: 14px;
-      padding: 22px 26px;
-      box-shadow: var(--shadow-md);
-      min-width: 170px;
-    }
-    .why-float-num {
-      font-family: var(--serif);
-      font-size: 2.6rem;
-      font-weight: 600;
-      color: var(--green-dark);
-      line-height: 1;
-    }
-    .why-float-label {
-      font-size: 11.5px;
-      color: var(--ink-light);
-      margin-top: 5px;
-      line-height: 1.4;
-      font-weight: 400;
-    }
-
-    .why-body { padding-bottom: 4px; }
-    .why-body .display { margin-bottom: 22px; }
-    .why-body .body-copy { margin-bottom: 28px; }
-
-    .why-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .stat-row {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 15px 20px;
-      background: var(--white);
-      border-radius: 10px;
-      border-left: 3px solid var(--green-light);
-      box-shadow: var(--shadow-sm);
-      transition: border-color .2s;
-    }
-    .stat-row:hover { border-color: var(--green-dark); }
-    .stat-val {
-      font-family: var(--serif);
-      font-size: 1.65rem;
-      font-weight: 600;
-      color: var(--green-dark);
-      min-width: 72px;
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 13px;
-      color: var(--ink-light);
-      line-height: 1.4;
-    }
-
-    /* ── SERVICES ────────────────────────────────────────────── */
-    .services { background: var(--cream); }
-
-    .services-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 36px;
-      gap: 24px;
-      flex-wrap: wrap;
+    .services-intro {
+      max-width: 560px;
+      margin-top: 12px;
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 16px;
+      margin-top: 8px;
     }
 
     .svc-card {
       background: var(--white);
       border-radius: var(--radius);
-      padding: 28px 24px 24px;
-      position: relative;
-      overflow: hidden;
-      cursor: default;
-      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      padding: 26px 22px 22px;
+      border: 1px solid var(--border);
+      transition: box-shadow .2s, transform .2s;
     }
-
-    /* Animated gradient border on hover */
-    .svc-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius);
-      padding: 1px;
-      background: linear-gradient(135deg, var(--green-light), var(--green-dark) 70%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity .3s ease;
-    }
-    .svc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); background: var(--white); }
-    .svc-card:hover::before { opacity: 1; }
-
-    .svc-num {
-      font-family: var(--serif);
-      font-size: 3.2rem;
-      font-weight: 300;
-      color: rgba(167,191,143,.35);
-      line-height: 1;
-      margin-bottom: 18px;
-      transition: color .25s;
-    }
-    .svc-card:hover .svc-num { color: var(--green-light); }
+    .svc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
 
     .svc-icon {
-      width: 44px; height: 44px;
-      background: var(--green-light);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      transition: background .2s;
+      width: 42px; height: 42px;
+      background: var(--green-pale);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
     }
-    .svc-card:hover .svc-icon { background: var(--green-dark); }
     .svc-icon svg {
-      width: 19px; height: 19px;
+      width: 20px; height: 20px;
       stroke: var(--green-dark);
       fill: none;
       stroke-width: 1.7;
       stroke-linecap: round;
       stroke-linejoin: round;
-      transition: stroke .2s;
     }
-    .svc-card:hover .svc-icon svg { stroke: var(--white); }
 
     .svc-card h3 {
       font-family: var(--serif);
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 400;
       color: var(--ink-dark);
-      margin-bottom: 10px;
-      line-height: 1.2;
+      margin-bottom: 8px;
+      line-height: 1.25;
     }
     .svc-card p {
-      font-size: .88rem;
+      font-size: .875rem;
       color: var(--ink-light);
-      line-height: 1.72;
+      line-height: 1.68;
       font-weight: 300;
     }
 
-    .services-row2 {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      max-width: calc(66.66% - 6px);
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ── HOW IT WORKS ────────────────────────────────────────── */
-    .how {
-      background: var(--green-dark);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Grain on dark bg */
-    .how::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: .04;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
-      background-size: 220px;
-      pointer-events: none;
-    }
-
-    .how-inner { position: relative; z-index: 1; }
-
-    .how-header {
-      margin-bottom: 40px;
-    }
-    .how .eyebrow { color: var(--green-light); }
-    .how .display { color: var(--white); }
-    .how .display em { color: var(--green-light); }
-
-    .how-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,.07);
+    .services-note {
+      margin-top: 28px;
+      padding: 16px 20px;
+      background: var(--green-pale);
       border-radius: var(--radius);
-      overflow: hidden;
+      border-left: 3px solid var(--green-light);
+      font-size: .88rem;
+      color: var(--ink);
+      line-height: 1.6;
     }
 
-    .how-step {
-      padding: 36px 32px;
-      background: var(--green-dark);
-      position: relative;
-      transition: background .25s;
-    }
-    .how-step:hover { background: rgba(89,115,63,.2); }
+    /* ── INCLUDED ────────────────────────────────────────── */
+    .included { background: var(--white); padding: 72px 0; }
 
-    .how-step-num {
-      font-family: var(--serif);
-      font-size: 5.5rem;
-      font-weight: 300;
-      color: rgba(255,255,255,.06);
-      line-height: 1;
-      position: absolute;
-      top: 20px; right: 24px;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    .how-icon {
-      width: 48px; height: 48px;
-      border: 1.5px solid rgba(167,191,143,.28);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 26px;
-      transition: border-color .2s, background .2s;
-    }
-    .how-step:hover .how-icon {
-      border-color: var(--green-light);
-      background: rgba(167,191,143,.10);
-    }
-    .how-icon svg {
-      width: 20px; height: 20px;
-      stroke: var(--green-light);
-      fill: none;
-      stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .how-step h3 {
-      font-family: var(--serif);
-      font-size: 1.45rem;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-    .how-step p {
-      font-size: .9rem;
-      color: rgba(255,255,255,.52);
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    /* ── WHY TRUST ───────────────────────────────────────────── */
-    .trust { background: var(--off-white); }
-
-    .trust-grid {
+    .included-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 56px;
       align-items: center;
     }
 
-    .trust-content { order: 1; }
-
-    .trust-photo {
-      order: 2;
-      border-radius: 20px;
-      overflow: hidden;
-      aspect-ratio: 5/4;
-      box-shadow: var(--shadow-lg);
-    }
-    .trust-photo img { height: 100%; }
-
-    .trust-list {
-      margin-top: 38px;
+    .included-list {
       list-style: none;
-    }
-    .trust-item {
       display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 13px 0;
-      border-bottom: 1px solid rgba(115,84,57,.09);
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 28px;
     }
-    .trust-item:first-of-type { border-top: 1px solid rgba(115,84,57,.09); }
 
-    .trust-check {
-      width: 26px; height: 26px;
-      background: var(--green-light);
-      border-radius: 50%;
+    .included-item {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--cream);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      font-size: .95rem;
+      color: var(--ink);
+      font-weight: 400;
+      transition: border-color .2s;
     }
-    .trust-check svg {
-      width: 12px; height: 12px;
+    .included-item:hover { border-color: var(--green-light); }
+
+    .included-check {
+      width: 28px; height: 28px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .included-check svg {
+      width: 13px; height: 13px;
       stroke: var(--green-dark);
       fill: none;
-      stroke-width: 2.6;
+      stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    .trust-item-label {
-      font-size: .96rem;
-      color: var(--ink);
-      line-height: 1.55;
-    }
 
-    /* ── CONTACT ─────────────────────────────────────────────── */
-    .contact { background: var(--cream); text-align: center; }
-
-    .contact-inner { max-width: 600px; margin: 0 auto; }
-    .contact .display { margin-bottom: 18px; }
-    .contact .body-copy { margin-bottom: 28px; }
-
-    .contact-meta {
+    .included-cta {
+      margin-top: 36px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 28px;
-      margin-bottom: 28px;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
     }
-    .contact-meta-item {
+
+    .included-aside {
+      background: var(--green-pale);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .aside-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--green-dark);
+      line-height: 1.2;
+    }
+
+    .price-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .price-from {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+    }
+    .price-amount {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--green-dark);
+      line-height: 1;
+    }
+    .price-note {
+      font-size: .8rem;
+      color: var(--ink-light);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .aside-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .aside-bullets li {
       display: flex;
       align-items: center;
-      gap: 7px;
-      font-size: .88rem;
-      color: var(--ink-light);
+      gap: 10px;
+      font-size: .9rem;
+      color: var(--ink);
     }
-    .contact-meta-item svg {
-      width: 15px; height: 15px;
-      stroke: var(--brown);
+    .aside-bullets li::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--green-mid);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── TRUST ───────────────────────────────────────────── */
+    .trust { background: var(--green-dark); padding: 72px 0; position: relative; overflow: hidden; }
+    .trust::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 220px;
+    }
+
+    .trust-inner { position: relative; z-index: 1; }
+
+    .trust .eyebrow { color: var(--green-light); }
+    .trust .display { color: var(--white); }
+    .trust .display em { color: var(--green-light); }
+
+    .trust-layout {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .trust-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .trust-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .trust-bullet:first-child { border-top: 1px solid rgba(255,255,255,.08); }
+
+    .trust-icon {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(168,201,138,.28);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .trust-icon svg {
+      width: 17px; height: 17px;
+      stroke: var(--green-light);
       fill: none;
       stroke-width: 1.8;
       stroke-linecap: round;
       stroke-linejoin: round;
-      flex-shrink: 0;
-    }
-    .contact-meta-item a {
-      color: var(--brown);
-      font-weight: 500;
-      transition: color .15s;
-    }
-    .contact-meta-item a:hover { color: var(--green-dark); }
-
-    .contact-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-
-    /* ── TESTIMONIALS ────────────────────────────────────────── */
-    .testimonials { background: var(--cream); }
-
-    .testimonials-head { margin-bottom: 40px; }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
     }
 
-    .testi-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 30px 26px 26px;
+    .trust-bullet-label {
+      font-size: .95rem;
+      color: rgba(255,255,255,.80);
+      line-height: 1.55;
+      padding-top: 8px;
+    }
+
+    .trust-note {
+      margin-top: 32px;
+      font-size: .88rem;
+      color: rgba(255,255,255,.42);
+      line-height: 1.68;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .trust-aside {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+    }
+
+    .trust-aside-title {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 22px;
+      line-height: 1.25;
+    }
+    .trust-aside-title em { font-style: italic; color: var(--green-light); }
+
+    .trust-aside-list {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(115,84,57,.07);
-      transition: box-shadow .25s, transform .25s;
-    }
-    .testi-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-3px);
-    }
-
-    .testi-stars {
-      display: flex;
-      gap: 3px;
-    }
-    .testi-stars svg {
-      width: 14px; height: 14px;
-      fill: #D97706;
-      stroke: none;
-    }
-
-    .testi-quote {
-      font-size: .95rem;
-      color: var(--ink);
-      line-height: 1.72;
-      font-weight: 300;
-      flex: 1;
-    }
-    .testi-quote::before { content: '\201C'; }
-    .testi-quote::after  { content: '\201D'; }
-
-    .testi-author {
-      display: flex;
-      align-items: center;
       gap: 12px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(115,84,57,.08);
+      margin-bottom: 30px;
     }
-    .testi-avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: var(--green-light);
+    .trust-aside-list li {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 10px;
+      font-size: .88rem;
+      color: rgba(255,255,255,.72);
+    }
+    .trust-aside-list li svg {
+      width: 15px; height: 15px;
+      stroke: var(--green-light);
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
       flex-shrink: 0;
-      font-family: var(--serif);
-      font-size: 1rem;
+    }
+
+    /* ── QUOTE FORM ──────────────────────────────────────── */
+    .quote { background: var(--cream); padding: 80px 0; }
+
+    .quote-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .quote-intro { margin-bottom: 36px; }
+    .quote-intro .body-copy { margin-top: 14px; }
+
+    .quote-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-full { grid-column: 1 / -1; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-label {
+      font-size: 12.5px;
       font-weight: 600;
+      color: var(--ink);
+      letter-spacing: .2px;
+    }
+    .form-label .required { color: var(--green-mid); margin-left: 2px; }
+
+    .form-control {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1.5px solid rgba(0,0,0,.12);
+      border-radius: 7px;
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--ink-dark);
+      background: var(--white);
+      transition: border-color .15s, box-shadow .15s;
+      outline: none;
+    }
+    .form-control:focus {
+      border-color: var(--green-mid);
+      box-shadow: 0 0 0 3px rgba(74,122,46,.10);
+    }
+    select.form-control {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6460' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    .form-section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding-top: 8px;
+      padding-bottom: 4px;
+    }
+
+    .form-checkboxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1.5px solid rgba(0,0,0,.12);
+      border-radius: 7px;
+      font-size: 13px;
+      color: var(--ink);
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+      user-select: none;
+    }
+    .checkbox-label:has(input:checked) {
+      border-color: var(--green-mid);
+      background: var(--green-pale);
       color: var(--green-dark);
     }
-    .testi-name {
-      font-size: .88rem;
-      font-weight: 600;
-      color: var(--ink-dark);
-      line-height: 1.3;
+    .checkbox-label input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 17px; height: 17px;
+      border: 1.5px solid rgba(0,0,0,.20);
+      border-radius: 4px;
+      flex-shrink: 0;
+      position: relative;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
     }
-    .testi-meta {
-      font-size: .78rem;
+    .checkbox-label input[type="checkbox"]:checked {
+      background: var(--green-mid);
+      border-color: var(--green-mid);
+    }
+    .checkbox-label input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 3px; top: 1px;
+      width: 9px; height: 6px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg);
+    }
+
+    .upload-area {
+      border: 2px dashed rgba(0,0,0,.14);
+      border-radius: 8px;
+      padding: 20px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+      position: relative;
+    }
+    .upload-area:hover { border-color: var(--green-mid); background: var(--green-pale); }
+    .upload-area input[type="file"] {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    }
+    .upload-icon {
+      width: 36px; height: 36px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 10px;
+    }
+    .upload-icon svg {
+      width: 18px; height: 18px;
+      stroke: var(--green-dark);
+      fill: none; stroke-width: 1.8;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .upload-label { font-size: 13.5px; color: var(--ink); font-weight: 500; margin-bottom: 3px; }
+    .upload-sub { font-size: 11.5px; color: var(--ink-light); line-height: 1.5; }
+    .upload-filenames {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--green-mid);
+      font-weight: 500;
+      display: none;
+    }
+
+    .form-submit-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .form-submit-row .btn { width: 100%; justify-content: center; min-height: 50px; font-size: 15px; }
+
+    .form-disclaimer {
+      font-size: 11.5px;
       color: var(--ink-light);
-      margin-top: 2px;
+      text-align: center;
+      line-height: 1.55;
     }
 
-    @media (max-width: 960px) {
-      .testimonials-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 640px) {
-      .testimonials-grid { grid-template-columns: 1fr; }
+    .quote-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 20px);
     }
 
-    /* ── FOOTER ──────────────────────────────────────────────── */
+    .sidebar-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .sidebar-card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink-dark);
+      margin-bottom: 16px;
+    }
+
+    .sidebar-steps {
+      list-style: none;
+      counter-reset: steps;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .sidebar-steps li {
+      counter-increment: steps;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: .88rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .sidebar-steps li::before {
+      content: counter(steps);
+      width: 24px; height: 24px;
+      background: var(--green-dark);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .sidebar-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sidebar-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .875rem;
+      color: var(--ink-light);
+    }
+    .sidebar-contact-item svg {
+      width: 16px; height: 16px;
+      stroke: var(--brown);
+      fill: none; stroke-width: 1.8;
+      stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .sidebar-contact-item a { color: var(--brown); font-weight: 500; }
+    .sidebar-contact-item a:hover { color: var(--green-dark); }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
     footer {
       background: var(--green-dark);
-      padding: 44px 0;
-      position: relative;
-      overflow: hidden;
+      padding: 40px 0;
+      position: relative; overflow: hidden;
     }
     footer::before {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0; pointer-events: none;
       opacity: .04;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
       background-size: 220px;
-      pointer-events: none;
     }
 
     .footer-row {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -818,114 +842,79 @@
       gap: 20px;
     }
 
-    .footer-logo .logo-name { color: rgba(255,255,255,.88); }
-    .footer-logo .logo-sub  { color: rgba(255,255,255,.32); }
-    .footer-logo .logo-mark { background: rgba(255,255,255,.10); }
+    .footer-logo img { height: 38px; width: auto; filter: brightness(0) invert(1); opacity: .80; }
 
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,.35); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,.34); }
 
     .footer-nav { display: flex; gap: 22px; }
-    .footer-nav a {
-      font-size: 12px;
-      color: rgba(255,255,255,.42);
-      transition: color .15s;
-    }
-    .footer-nav a:hover { color: rgba(255,255,255,.82); }
+    .footer-nav a { font-size: 12px; color: rgba(255,255,255,.40); transition: color .15s; }
+    .footer-nav a:hover { color: rgba(255,255,255,.80); }
 
-    /* ── FLOATING WHATSAPP ───────────────────────────────────── */
+    /* ── WA FAB ──────────────────────────────────────────── */
     .wa-fab {
-      display: none;
       position: fixed;
-      bottom: 24px; right: 24px;
+      bottom: 22px; right: 22px;
       z-index: 200;
-      width: 58px; height: 58px;
+      width: 56px; height: 56px;
       background: #25d366;
       border-radius: 50%;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 26px rgba(37,211,102,.38);
-      transition: transform .2s ease, box-shadow .2s ease;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,.40);
+      transition: transform .2s, box-shadow .2s;
     }
-    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 8px 34px rgba(37,211,102,.52); }
+    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(37,211,102,.52); }
     .wa-fab:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-    .wa-fab svg { width: 28px; height: 28px; fill: #fff; }
+    .wa-fab svg { width: 26px; height: 26px; fill: #fff; }
 
-    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    /* ── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 960px) {
-      .why-grid,
-      .trust-grid { grid-template-columns: 1fr; gap: 48px; }
-
-      .trust-photo { order: -1; aspect-ratio: 16/9; border-radius: var(--radius); }
-      .why-photo   { aspect-ratio: 16/9; border-radius: var(--radius); }
-      .why-float   { right: 8px; bottom: -18px; }
-
-      .services-grid  { grid-template-columns: 1fr 1fr; }
-      .services-row2  { max-width: 100%; grid-template-columns: 1fr 1fr; }
-
-      .how-steps { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .included-layout { grid-template-columns: 1fr; }
+      .included-aside { order: -1; }
+      .trust-layout { grid-template-columns: 1fr; }
+      .quote-layout { grid-template-columns: 1fr; }
+      .quote-sidebar { position: static; }
+      .sidebar-card:last-child { display: none; }
     }
 
     @media (max-width: 640px) {
-      section { padding: 48px 0; }
-      .services-grid,
-      .services-row2 { grid-template-columns: 1fr; }
-      .services-head { gap: 20px; }
+      .services { padding: 56px 0; }
+      .included, .trust, .quote, footer { padding: 56px 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .hero-content { padding: 56px 0 72px; }
+      .hero h1 { font-size: 2.4rem; }
       .footer-row { flex-direction: column; text-align: center; }
       .footer-nav { justify-content: center; }
-      .wa-fab { display: flex; }
-      .hero-content { padding: 44px 0 56px; }
-      .hero h1 { font-size: 2.6rem; }
-    }
-
-    /* ── Entrance animations ─────────────────────────────────── */
-    .js-reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .55s ease, transform .55s ease;
-    }
-    .js-reveal.revealed {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .js-reveal { opacity: 1; transform: none; transition: none; }
-      .hero-scroll-bar { animation: none; }
+      .quote-form { padding: 26px 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── NAV ───────────────────────────────────────────────────── -->
-  <nav id="site-nav">
+  <!-- ── NAV ──────────────────────────────────────────────────── -->
+  <nav class="site-nav" id="site-nav">
     <div class="container nav-inner">
-      <a href="#" class="logo" aria-label="Selva Cleaning Services — home">
-        <div class="logo-mark">
-          <svg viewBox="0 0 24 24"><path d="M12 22C6 16 4 10 6 4c4 0 10 2 12 8-2 2-4 3-6 3 1-2 1-4 0-6-2 4-2 8 0 13"/></svg>
-        </div>
-        <div class="logo-wordmark">
-          <span class="logo-name">Selva Cleaning</span>
-          <span class="logo-sub">Nosara · Costa Rica</span>
-        </div>
+      <a href="#" class="nav-logo" aria-label="Selva Cleaning Services — home">
+        <img src="logo@2x.png" alt="Selva Cleaning Services" />
       </a>
-      <a href="#contact" class="btn btn-primary nav-btn">Book now</a>
+      <a href="#quote" class="btn btn-primary nav-cta">Get a Quote</a>
     </div>
   </nav>
 
-  <!-- ── HERO ──────────────────────────────────────────────────── -->
-  <section class="hero">
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero" aria-label="Hero">
     <div class="hero-bg">
       <img
         src="african-descent-woma.jpg"
-        alt="Selva cleaning professional polishing glassware"
+        alt="Professional cleaning service"
         loading="eager"
       />
     </div>
-    <div class="hero-grain" aria-hidden="true"></div>
 
     <div class="container">
       <div class="hero-content">
-        <div class="hero-pill">
+        <div class="hero-badge">
           <span class="hero-dot"></span>
           Eco-certified &nbsp;·&nbsp; Nosara, Costa Rica
         </div>
@@ -933,85 +922,47 @@
           Cleaner spaces,
           <em>naturally cared for.</em>
         </h1>
-        <p class="hero-sub">Professional cleaning services in Nosara — powered by eco-friendly products that are safe for your family, your pets, and the environment.</p>
+        <p class="hero-sub">Professional cleaning services in Nosara using eco-friendly products safe for your home, pets, and environment.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Book a cleaning →</a>
-          <a href="#services" class="btn btn-ghost">See our services</a>
+          <a href="#quote" class="btn btn-primary">
+            Get a Quote
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a
+            href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20gustar%C3%ADa%20pedir%20una%20cotizaci%C3%B3n."
+            class="btn btn-wa"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
         </div>
+        <p class="hero-microcopy">Get a fast estimate in minutes</p>
       </div>
-    </div>
-
-    <div class="hero-scroll" aria-hidden="true">
-      <span class="hero-scroll-bar"></span>
     </div>
 
     <div class="hero-wave" aria-hidden="true">
-      <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 36C200 72 400 0 720 36C1040 72 1240 0 1440 36V72H0V36Z" fill="#FAF6F1"/>
+      <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 32C240 64 480 0 720 32C960 64 1200 0 1440 32V64H0V32Z" fill="#f4f1ec"/>
       </svg>
-    </div>
-  </section>
-
-  <!-- ── WHY SELVA ─────────────────────────────────────────────── -->
-  <section class="why" id="why">
-    <div class="container">
-      <div class="why-grid">
-
-        <div class="why-visual">
-          <div class="why-photo">
-            <img
-              src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=900&auto=format&fit=crop&q=80"
-              alt="Natural eco-friendly cleaning products"
-              loading="lazy"
-            />
-          </div>
-          <div class="why-float js-reveal" aria-hidden="true">
-            <div class="why-float-num">100%</div>
-            <div class="why-float-label">Eco-certified<br>products</div>
-          </div>
-        </div>
-
-        <div class="why-body">
-          <span class="eyebrow">Why Selva</span>
-          <h2 class="display">Clean spaces, <em>naturally cared for.</em></h2>
-          <p class="body-copy" style="margin-top:20px;margin-bottom:40px;">
-            We believe a clean space shouldn't come at the cost of the world outside your door. That's why every product we use is biodegradable, non-toxic, and locally sourced when possible — without compromising on results. Trusted by Nosara families, vacation rentals, and expat residents who expect more.
-          </p>
-          <div class="why-stats">
-            <div class="stat-row js-reveal">
-              <span class="stat-val">5★</span>
-              <span class="stat-label">Vacation rental reviews</span>
-            </div>
-            <div class="stat-row js-reveal">
-              <span class="stat-val">Local</span>
-              <span class="stat-label">Rooted in Nosara</span>
-            </div>
-            <div class="stat-row js-reveal">
-              <span class="stat-val">Insured</span>
-              <span class="stat-label">Background-checked team</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
   <!-- ── SERVICES ──────────────────────────────────────────────── -->
   <section class="services" id="services">
     <div class="container">
-      <div class="services-head">
-        <div>
-          <span class="eyebrow">Services</span>
-          <h2 class="display">Everything your<br><em>space needs.</em></h2>
-        </div>
-        <a href="#contact" class="btn btn-outline">Get a quote →</a>
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2 class="display">Our <em>Services</em></h2>
+        <p class="body-copy services-intro">
+          We provide cleaning services for homes and businesses. Large or complex spaces are quoted after evaluation.
+        </p>
       </div>
 
       <div class="services-grid">
 
-        <div class="svc-card js-reveal">
-          <div class="svc-num">01</div>
+        <div class="svc-card">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
           </div>
@@ -1019,17 +970,15 @@
           <p>Weekly, biweekly, or monthly. We keep your home consistently fresh so you never have to think about it.</p>
         </div>
 
-        <div class="svc-card js-reveal">
-          <div class="svc-num">02</div>
+        <div class="svc-card">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
           </div>
-          <h3>Airbnb &amp; Vacation Rental Turnover</h3>
-          <p>Fast, thorough, and guest-ready. We work with your checkout and check-in times so your reviews stay five stars.</p>
+          <h3>Airbnb &amp; Vacation Rental</h3>
+          <p>Fast, thorough, and guest-ready. We work with your checkout times to keep your reviews at five stars.</p>
         </div>
 
-        <div class="svc-card js-reveal">
-          <div class="svc-num">03</div>
+        <div class="svc-card">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
           </div>
@@ -1037,252 +986,345 @@
           <p>Moving in, moving out, or just due for a reset. Every corner, every surface — done right.</p>
         </div>
 
-      </div>
-
-      <div class="services-row2">
-
-        <div class="svc-card js-reveal">
-          <div class="svc-num">04</div>
+        <div class="svc-card">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
           </div>
-          <h3>Office &amp; Commercial Cleaning</h3>
-          <p>A clean workspace is a productive workspace. Flexible scheduling around your business hours.</p>
+          <h3>Office &amp; Commercial</h3>
+          <p>A clean workspace is a productive one. Flexible scheduling around your business hours.</p>
         </div>
 
-        <div class="svc-card js-reveal">
-          <div class="svc-num">05</div>
+        <div class="svc-card">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </div>
           <h3>Specific Services</h3>
-          <p>Only need the windows, the oven, or one room? We adapt to exactly what you need — without paying for what you don't.</p>
+          <p>Only need one room or one area? We adapt to exactly what you need — no paying for what you don't.</p>
         </div>
 
+      </div>
+
+      <div class="services-note">
+        <strong>Need a custom estimate?</strong> Large homes, rentals, or spaces in special condition are quoted individually after a quick evaluation. <a href="#quote" style="color:var(--green-dark);font-weight:500;">Request a free estimate →</a>
       </div>
     </div>
   </section>
 
-  <!-- ── HOW IT WORKS ───────────────────────────────────────────── -->
-  <section class="how" id="how">
-    <div class="container how-inner">
-      <div class="how-header">
-        <span class="eyebrow">How it works</span>
-        <h2 class="display">Three steps to a<br><em>spotless home.</em></h2>
-      </div>
-
-      <div class="how-steps">
-
-        <div class="how-step js-reveal">
-          <span class="how-step-num" aria-hidden="true">01</span>
-          <div class="how-icon">
-            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
-          </div>
-          <h3>Book online</h3>
-          <p>Pick your service, date, and time in minutes.</p>
-        </div>
-
-        <div class="how-step js-reveal">
-          <span class="how-step-num" aria-hidden="true">02</span>
-          <div class="how-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <h3>We show up</h3>
-          <p>Punctual, equipped, and ready to work.</p>
-        </div>
-
-        <div class="how-step js-reveal">
-          <span class="how-step-num" aria-hidden="true">03</span>
-          <div class="how-icon">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h3>You enjoy it</h3>
-          <p>Come home to a space that actually feels clean.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── TESTIMONIALS ─────────────────────────────────────────────── -->
-  <section class="testimonials" id="testimonials">
+  <!-- ── WHAT'S INCLUDED ───────────────────────────────────────── -->
+  <section class="included" id="included">
     <div class="container">
-      <div class="testimonials-head">
-        <span class="eyebrow">What clients say</span>
-        <h2 class="display">Words from<br><em>happy homes.</em></h2>
-      </div>
+      <div class="included-layout">
 
-      <div class="testimonials-grid">
-
-        <div class="testi-card js-reveal">
-          <div class="testi-stars">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p class="testi-quote">They showed up on time, used products that didn't leave any chemical smell, and left my Airbnb looking brand new. My guests noticed immediately — my ratings went up within a month.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">M</div>
-            <div>
-              <div class="testi-name">Marta L.</div>
-              <div class="testi-meta">Vacation rental owner · Nosara</div>
-            </div>
+        <div class="included-content">
+          <span class="eyebrow">What's included</span>
+          <h2 class="display">Everything your<br><em>space needs.</em></h2>
+          <ul class="included-list" role="list">
+            <li class="included-item">
+              <span class="included-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Kitchen cleaning
+            </li>
+            <li class="included-item">
+              <span class="included-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Bathroom cleaning
+            </li>
+            <li class="included-item">
+              <span class="included-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Floors &amp; surfaces
+            </li>
+            <li class="included-item">
+              <span class="included-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Dusting &amp; general cleaning
+            </li>
+          </ul>
+          <div class="included-cta">
+            <a href="#quote" class="btn btn-primary">
+              Get a Quote
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           </div>
         </div>
 
-        <div class="testi-card js-reveal">
-          <div class="testi-stars">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p class="testi-quote">I have two young kids and two dogs — I'm very particular about what products go in my home. Selva was the first cleaning service I felt completely comfortable with. Thorough and genuinely kind.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">S</div>
-            <div>
-              <div class="testi-name">Sarah K.</div>
-              <div class="testi-meta">Resident · Playa Guiones</div>
-            </div>
-          </div>
-        </div>
+        <div class="included-aside">
+          <div class="aside-title">Starting<br><em style="font-style:italic;color:var(--green-dark);">from ₡25,000</em></div>
 
-        <div class="testi-card js-reveal">
-          <div class="testi-stars">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <div class="price-card">
+            <div class="price-from">Estimate starting at</div>
+            <div class="price-amount">₡25,000</div>
+            <div class="price-note">Price varies depending on size,<br>type of space, and current condition.</div>
           </div>
-          <p class="testi-quote">We needed a deep clean before listing our property. Selva handled everything in one visit — even the things we forgot to mention. Reliable, fast, and the place looked incredible.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">D</div>
-            <div>
-              <div class="testi-name">Diego &amp; Camila R.</div>
-              <div class="testi-meta">Property owners · Nosara</div>
-            </div>
-          </div>
-        </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WHY NOSARA TRUSTS US ───────────────────────────────────── -->
-  <section class="trust" id="trust">
-    <div class="container">
-      <div class="trust-grid">
-
-        <div class="trust-content">
-          <span class="eyebrow">Why Nosara trusts us</span>
-          <h2 class="display">Every detail.<br><em>Every time.</em></h2>
-          <ul class="trust-list" role="list">
-            <li class="trust-item js-reveal">
-              <div class="trust-check" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span class="trust-item-label">Eco-certified cleaning products — safe for kids, pets, and the reef</span>
-            </li>
-            <li class="trust-item js-reveal">
-              <div class="trust-check" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span class="trust-item-label">Punctual, reliable, and detail-oriented</span>
-            </li>
-            <li class="trust-item js-reveal">
-              <div class="trust-check" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span class="trust-item-label">Flexible scheduling — we work around your calendar</span>
-            </li>
-            <li class="trust-item js-reveal">
-              <div class="trust-check" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span class="trust-item-label">Locally rooted in Nosara</span>
-            </li>
-            <li class="trust-item js-reveal">
-              <div class="trust-check" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span class="trust-item-label">Fully insured and background-checked team</span>
-            </li>
+          <ul class="aside-bullets">
+            <li>Free, no-commitment estimate</li>
+            <li>Eco-friendly products always included</li>
+            <li>Flexible timing and frequency</li>
+            <li>Oven, fridge, windows as extras</li>
           </ul>
         </div>
 
-        <div class="trust-photo">
-          <img
-            src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&auto=format&fit=crop&q=80"
-            alt="Professional cleaning team at work"
-            loading="lazy"
-          />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST ─────────────────────────────────────────────────── -->
+  <section class="trust" id="trust">
+    <div class="container trust-inner">
+      <span class="eyebrow">Why choose Selva</span>
+      <h2 class="display">Quality and care<br><em>in every job.</em></h2>
+
+      <div class="trust-layout">
+
+        <div>
+          <ul class="trust-bullets" role="list">
+            <li class="trust-bullet">
+              <div class="trust-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span class="trust-bullet-label">Eco-friendly cleaning products — safe for the environment and your home</span>
+            </li>
+            <li class="trust-bullet">
+              <div class="trust-icon">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              </div>
+              <span class="trust-bullet-label">Safe for pets and families — no harsh chemicals, ever</span>
+            </li>
+            <li class="trust-bullet">
+              <div class="trust-icon">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </div>
+              <span class="trust-bullet-label">Attention to detail — we clean what others overlook</span>
+            </li>
+            <li class="trust-bullet">
+              <div class="trust-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.1 5.6C.1 4.5.9 3.6 2 3.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 11a16 16 0 006.09 6.09l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
+              </div>
+              <span class="trust-bullet-label">Fast response — we get back to you quickly and keep things simple</span>
+            </li>
+            <li class="trust-bullet">
+              <div class="trust-icon">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <span class="trust-bullet-label">Personalized service — adapted to your space and your needs</span>
+            </li>
+          </ul>
+          <p class="trust-note">We're a growing cleaning service focused on quality and care in every job.</p>
+        </div>
+
+        <div class="trust-aside">
+          <div class="trust-aside-title">Ready for a<br><em>cleaner space?</em></div>
+          <ul class="trust-aside-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Free, no-obligation estimate</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> We reply via WhatsApp</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Locally rooted in Nosara</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Background-checked team</li>
+          </ul>
+          <a href="#quote" class="btn btn-primary" style="width:100%;justify-content:center;">
+            Get a Quote
+          </a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ── CONTACT ────────────────────────────────────────────────── -->
-  <section class="contact" id="contact">
+  <!-- ── QUOTE FORM ────────────────────────────────────────────── -->
+  <section class="quote" id="quote">
     <div class="container">
-      <div class="contact-inner">
-        <span class="eyebrow">Get in touch</span>
-        <h2 class="display">Ready for a<br><em>cleaner home?</em></h2>
-        <p class="body-copy">Get in touch and we'll put together the right plan for you.</p>
+      <div class="quote-intro">
+        <span class="eyebrow">Get a quote</span>
+        <h2 class="display">Request your<br><em>free estimate.</em></h2>
+        <p class="body-copy">Fill out the form and we'll send you a quote via WhatsApp in minutes. No commitment required.</p>
+      </div>
 
-        <div class="contact-meta">
-          <span class="contact-meta-item">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Serving Nosara and surrounding areas
-          </span>
-          <span class="contact-meta-item">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.1 5.6C.1 4.5.9 3.6 2 3.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 11a16 16 0 006.09 6.09l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
-            <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." target="_blank" rel="noopener">[WhatsApp number]</a>
-          </span>
-          <span class="contact-meta-item">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="/cdn-cgi/l/email-protection#7119141d1d1e3102141d0710121d14101f5f121e1c">[email]</a>
-          </span>
-        </div>
+      <div class="quote-layout">
 
-        <div class="contact-btns">
-          <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." class="btn btn-primary" target="_blank" rel="noopener">Get a free quote →</a>
-          <a href="/cdn-cgi/l/email-protection#e088858c8c8fa093858c9681838c85818ece838f8d" class="btn btn-outline">Send an email</a>
-        </div>
+        <form class="quote-form" id="quote-form" novalidate>
+          <div class="form-grid">
+
+            <!-- Type of place -->
+            <div class="form-group">
+              <label class="form-label" for="place_type">
+                Type of space <span class="required">*</span>
+              </label>
+              <select class="form-control" id="place_type" name="place_type" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="Home">Home</option>
+                <option value="Airbnb / Vacation rental">Airbnb / Vacation rental</option>
+                <option value="Business / Office">Business / Office</option>
+              </select>
+            </div>
+
+            <!-- Size -->
+            <div class="form-group">
+              <label class="form-label" for="size">
+                Size <span class="required">*</span>
+              </label>
+              <select class="form-control" id="size" name="size" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="1 room / Studio">1 room / Studio</option>
+                <option value="2–3 rooms">2–3 rooms</option>
+                <option value="4+ rooms">4+ rooms</option>
+              </select>
+            </div>
+
+            <!-- Cleaning type -->
+            <div class="form-group">
+              <label class="form-label" for="clean_type">
+                Type of cleaning <span class="required">*</span>
+              </label>
+              <select class="form-control" id="clean_type" name="clean_type" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="Regular cleaning">Regular cleaning</option>
+                <option value="Deep cleaning">Deep cleaning</option>
+                <option value="Move-in / Move-out">Move-in / Move-out</option>
+                <option value="Post-construction">Post-construction</option>
+              </select>
+            </div>
+
+            <!-- Condition -->
+            <div class="form-group">
+              <label class="form-label" for="condition">
+                Current condition <span class="required">*</span>
+              </label>
+              <select class="form-control" id="condition" name="condition" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="Light (routine upkeep)">Light — routine upkeep</option>
+                <option value="Medium (a few weeks since last clean)">Medium — a few weeks since last clean</option>
+                <option value="Heavy (needs thorough attention)">Heavy — needs thorough attention</option>
+              </select>
+            </div>
+
+            <!-- Location -->
+            <div class="form-group">
+              <label class="form-label" for="location">
+                Location / Area <span class="required">*</span>
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                id="location"
+                name="location"
+                placeholder="e.g. Playa Guiones, Nosara"
+                required
+              />
+            </div>
+
+            <!-- Date -->
+            <div class="form-group">
+              <label class="form-label" for="date">
+                Preferred date <span class="required">*</span>
+              </label>
+              <input
+                class="form-control"
+                type="date"
+                id="date"
+                name="date"
+                required
+              />
+            </div>
+
+            <!-- Extras -->
+            <div class="form-group form-full">
+              <span class="form-label">Extras (optional)</span>
+              <div class="form-checkboxes">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="extras" value="Oven" />
+                  Oven
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="extras" value="Fridge" />
+                  Fridge
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="extras" value="Windows" />
+                  Windows
+                </label>
+              </div>
+            </div>
+
+            <!-- Image upload -->
+            <div class="form-group form-full">
+              <span class="form-label">Photos of the space <span style="font-weight:300;color:var(--ink-light);">(recommended)</span></span>
+              <div class="upload-area" id="upload-area">
+                <input
+                  type="file"
+                  id="photos"
+                  name="photos"
+                  accept="image/*"
+                  multiple
+                  aria-label="Upload photos of the space"
+                />
+                <div class="upload-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <div class="upload-label">Tap to add photos</div>
+                <div class="upload-sub">JPG, PNG, HEIC · Max 10MB each<br>Photos help us give you a more accurate estimate</div>
+                <div class="upload-filenames" id="upload-filenames"></div>
+              </div>
+              <p style="font-size:11.5px;color:var(--ink-light);margin-top:6px;line-height:1.55;">
+                You can also send photos directly in the WhatsApp conversation after requesting your estimate.
+              </p>
+            </div>
+
+          </div><!-- /form-grid -->
+
+          <div class="form-submit-row" style="margin-top:24px;">
+            <button type="submit" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Send Quote Request via WhatsApp
+            </button>
+            <p class="form-disclaimer">
+              Submitting opens WhatsApp with your details pre-filled. Free and no commitment.
+            </p>
+          </div>
+        </form>
+
+        <aside class="quote-sidebar">
+          <div class="sidebar-card">
+            <h3>How it works</h3>
+            <ol class="sidebar-steps">
+              <li>Fill out the form with your space details</li>
+              <li>We send you a personalised estimate via WhatsApp</li>
+              <li>You confirm and we take care of the rest</li>
+            </ol>
+          </div>
+          <div class="sidebar-card">
+            <h3>Prefer to contact directly?</h3>
+            <div class="sidebar-contact">
+              <div class="sidebar-contact-item">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.1 5.6C.1 4.5.9 3.6 2 3.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 11a16 16 0 006.09 6.09l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
+                <a href="https://wa.me/50600000000" target="_blank" rel="noopener">WhatsApp us directly</a>
+              </div>
+              <div class="sidebar-contact-item">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Nosara and surrounding areas
+              </div>
+            </div>
+          </div>
+        </aside>
+
       </div>
     </div>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <!-- ── FOOTER ───────────────────────────────────────────────── -->
   <footer>
     <div class="container footer-row">
-      <a href="#" class="logo footer-logo" aria-label="Selva Cleaning Services home">
-        <div class="logo-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22C6 16 4 10 6 4c4 0 10 2 12 8-2 2-4 3-6 3 1-2 1-4 0-6-2 4-2 8 0 13"/>
-          </svg>
-        </div>
-        <div class="logo-wordmark">
-          <span class="logo-name">Selva Cleaning</span>
-          <span class="logo-sub">Nosara · Costa Rica</span>
-        </div>
+      <a href="#" class="footer-logo" aria-label="Selva Cleaning Services home">
+        <img src="logo@2x.png" alt="Selva Cleaning Services" />
       </a>
-      <p class="footer-copy">© 2025 Selva Cleaning Services. Nosara, Costa Rica.</p>
-      <nav class="footer-nav" aria-label="Footer links">
-        <a href="#why">About</a>
+      <p class="footer-copy">© 2025 Selva Cleaning Services · Nosara, Costa Rica</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
         <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="#included">Included</a>
+        <a href="#trust">About</a>
+        <a href="#quote">Get a Quote</a>
       </nav>
     </div>
   </footer>
 
-  <!-- ── FLOATING WHATSAPP (mobile) ────────────────────────────── -->
+  <!-- ── FLOATING WHATSAPP ─────────────────────────────────────── -->
   <a
-    href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza."
+    href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20gustar%C3%ADa%20pedir%20una%20cotizaci%C3%B3n."
     class="wa-fab"
     aria-label="Chat on WhatsApp"
     target="_blank"
@@ -1293,49 +1335,84 @@
     </svg>
   </a>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Nav scroll class
+  <script>
+    // Nav scroll shadow
     const nav = document.getElementById('site-nav');
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('is-scrolled', window.scrollY > 8);
+      nav.classList.toggle('scrolled', window.scrollY > 8);
     }, { passive: true });
 
-    // Active nav section highlight
-    const navLinks = document.querySelectorAll('.footer-nav a[href^="#"]');
-    const sections = Array.from(navLinks).map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(l => {
-            l.style.color = l.getAttribute('href') === '#' + id
-              ? 'rgba(255,255,255,.82)'
-              : 'rgba(255,255,255,.42)';
-          });
-        }
-      });
-    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
-    sections.forEach(s => sectionObserver.observe(s));
-
-    // Smooth scroll
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
-        const t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       });
     });
 
-    // Staggered entrance — rootMargin ensures elements already in view on load fire immediately
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('revealed'), i * 40);
-          observer.unobserve(entry.target);
+    // File upload — show selected filenames
+    const fileInput = document.getElementById('photos');
+    const fileNames = document.getElementById('upload-filenames');
+    fileInput.addEventListener('change', () => {
+      const files = Array.from(fileInput.files);
+      if (files.length) {
+        fileNames.style.display = 'block';
+        fileNames.textContent = files.map(f => f.name).join(', ');
+      } else {
+        fileNames.style.display = 'none';
+      }
+    });
+
+    // Form submit → build WhatsApp message
+    document.getElementById('quote-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const f = this;
+
+      // Validate required fields
+      const required = ['place_type', 'size', 'clean_type', 'condition', 'location', 'date'];
+      let valid = true;
+      required.forEach(name => {
+        const el = f.querySelector('[name="' + name + '"]');
+        if (!el || !el.value.trim()) {
+          el && (el.style.borderColor = '#d1364a');
+          valid = false;
+        } else {
+          el.style.borderColor = '';
         }
       });
-    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+      if (!valid) {
+        f.querySelector('[style*="d1364a"]').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
 
-    document.querySelectorAll('.js-reveal').forEach(el => observer.observe(el));
+      const extras = [...f.querySelectorAll('input[name="extras"]:checked')]
+        .map(i => i.value).join(', ') || 'None';
+
+      const hasPhotos = fileInput.files.length > 0;
+
+      const msg =
+        'Hello Selva! I would like to request a cleaning estimate:\n\n' +
+        '🏠 Space type: ' + f.place_type.value + '\n' +
+        '📐 Size: ' + f.size.value + '\n' +
+        '🧹 Cleaning type: ' + f.clean_type.value + '\n' +
+        '📊 Condition: ' + f.condition.value + '\n' +
+        '📍 Location: ' + f.location.value + '\n' +
+        '📅 Preferred date: ' + f.date.value + '\n' +
+        '➕ Extras: ' + extras +
+        (hasPhotos ? '\n\n📷 I will send photos of the space in this chat.' : '');
+
+      window.open('https://wa.me/50600000000?text=' + encodeURIComponent(msg), '_blank');
+    });
+
+    // Min date = today for date input
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+    }
   </script>
 </body>
 </html>
