@@ -426,129 +426,6 @@
       line-height: 1.6;
     }
 
-    /* ── INCLUDED ────────────────────────────────────────── */
-    .included { background: var(--white); padding: 72px 0; }
-
-    .included-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .included-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 28px;
-    }
-
-    .included-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 18px;
-      background: var(--cream);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      font-size: .95rem;
-      color: var(--ink);
-      font-weight: 400;
-      transition: border-color .2s;
-    }
-    .included-item:hover { border-color: var(--green-light); }
-
-    .included-check {
-      width: 28px; height: 28px;
-      background: var(--green-pale);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .included-check svg {
-      width: 13px; height: 13px;
-      stroke: var(--green-dark);
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .included-cta {
-      margin-top: 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .included-aside {
-      background: var(--green-pale);
-      border-radius: var(--radius-lg);
-      padding: 44px 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .aside-title {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--green-dark);
-      line-height: 1.2;
-    }
-
-    .price-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 22px 24px;
-      box-shadow: var(--shadow-sm);
-    }
-    .price-from {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin-bottom: 6px;
-    }
-    .price-amount {
-      font-family: var(--serif);
-      font-size: 2.2rem;
-      font-weight: 400;
-      color: var(--green-dark);
-      line-height: 1;
-    }
-    .price-note {
-      font-size: .8rem;
-      color: var(--ink-light);
-      margin-top: 6px;
-      line-height: 1.5;
-    }
-
-    .aside-bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .aside-bullets li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .9rem;
-      color: var(--ink);
-    }
-    .aside-bullets li::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--green-mid);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
     /* ── TRUST ───────────────────────────────────────────── */
     .trust { background: var(--green-dark); padding: 72px 0; position: relative; overflow: hidden; }
     .trust::before {
@@ -966,8 +843,6 @@
     /* ── Tablet (≤ 960px) ── */
     @media (max-width: 960px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
-      .included-layout { grid-template-columns: 1fr; }
-      .included-aside { order: -1; }
       .trust-layout { grid-template-columns: 1fr; }
       .quote-layout { grid-template-columns: 1fr; }
       .quote-sidebar { position: static; }
@@ -979,13 +854,13 @@
       /* Prevent horizontal scroll */
       html, body { overflow-x: hidden; max-width: 100%; }
 
-      /* Reduce nav height so logo has room */
-      :root { --nav-h: 64px; }
+      /* Increase nav height to fit larger mobile logo */
+      :root { --nav-h: 88px; }
       .container { padding: 0 18px; }
 
       /* Nav */
       .site-nav { height: var(--nav-h); }
-      .nav-logo img { height: 50px; }
+      .nav-logo img { height: 100px; }
       .nav-cta {
         min-height: 44px;
         padding: 10px 16px;
@@ -1027,7 +902,6 @@
 
       /* Section padding */
       .services { padding: 52px 0; }
-      .included { padding: 52px 0; }
       .trust    { padding: 52px 0; }
       .quote    { padding: 52px 0 100px; } /* extra bottom so WA FAB doesn't cover submit */
       footer    { padding: 40px 0; }
@@ -1040,18 +914,18 @@
       /* Disable CSS hover on touch, rely on .flipped class toggled by JS */
       .svc-card:hover .svc-card-inner  { transform: none; }
       .svc-card.flipped .svc-card-inner { transform: rotateY(180deg); }
-
-      /* What's Included */
-      .included-aside { padding: 28px 22px; }
-      .included-cta {
-        align-items: stretch;
-        gap: 12px;
-      }
-      .included-cta .btn {
-        width: 100%;
-        min-height: 50px;
-        font-size: 15px;
-        justify-content: center;
+      /* "Tap to see details" hint — visible on mobile front face only */
+      .svc-front::after {
+        content: 'Tap to see details';
+        display: block;
+        margin-top: auto;
+        padding-top: 14px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: var(--green-mid);
+        opacity: .7;
       }
 
       /* Trust / Why Selva */
@@ -1112,11 +986,10 @@
     /* ── Small phones (≤ 390px — iPhone SE / 14) ── */
     @media (max-width: 390px) {
       .container { padding: 0 16px; }
-      .nav-logo img { height: 44px; }
+      .nav-logo img { height: 88px; }
       .hero h1 { font-size: 1.85rem; }
       .display { font-size: 1.65rem; }
       .hero-actions .btn,
-      .included-cta .btn,
       .trust-aside .btn,
       .form-submit-row .btn { font-size: 14px; }
       .svc-card,
@@ -1321,61 +1194,6 @@
 
       <div class="services-note">
         <strong>Need a custom estimate?</strong> Large homes, rentals, or spaces in special condition are quoted individually after a quick evaluation. <a href="#quote" style="color:var(--green-dark);font-weight:500;">Request a free estimate →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WHAT'S INCLUDED ───────────────────────────────────────── -->
-  <section class="included" id="included">
-    <div class="container">
-      <div class="included-layout">
-
-        <div class="included-content">
-          <span class="eyebrow">What's included</span>
-          <h2 class="display">Everything your<br><em>space needs.</em></h2>
-          <ul class="included-list" role="list">
-            <li class="included-item">
-              <span class="included-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Kitchen cleaning
-            </li>
-            <li class="included-item">
-              <span class="included-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Bathroom cleaning
-            </li>
-            <li class="included-item">
-              <span class="included-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Floors &amp; surfaces
-            </li>
-            <li class="included-item">
-              <span class="included-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Dusting &amp; general cleaning
-            </li>
-          </ul>
-          <div class="included-cta">
-            <a href="#quote" class="btn btn-primary">
-              Get a Quote
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="included-aside">
-          <div class="aside-title">Starting<br><em style="font-style:italic;color:var(--green-dark);">from ₡25,000</em></div>
-
-          <div class="price-card">
-            <div class="price-from">Estimate starting at</div>
-            <div class="price-amount">₡25,000</div>
-            <div class="price-note">Price varies depending on size,<br>type of space, and current condition.</div>
-          </div>
-
-          <ul class="aside-bullets">
-            <li>Free, no-commitment estimate</li>
-            <li>Eco-friendly products always included</li>
-            <li>Flexible timing and frequency</li>
-            <li>Oven, fridge, windows as extras</li>
-          </ul>
-        </div>
-
       </div>
     </div>
   </section>
@@ -1630,7 +1448,6 @@
       <p class="footer-copy">© 2025 Selva Cleaning Services · Nosara, Costa Rica</p>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="#services">Services</a>
-        <a href="#included">Included</a>
         <a href="#trust">About</a>
         <a href="#quote">Get a Quote</a>
       </nav>
@@ -1722,16 +1539,21 @@
       window.open('https://wa.me/50600000000?text=' + encodeURIComponent(msg), '_blank');
     });
 
-    // Mobile tap-to-flip for service cards (touch devices have no hover)
-    if (window.matchMedia('(hover: none)').matches) {
-      document.querySelectorAll('.svc-card').forEach(card => {
-        card.addEventListener('click', e => {
-          // allow the CTA link to work normally
-          if (e.target.closest('.svc-back-cta')) return;
-          card.classList.toggle('flipped');
-        });
+    // Tap-to-flip for service cards — always attach so all touch devices work
+    document.querySelectorAll('.svc-card').forEach(card => {
+      card.addEventListener('click', e => {
+        // allow the CTA link to work normally
+        if (e.target.closest('.svc-back-cta')) return;
+        card.classList.toggle('flipped');
       });
-    }
+      // On hover-capable devices (desktop) clear the class when mouse leaves,
+      // so the CSS :hover transition takes back over cleanly
+      card.addEventListener('mouseleave', () => {
+        if (window.matchMedia('(hover: hover)').matches) {
+          card.classList.remove('flipped');
+        }
+      });
+    });
 
     // Min date = today for date input
     const dateInput = document.getElementById('date');
