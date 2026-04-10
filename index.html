@@ -280,14 +280,52 @@
       margin-top: 8px;
     }
 
+    /* ── flip card wrapper ── */
     .svc-card {
-      background: var(--white);
+      perspective: 1000px;
+      min-height: 240px;
+      cursor: default;
+    }
+
+    .svc-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      transform-style: preserve-3d;
+      transition: transform .55s cubic-bezier(.4,0,.2,1);
+      border-radius: var(--radius);
+    }
+    .svc-card:hover .svc-card-inner { transform: rotateY(180deg); }
+
+    /* shared face styles */
+    .svc-front,
+    .svc-back {
+      position: absolute;
+      inset: 0;
       border-radius: var(--radius);
       padding: 26px 22px 22px;
-      border: 1px solid var(--border);
-      transition: box-shadow .2s, transform .2s;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
-    .svc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+    /* front */
+    .svc-front {
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* back */
+    .svc-back {
+      background: #284010;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
 
     .svc-icon {
       width: 42px; height: 42px;
@@ -295,6 +333,7 @@
       border-radius: 9px;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 16px;
+      flex-shrink: 0;
     }
     .svc-icon svg {
       width: 20px; height: 20px;
@@ -305,7 +344,7 @@
       stroke-linejoin: round;
     }
 
-    .svc-card h3 {
+    .svc-front h3 {
       font-family: var(--serif);
       font-size: 1.2rem;
       font-weight: 400;
@@ -313,11 +352,67 @@
       margin-bottom: 8px;
       line-height: 1.25;
     }
-    .svc-card p {
+    .svc-front p {
       font-size: .875rem;
       color: var(--ink-light);
       line-height: 1.68;
       font-weight: 300;
+    }
+
+    /* back content */
+    .svc-back-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 8px;
+    }
+    .svc-back ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      flex: 1;
+    }
+    .svc-back ul li {
+      font-size: .82rem;
+      color: rgba(255,255,255,.82);
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .svc-back ul li::before {
+      content: '·';
+      color: var(--green-light);
+      font-size: 1.1rem;
+      line-height: 1.3;
+      flex-shrink: 0;
+    }
+    .svc-back-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      padding: 9px 16px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 5px;
+      color: var(--white);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .2px;
+      align-self: flex-start;
+      transition: background .18s;
+      text-decoration: none;
+    }
+    .svc-back-cta:hover { background: rgba(255,255,255,.22); }
+
+    /* mobile: touch-tap to flip via .flipped class toggled by JS */
+    @media (hover: none) {
+      .svc-card.flipped .svc-card-inner { transform: rotateY(180deg); }
+      .svc-card:hover .svc-card-inner   { transform: none; }
     }
 
     .services-note {
@@ -958,44 +1053,129 @@
 
       <div class="services-grid">
 
+        <!-- Card 1 -->
         <div class="svc-card">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+          <div class="svc-card-inner">
+            <div class="svc-front">
+              <div class="svc-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+              </div>
+              <h3>Regular Home Cleaning</h3>
+              <p>Regular cleaning to keep your home fresh, clean, and comfortable.</p>
+            </div>
+            <div class="svc-back">
+              <div>
+                <div class="svc-back-label">Includes</div>
+                <ul>
+                  <li>Kitchen cleaning (surfaces, sink, stove exterior)</li>
+                  <li>Bathroom cleaning (toilet, shower, mirrors)</li>
+                  <li>Floors (vacuum &amp; mop)</li>
+                  <li>Dusting (furniture, shelves)</li>
+                </ul>
+              </div>
+              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+            </div>
           </div>
-          <h3>Regular Home Cleaning</h3>
-          <p>Weekly, biweekly, or monthly. We keep your home consistently fresh so you never have to think about it.</p>
         </div>
 
+        <!-- Card 2 -->
         <div class="svc-card">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
+          <div class="svc-card-inner">
+            <div class="svc-front">
+              <div class="svc-icon">
+                <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
+              </div>
+              <h3>Airbnb &amp; Vacation Rental</h3>
+              <p>Fast, reliable cleaning to keep your property guest-ready and maintain top reviews.</p>
+            </div>
+            <div class="svc-back">
+              <div>
+                <div class="svc-back-label">Includes</div>
+                <ul>
+                  <li>Full reset between guests</li>
+                  <li>Kitchen &amp; bathroom cleaning</li>
+                  <li>Trash removal</li>
+                  <li>Surface sanitizing</li>
+                </ul>
+              </div>
+              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+            </div>
           </div>
-          <h3>Airbnb &amp; Vacation Rental</h3>
-          <p>Fast, thorough, and guest-ready. We work with your checkout times to keep your reviews at five stars.</p>
         </div>
 
+        <!-- Card 3 -->
         <div class="svc-card">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          <div class="svc-card-inner">
+            <div class="svc-front">
+              <div class="svc-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+              </div>
+              <h3>Deep Cleaning</h3>
+              <p>Detailed cleaning for buildup, hard-to-reach areas, and full space resets.</p>
+            </div>
+            <div class="svc-back">
+              <div>
+                <div class="svc-back-label">Includes</div>
+                <ul>
+                  <li>Grease &amp; buildup removal</li>
+                  <li>Deep bathroom sanitation</li>
+                  <li>Baseboards &amp; corners</li>
+                  <li>Detailed surface cleaning</li>
+                </ul>
+              </div>
+              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+            </div>
           </div>
-          <h3>Deep Cleaning</h3>
-          <p>Moving in, moving out, or just due for a reset. Every corner, every surface — done right.</p>
         </div>
 
+        <!-- Card 4 -->
         <div class="svc-card">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          <div class="svc-card-inner">
+            <div class="svc-front">
+              <div class="svc-icon">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+              </div>
+              <h3>Office &amp; Commercial</h3>
+              <p>Professional cleaning for workspaces with flexible scheduling.</p>
+            </div>
+            <div class="svc-back">
+              <div>
+                <div class="svc-back-label">Includes</div>
+                <ul>
+                  <li>Workspaces &amp; desks</li>
+                  <li>Floors (vacuum &amp; mop)</li>
+                  <li>Restrooms</li>
+                  <li>Common areas</li>
+                </ul>
+              </div>
+              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+            </div>
           </div>
-          <h3>Office &amp; Commercial</h3>
-          <p>A clean workspace is a productive one. Flexible scheduling around your business hours.</p>
         </div>
 
+        <!-- Card 5 -->
         <div class="svc-card">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          <div class="svc-card-inner">
+            <div class="svc-front">
+              <div class="svc-icon">
+                <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </div>
+              <h3>Add-On Services</h3>
+              <p>Customize your cleaning with additional services based on your needs.</p>
+            </div>
+            <div class="svc-back">
+              <div>
+                <div class="svc-back-label">Optional extras</div>
+                <ul>
+                  <li>Oven cleaning</li>
+                  <li>Fridge cleaning</li>
+                  <li>Interior windows</li>
+                  <li>Deep kitchen cleaning</li>
+                </ul>
+              </div>
+              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+            </div>
           </div>
-          <h3>Specific Services</h3>
-          <p>Only need one room or one area? We adapt to exactly what you need — no paying for what you don't.</p>
         </div>
 
       </div>
@@ -1402,6 +1582,17 @@
 
       window.open('https://wa.me/50600000000?text=' + encodeURIComponent(msg), '_blank');
     });
+
+    // Mobile tap-to-flip for service cards (touch devices have no hover)
+    if (window.matchMedia('(hover: none)').matches) {
+      document.querySelectorAll('.svc-card').forEach(card => {
+        card.addEventListener('click', e => {
+          // allow the CTA link to work normally
+          if (e.target.closest('.svc-back-cta')) return;
+          card.classList.toggle('flipped');
+        });
+      });
+    }
 
     // Min date = today for date input
     const dateInput = document.getElementById('date');
