@@ -13,3 +13,12 @@ After completing each task, always:
 1. `git add` the relevant files
 2. `git commit` with a clear, descriptive message
 3. `git push origin master` to push to GitHub
+
+## index.html Rule
+
+After **every** change to `index.html`, immediately:
+1. `git add index.html`
+2. `git commit` with a descriptive message summarizing what changed
+3. `git push origin master`
+
+Never leave `index.html` with uncommitted changes. There should be no exceptions to this rule.
