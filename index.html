@@ -962,6 +962,8 @@
     .wa-fab svg { width: 26px; height: 26px; fill: #fff; }
 
     /* ── RESPONSIVE ──────────────────────────────────────── */
+
+    /* ── Tablet (≤ 960px) ── */
     @media (max-width: 960px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
       .included-layout { grid-template-columns: 1fr; }
@@ -972,16 +974,153 @@
       .sidebar-card:last-child { display: none; }
     }
 
+    /* ── Mobile (≤ 640px) ── */
     @media (max-width: 640px) {
-      .services { padding: 56px 0; }
-      .included, .trust, .quote, footer { padding: 56px 0; }
+      /* Prevent horizontal scroll */
+      html, body { overflow-x: hidden; max-width: 100%; }
+
+      /* Reduce nav height so logo has room */
+      :root { --nav-h: 64px; }
+      .container { padding: 0 18px; }
+
+      /* Nav */
+      .site-nav { height: var(--nav-h); }
+      .nav-logo img { height: 50px; }
+      .nav-cta {
+        min-height: 44px;
+        padding: 10px 16px;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      /* Hero */
+      .hero { min-height: auto; }
+      .hero-content {
+        padding: calc(var(--nav-h) + 28px) 0 80px;
+        max-width: 100%;
+      }
+      .hero h1 {
+        font-size: clamp(1.9rem, 8.5vw, 2.4rem);
+        margin-bottom: 14px;
+      }
+      .hero-sub {
+        font-size: .92rem;
+        max-width: 100%;
+        margin-bottom: 26px;
+      }
+      /* Stack CTA buttons vertically, full width */
+      .hero-actions {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        min-height: 50px;
+        font-size: 15px;
+        justify-content: center;
+      }
+      .hero-microcopy { margin-top: 12px; }
+
+      /* Display headings scale down */
+      .display { font-size: clamp(1.7rem, 6.5vw, 2.2rem); }
+
+      /* Section padding */
+      .services { padding: 52px 0; }
+      .included { padding: 52px 0; }
+      .trust    { padding: 52px 0; }
+      .quote    { padding: 52px 0 100px; } /* extra bottom so WA FAB doesn't cover submit */
+      footer    { padding: 40px 0; }
+      .section-head { margin-bottom: 28px; }
+
+      /* Service cards: single column, tap-to-flip */
       .services-grid { grid-template-columns: 1fr; }
+      .svc-card       { min-height: 300px; }
+      .svc-card-inner { min-height: 300px; }
+      /* Disable CSS hover on touch, rely on .flipped class toggled by JS */
+      .svc-card:hover .svc-card-inner  { transform: none; }
+      .svc-card.flipped .svc-card-inner { transform: rotateY(180deg); }
+
+      /* What's Included */
+      .included-aside { padding: 28px 22px; }
+      .included-cta {
+        align-items: stretch;
+        gap: 12px;
+      }
+      .included-cta .btn {
+        width: 100%;
+        min-height: 50px;
+        font-size: 15px;
+        justify-content: center;
+      }
+
+      /* Trust / Why Selva */
+      .trust-layout { margin-top: 32px; gap: 28px; }
+      .trust-aside { padding: 26px 22px; }
+      .trust-aside .btn {
+        display: flex;
+        width: 100%;
+        min-height: 50px;
+        justify-content: center;
+      }
+
+      /* Quote / Contact form */
+      .quote-form { padding: 24px 18px; }
       .form-grid { grid-template-columns: 1fr; }
-      .hero-content { padding: 56px 0 72px; }
-      .hero h1 { font-size: 2.4rem; }
-      .footer-row { flex-direction: column; text-align: center; }
-      .footer-nav { justify-content: center; }
-      .quote-form { padding: 26px 20px; }
+      /* font-size 16px prevents iOS auto-zoom on focus */
+      .form-control       { min-height: 48px; font-size: 16px; }
+      select.form-control { min-height: 48px; font-size: 16px; }
+      .form-checkboxes { gap: 8px; }
+      .checkbox-label {
+        padding: 11px 14px;
+        min-height: 44px;
+        font-size: 14px;
+      }
+      .upload-area { padding: 24px 16px; }
+      .form-submit-row .btn {
+        width: 100%;
+        min-height: 54px;
+        font-size: 15px;
+        justify-content: center;
+      }
+
+      /* Sidebar (How it works) */
+      .sidebar-card { padding: 24px 20px; }
+
+      /* Footer */
+      .footer-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+      }
+      .footer-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      /* WA FAB — slightly repositioned, won't cover content due to quote padding */
+      .wa-fab {
+        bottom: 18px;
+        right: 18px;
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    /* ── Small phones (≤ 390px — iPhone SE / 14) ── */
+    @media (max-width: 390px) {
+      .container { padding: 0 16px; }
+      .nav-logo img { height: 44px; }
+      .hero h1 { font-size: 1.85rem; }
+      .display { font-size: 1.65rem; }
+      .hero-actions .btn,
+      .included-cta .btn,
+      .trust-aside .btn,
+      .form-submit-row .btn { font-size: 14px; }
+      .svc-card,
+      .svc-card-inner { min-height: 310px; }
     }
   </style>
 </head>
