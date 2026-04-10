@@ -732,6 +732,37 @@
       line-height: 1.55;
     }
 
+    .form-email-alt {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 4px;
+    }
+    .form-email-alt span {
+      font-size: 12.5px;
+      color: var(--ink-light);
+    }
+    .btn-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 14px;
+      border: 1.5px solid rgba(45,90,27,.30);
+      border-radius: 6px;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--green-dark);
+      background: transparent;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .btn-email:hover { background: var(--green-pale); border-color: var(--green-mid); }
+
     .quote-sidebar {
       position: sticky;
       top: calc(var(--nav-h) + 20px);
@@ -1423,6 +1454,12 @@
             <p class="form-disclaimer">
               Submitting opens WhatsApp with your details pre-filled. Free and no commitment.
             </p>
+            <div class="form-email-alt">
+              <span>Don't have WhatsApp?</span>
+              <button type="button" class="btn-email" id="btn-send-email">
+                Send via Email →
+              </button>
+            </div>
           </div>
         </form>
 
@@ -1552,6 +1589,29 @@
         (hasPhotos ? '\n\n📷 I will send photos of the space in this chat.' : '');
 
       window.open('https://wa.me/50600000000?text=' + encodeURIComponent(msg), '_blank');
+    });
+
+    // Email fallback — reads the same form fields and opens mailto:
+    document.getElementById('btn-send-email').addEventListener('click', function() {
+      const f = document.getElementById('quote-form');
+      const extras = [...f.querySelectorAll('input[name="extras"]:checked')]
+        .map(i => i.value).join(', ') || 'None';
+
+      const body =
+        'Hello Selva! I would like to request a cleaning estimate:\n\n' +
+        'Space type: ' + (f.place_type.value || '[please fill in]') + '\n' +
+        'Size: ' + (f.size.value || '[please fill in]') + '\n' +
+        'Cleaning type: ' + (f.clean_type.value || '[please fill in]') + '\n' +
+        'Condition: ' + (f.condition.value || '[please fill in]') + '\n' +
+        'Location: ' + (f.location.value || '[please fill in]') + '\n' +
+        'Preferred date: ' + (f.date.value || '[please fill in]') + '\n' +
+        'Extras: ' + extras + '\n\n' +
+        'Please send me a quote at your earliest convenience. Thank you!';
+
+      window.location.href =
+        'mailto:hello@selvaclean.com' +
+        '?subject=' + encodeURIComponent('Quote Request — Selva Cleaning Services') +
+        '&body=' + encodeURIComponent(body);
     });
 
     // Tap-to-flip for service cards — always attach so all touch devices work
