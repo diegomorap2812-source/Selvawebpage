@@ -986,7 +986,9 @@
       }
 
       /* Quote / Contact form */
-      .quote-form { padding: 24px 18px; }
+      .quote-layout { width: 100%; }
+      .quote-price-banner { max-width: 100%; white-space: normal; text-align: center; }
+      .quote-form { padding: 24px 16px; width: 100%; min-width: 0; box-sizing: border-box; }
       .form-grid { grid-template-columns: 1fr; }
       /* font-size 16px prevents iOS auto-zoom on focus */
       .form-control       { min-height: 48px; font-size: 16px; }
@@ -1421,6 +1423,8 @@
                   Windows
                 </label>
               </div>
+              <label class="form-label" for="extras_other" style="margin-top:10px;">Other extras</label>
+              <input type="text" class="form-control" id="extras_other" name="extras_other" placeholder="e.g. deep kitchen cleaning, balcony, laundry..." />
             </div>
 
             <!-- Image upload -->
@@ -1577,6 +1581,7 @@
 
       const extras = [...f.querySelectorAll('input[name="extras"]:checked')]
         .map(i => i.value).join(', ') || 'None';
+      const extrasOther = (f.extras_other.value || '').trim();
 
       const hasPhotos = fileInput.files.length > 0;
 
@@ -1589,6 +1594,7 @@
         '📍 Location: ' + f.location.value + '\n' +
         '📅 Preferred date: ' + f.date.value + '\n' +
         '➕ Extras: ' + extras +
+        (extrasOther ? '\n➕ Other extras: ' + extrasOther : '') +
         (hasPhotos ? '\n\n📷 I will send photos of the space in this chat.' : '');
 
       window.open('https://wa.me/50600000000?text=' + encodeURIComponent(msg), '_blank');
@@ -1599,6 +1605,7 @@
       const f = document.getElementById('quote-form');
       const extras = [...f.querySelectorAll('input[name="extras"]:checked')]
         .map(i => i.value).join(', ') || 'None';
+      const extrasOther = (f.extras_other.value || '').trim();
 
       const body =
         'Hello Selva! I would like to request a cleaning estimate:\n\n' +
@@ -1608,8 +1615,9 @@
         'Condition: ' + (f.condition.value || '[please fill in]') + '\n' +
         'Location: ' + (f.location.value || '[please fill in]') + '\n' +
         'Preferred date: ' + (f.date.value || '[please fill in]') + '\n' +
-        'Extras: ' + extras + '\n\n' +
-        'Please send me a quote at your earliest convenience. Thank you!';
+        'Extras: ' + extras + '\n' +
+        (extrasOther ? 'Other extras: ' + extrasOther + '\n' : '') +
+        '\nPlease send me a quote at your earliest convenience. Thank you!';
 
       window.location.href =
         'mailto:hello@selvaclean.com' +
