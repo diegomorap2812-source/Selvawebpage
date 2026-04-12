@@ -1044,6 +1044,56 @@
       .svc-card,
       .svc-card-inner { min-height: 310px; }
     }
+
+    /* ── LANGUAGE TOGGLE ─────────────────────────────────── */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,.13);
+      border: 1.5px solid rgba(255,255,255,.40);
+      border-radius: 6px;
+      padding: 2px;
+      backdrop-filter: blur(6px);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .9px;
+      color: rgba(255,255,255,.60);
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background .15s, color .15s;
+      font-family: var(--sans);
+      line-height: 1;
+    }
+    .lang-btn.active {
+      background: rgba(255,255,255,.25);
+      color: var(--white);
+    }
+    .site-nav.scrolled .lang-toggle {
+      background: var(--green-pale);
+      border-color: rgba(45,90,27,.20);
+    }
+    .site-nav.scrolled .lang-btn { color: var(--ink-light); }
+    .site-nav.scrolled .lang-btn.active {
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    /* ES tap hint override */
+    @media (max-width: 640px) {
+      [data-lang="es"] .svc-front::after { content: 'Toca para ver detalles'; }
+    }
   </style>
 </head>
 <body>
@@ -1054,7 +1104,13 @@
       <a href="#" class="nav-logo" aria-label="Selva Cleaning Services — home">
         <img src="logo@2x.png" alt="Selva Cleaning Services" />
       </a>
-      <a href="#quote" class="btn btn-primary nav-cta">Get a Quote</a>
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <a href="#quote" class="btn btn-primary nav-cta" data-en="Get a Quote" data-es="Cotización">Get a Quote</a>
+      </div>
     </div>
   </nav>
 
@@ -1070,14 +1126,14 @@
 
     <div class="container">
       <div class="hero-content">
-        <h1>
+        <h1 data-en="Cleaner spaces,<em>naturally cared for.</em>" data-es="Espacios más limpios,<em>cuidados naturalmente.</em>">
           Cleaner spaces,
           <em>naturally cared for.</em>
         </h1>
-        <p class="hero-sub">Professional cleaning services in Nosara using eco-friendly products safe for your home, pets, and environment.</p>
+        <p class="hero-sub" data-en="Professional cleaning services in Nosara using eco-friendly products safe for your home, pets, and environment." data-es="Servicios profesionales de limpieza en Nosara con productos ecológicos, seguros para tu hogar, mascotas y el medio ambiente.">Professional cleaning services in Nosara using eco-friendly products safe for your home, pets, and environment.</p>
         <div class="hero-actions">
           <a href="#quote" class="btn btn-primary">
-            Get a Quote
+            <span data-en="Get a Quote" data-es="Cotización">Get a Quote</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <a
@@ -1090,7 +1146,7 @@
             WhatsApp
           </a>
         </div>
-        <p class="hero-microcopy">Get a fast estimate in minutes</p>
+        <p class="hero-microcopy" data-en="Get a fast estimate in minutes" data-es="Obtén una estimación rápida en minutos">Get a fast estimate in minutes</p>
       </div>
     </div>
 
@@ -1105,9 +1161,9 @@
   <section class="services" id="services">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Services</span>
-        <h2 class="display">Our <em>Services</em></h2>
-        <p class="body-copy services-intro">
+        <span class="eyebrow" data-en="Services" data-es="Servicios">Services</span>
+        <h2 class="display" data-en="Our <em>Services</em>" data-es="Nuestros <em>Servicios</em>">Our <em>Services</em></h2>
+        <p class="body-copy services-intro" data-en="We provide cleaning services for homes and businesses. Large or complex spaces are quoted after evaluation." data-es="Ofrecemos servicios de limpieza para hogares y negocios. Los espacios grandes o complejos se cotizan tras una evaluación.">
           We provide cleaning services for homes and businesses. Large or complex spaces are quoted after evaluation.
         </p>
       </div>
@@ -1121,20 +1177,20 @@
               <div class="svc-icon">
                 <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
               </div>
-              <h3>Regular Home Cleaning</h3>
-              <p>Regular cleaning to keep your home fresh, clean, and comfortable.</p>
+              <h3 data-en="Regular Home Cleaning" data-es="Limpieza Regular del Hogar">Regular Home Cleaning</h3>
+              <p data-en="Regular cleaning to keep your home fresh, clean, and comfortable." data-es="Limpieza regular para mantener tu hogar fresco, limpio y cómodo.">Regular cleaning to keep your home fresh, clean, and comfortable.</p>
             </div>
             <div class="svc-back">
               <div>
-                <div class="svc-back-label">Includes</div>
+                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
                 <ul>
-                  <li>Kitchen cleaning (surfaces, sink, stove exterior)</li>
-                  <li>Bathroom cleaning (toilet, shower, mirrors)</li>
-                  <li>Floors (vacuum &amp; mop)</li>
-                  <li>Dusting (furniture, shelves)</li>
+                  <li data-en="Kitchen cleaning (surfaces, sink, stove exterior)" data-es="Limpieza de cocina (superficies, fregadero, exterior de estufa)">Kitchen cleaning (surfaces, sink, stove exterior)</li>
+                  <li data-en="Bathroom cleaning (toilet, shower, mirrors)" data-es="Limpieza de baño (inodoro, ducha, espejos)">Bathroom cleaning (toilet, shower, mirrors)</li>
+                  <li data-en="Floors (vacuum &amp; mop)" data-es="Pisos (aspirado y trapeado)">Floors (vacuum &amp; mop)</li>
+                  <li data-en="Dusting (furniture, shelves)" data-es="Desempolvado (muebles, estantes)">Dusting (furniture, shelves)</li>
                 </ul>
               </div>
-              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+              <a href="#quote" class="svc-back-cta" data-en="Get a Quote →" data-es="Cotización →">Get a Quote →</a>
             </div>
           </div>
         </div>
@@ -1146,20 +1202,20 @@
               <div class="svc-icon">
                 <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
               </div>
-              <h3>Airbnb &amp; Vacation Rental</h3>
-              <p>Fast, reliable cleaning to keep your property guest-ready and maintain top reviews.</p>
+              <h3 data-en="Airbnb &amp; Vacation Rental" data-es="Airbnb y Alquiler Vacacional">Airbnb &amp; Vacation Rental</h3>
+              <p data-en="Fast, reliable cleaning to keep your property guest-ready and maintain top reviews." data-es="Limpieza rápida y confiable para mantener tu propiedad lista para huéspedes y con excelentes reseñas.">Fast, reliable cleaning to keep your property guest-ready and maintain top reviews.</p>
             </div>
             <div class="svc-back">
               <div>
-                <div class="svc-back-label">Includes</div>
+                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
                 <ul>
-                  <li>Full reset between guests</li>
-                  <li>Kitchen &amp; bathroom cleaning</li>
-                  <li>Trash removal</li>
-                  <li>Surface sanitizing</li>
+                  <li data-en="Full reset between guests" data-es="Reseteo completo entre huéspedes">Full reset between guests</li>
+                  <li data-en="Kitchen &amp; bathroom cleaning" data-es="Limpieza de cocina y baño">Kitchen &amp; bathroom cleaning</li>
+                  <li data-en="Trash removal" data-es="Retiro de basura">Trash removal</li>
+                  <li data-en="Surface sanitizing" data-es="Sanitización de superficies">Surface sanitizing</li>
                 </ul>
               </div>
-              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+              <a href="#quote" class="svc-back-cta" data-en="Get a Quote →" data-es="Cotización →">Get a Quote →</a>
             </div>
           </div>
         </div>
@@ -1171,20 +1227,20 @@
               <div class="svc-icon">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
               </div>
-              <h3>Deep Cleaning</h3>
-              <p>Detailed cleaning for buildup, hard-to-reach areas, and full space resets.</p>
+              <h3 data-en="Deep Cleaning" data-es="Limpieza Profunda">Deep Cleaning</h3>
+              <p data-en="Detailed cleaning for buildup, hard-to-reach areas, and full space resets." data-es="Limpieza detallada para suciedad acumulada, áreas de difícil acceso y resets completos del espacio.">Detailed cleaning for buildup, hard-to-reach areas, and full space resets.</p>
             </div>
             <div class="svc-back">
               <div>
-                <div class="svc-back-label">Includes</div>
+                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
                 <ul>
-                  <li>Grease &amp; buildup removal</li>
-                  <li>Deep bathroom sanitation</li>
-                  <li>Baseboards &amp; corners</li>
-                  <li>Detailed surface cleaning</li>
+                  <li data-en="Grease &amp; buildup removal" data-es="Eliminación de grasa y residuos acumulados">Grease &amp; buildup removal</li>
+                  <li data-en="Deep bathroom sanitation" data-es="Sanitización profunda de baños">Deep bathroom sanitation</li>
+                  <li data-en="Baseboards &amp; corners" data-es="Zócalos y rincones">Baseboards &amp; corners</li>
+                  <li data-en="Detailed surface cleaning" data-es="Limpieza detallada de superficies">Detailed surface cleaning</li>
                 </ul>
               </div>
-              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+              <a href="#quote" class="svc-back-cta" data-en="Get a Quote →" data-es="Cotización →">Get a Quote →</a>
             </div>
           </div>
         </div>
@@ -1196,20 +1252,20 @@
               <div class="svc-icon">
                 <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
               </div>
-              <h3>Office &amp; Commercial</h3>
-              <p>Professional cleaning for workspaces with flexible scheduling.</p>
+              <h3 data-en="Office &amp; Commercial" data-es="Oficina y Comercial">Office &amp; Commercial</h3>
+              <p data-en="Professional cleaning for workspaces with flexible scheduling." data-es="Limpieza profesional para espacios de trabajo con horarios flexibles.">Professional cleaning for workspaces with flexible scheduling.</p>
             </div>
             <div class="svc-back">
               <div>
-                <div class="svc-back-label">Includes</div>
+                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
                 <ul>
-                  <li>Workspaces &amp; desks</li>
-                  <li>Floors (vacuum &amp; mop)</li>
-                  <li>Restrooms</li>
-                  <li>Common areas</li>
+                  <li data-en="Workspaces &amp; desks" data-es="Escritorios y áreas de trabajo">Workspaces &amp; desks</li>
+                  <li data-en="Floors (vacuum &amp; mop)" data-es="Pisos (aspirado y trapeado)">Floors (vacuum &amp; mop)</li>
+                  <li data-en="Restrooms" data-es="Baños">Restrooms</li>
+                  <li data-en="Common areas" data-es="Áreas comunes">Common areas</li>
                 </ul>
               </div>
-              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+              <a href="#quote" class="svc-back-cta" data-en="Get a Quote →" data-es="Cotización →">Get a Quote →</a>
             </div>
           </div>
         </div>
@@ -1221,27 +1277,27 @@
               <div class="svc-icon">
                 <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
               </div>
-              <h3>Add-On Services</h3>
-              <p>Customize your cleaning with additional services based on your needs.</p>
+              <h3 data-en="Add-On Services" data-es="Servicios Adicionales">Add-On Services</h3>
+              <p data-en="Customize your cleaning with additional services based on your needs." data-es="Personaliza tu limpieza con servicios adicionales según tus necesidades.">Customize your cleaning with additional services based on your needs.</p>
             </div>
             <div class="svc-back">
               <div>
-                <div class="svc-back-label">Optional extras</div>
+                <div class="svc-back-label" data-en="Optional extras" data-es="Extras opcionales">Optional extras</div>
                 <ul>
-                  <li>Oven cleaning</li>
-                  <li>Fridge cleaning</li>
-                  <li>Interior windows</li>
-                  <li>Deep kitchen cleaning</li>
+                  <li data-en="Oven cleaning" data-es="Limpieza de horno">Oven cleaning</li>
+                  <li data-en="Fridge cleaning" data-es="Limpieza de nevera">Fridge cleaning</li>
+                  <li data-en="Interior windows" data-es="Ventanas interiores">Interior windows</li>
+                  <li data-en="Deep kitchen cleaning" data-es="Limpieza profunda de cocina">Deep kitchen cleaning</li>
                 </ul>
               </div>
-              <a href="#quote" class="svc-back-cta">Get a Quote →</a>
+              <a href="#quote" class="svc-back-cta" data-en="Get a Quote →" data-es="Cotización →">Get a Quote →</a>
             </div>
           </div>
         </div>
 
       </div>
 
-      <div class="services-note">
+      <div class="services-note" data-en="&lt;strong&gt;Need a custom estimate?&lt;/strong&gt; Large homes, rentals, or spaces in special condition are quoted individually after a quick evaluation. &lt;a href='#quote' style='color:var(--green-dark);font-weight:500;'&gt;Request a free estimate →&lt;/a&gt;" data-es="&lt;strong&gt;¿Necesitas una cotización especial?&lt;/strong&gt; Casas grandes, alquileres o espacios en condición especial se cotizan individualmente tras una breve evaluación. &lt;a href='#quote' style='color:var(--green-dark);font-weight:500;'&gt;Solicita una estimación gratuita →&lt;/a&gt;">
         <strong>Need a custom estimate?</strong> Large homes, rentals, or spaces in special condition are quoted individually after a quick evaluation. <a href="#quote" style="color:var(--green-dark);font-weight:500;">Request a free estimate →</a>
       </div>
     </div>
@@ -1250,8 +1306,8 @@
   <!-- ── TRUST ─────────────────────────────────────────────────── -->
   <section class="trust" id="trust">
     <div class="container trust-inner">
-      <span class="eyebrow">Why choose Selva</span>
-      <h2 class="display">Quality and care<br><em>in every job.</em></h2>
+      <span class="eyebrow" data-en="Why choose Selva" data-es="Por qué elegirnos">Why choose Selva</span>
+      <h2 class="display" data-en="Quality and care<br><em>in every job.</em>" data-es="Calidad y cuidado<br><em>en cada trabajo.</em>">Quality and care<br><em>in every job.</em></h2>
 
       <div class="trust-layout">
 
@@ -1261,45 +1317,45 @@
               <div class="trust-icon">
                 <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <span class="trust-bullet-label">Eco-friendly cleaning products — safe for the environment and your home</span>
+              <span class="trust-bullet-label" data-en="Eco-friendly cleaning products — safe for the environment and your home" data-es="Productos de limpieza ecológicos — seguros para el medio ambiente y tu hogar">Eco-friendly cleaning products — safe for the environment and your home</span>
             </li>
             <li class="trust-bullet">
               <div class="trust-icon">
                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
               </div>
-              <span class="trust-bullet-label">Safe for pets and families — no harsh chemicals, ever</span>
+              <span class="trust-bullet-label" data-en="Safe for pets and families — no harsh chemicals, ever" data-es="Seguros para mascotas y familias — sin químicos agresivos, nunca">Safe for pets and families — no harsh chemicals, ever</span>
             </li>
             <li class="trust-bullet">
               <div class="trust-icon">
                 <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </div>
-              <span class="trust-bullet-label">Attention to detail — we clean what others overlook</span>
+              <span class="trust-bullet-label" data-en="Attention to detail — we clean what others overlook" data-es="Atención al detalle — limpiamos lo que otros pasan por alto">Attention to detail — we clean what others overlook</span>
             </li>
             <li class="trust-bullet">
               <div class="trust-icon">
                 <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.1 5.6C.1 4.5.9 3.6 2 3.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 11a16 16 0 006.09 6.09l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
               </div>
-              <span class="trust-bullet-label">Fast response — we get back to you quickly and keep things simple</span>
+              <span class="trust-bullet-label" data-en="Fast response — we get back to you quickly and keep things simple" data-es="Respuesta rápida — te contactamos pronto y sin complicaciones">Fast response — we get back to you quickly and keep things simple</span>
             </li>
             <li class="trust-bullet">
               <div class="trust-icon">
                 <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
               </div>
-              <span class="trust-bullet-label">Personalized service — adapted to your space and your needs</span>
+              <span class="trust-bullet-label" data-en="Personalized service — adapted to your space and your needs" data-es="Servicio personalizado — adaptado a tu espacio y tus necesidades">Personalized service — adapted to your space and your needs</span>
             </li>
           </ul>
-          <p class="trust-note">We're a growing cleaning service focused on quality and care in every job.</p>
+          <p class="trust-note" data-en="We're a growing cleaning service focused on quality and care in every job." data-es="Somos un servicio de limpieza en crecimiento enfocado en calidad y cuidado en cada trabajo.">We're a growing cleaning service focused on quality and care in every job.</p>
         </div>
 
         <div class="trust-aside">
-          <div class="trust-aside-title">Ready for a<br><em>cleaner space?</em></div>
+          <div class="trust-aside-title" data-en="Ready for a<br><em>cleaner space?</em>" data-es="¿Listo para un<br><em>espacio más limpio?</em>">Ready for a<br><em>cleaner space?</em></div>
           <ul class="trust-aside-list">
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Free, no-obligation estimate</li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> We reply via WhatsApp</li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Locally rooted in Nosara</li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Background-checked team</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Free, no-obligation estimate" data-es="Estimación gratuita y sin compromiso">Free, no-obligation estimate</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="We reply via WhatsApp" data-es="Respondemos por WhatsApp">We reply via WhatsApp</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Locally rooted in Nosara" data-es="Con raíces locales en Nosara">Locally rooted in Nosara</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Background-checked team" data-es="Equipo con verificación de antecedentes">Background-checked team</span></li>
           </ul>
-          <a href="#quote" class="btn btn-primary" style="width:100%;justify-content:center;">
+          <a href="#quote" class="btn btn-primary" style="width:100%;justify-content:center;" data-en="Get a Quote" data-es="Cotización">
             Get a Quote
           </a>
         </div>
@@ -1312,12 +1368,12 @@
   <section class="quote" id="quote">
     <div class="container">
       <div class="quote-intro">
-        <span class="eyebrow">Get a quote</span>
-        <h2 class="display">Request your<br><em>free estimate.</em></h2>
-        <p class="body-copy">Fill out the form and we'll send you a quote via WhatsApp in minutes. No commitment required.</p>
+        <span class="eyebrow" data-en="Get a quote" data-es="Solicitar cotización">Get a quote</span>
+        <h2 class="display" data-en="Request your<br><em>free estimate.</em>" data-es="¿Listo para un<br><em>hogar más limpio?</em>">Request your<br><em>free estimate.</em></h2>
+        <p class="body-copy" data-en="Fill out the form and we'll send you a quote via WhatsApp in minutes. No commitment required." data-es="Completa el formulario y te enviaremos una cotización por WhatsApp en minutos. Sin compromiso.">Fill out the form and we'll send you a quote via WhatsApp in minutes. No commitment required.</p>
       </div>
 
-      <div class="quote-price-banner">Starting at ₡25,000 — price varies by size and condition</div>
+      <div class="quote-price-banner" data-en="Starting at ₡25,000 — price varies by size and condition" data-es="Desde ₡25,000 · el precio varía según tamaño y estado">Starting at ₡25,000 — price varies by size and condition</div>
 
       <div class="quote-layout">
 
@@ -1326,60 +1382,60 @@
 
             <!-- Type of place -->
             <div class="form-group">
-              <label class="form-label" for="place_type">
+              <label class="form-label" for="place_type" data-en="Type of space <span class='required'>*</span>" data-es="Tipo de espacio <span class='required'>*</span>">
                 Type of space <span class="required">*</span>
               </label>
               <select class="form-control" id="place_type" name="place_type" required>
-                <option value="" disabled selected>Select…</option>
-                <option value="Home">Home</option>
-                <option value="Airbnb / Vacation rental">Airbnb / Vacation rental</option>
-                <option value="Business / Office">Business / Office</option>
+                <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
+                <option value="Home" data-en="Home" data-es="Casa">Home</option>
+                <option value="Airbnb / Vacation rental" data-en="Airbnb / Vacation rental" data-es="Airbnb / Alquiler vacacional">Airbnb / Vacation rental</option>
+                <option value="Business / Office" data-en="Business / Office" data-es="Negocio / Oficina">Business / Office</option>
               </select>
             </div>
 
             <!-- Size -->
             <div class="form-group">
-              <label class="form-label" for="size">
+              <label class="form-label" for="size" data-en="Size <span class='required'>*</span>" data-es="Tamaño <span class='required'>*</span>">
                 Size <span class="required">*</span>
               </label>
               <select class="form-control" id="size" name="size" required>
-                <option value="" disabled selected>Select…</option>
-                <option value="1 room / Studio">1 room / Studio</option>
-                <option value="2–3 rooms">2–3 rooms</option>
-                <option value="4+ rooms">4+ rooms</option>
+                <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
+                <option value="1 room / Studio" data-en="1 room / Studio" data-es="1 habitación / Estudio">1 room / Studio</option>
+                <option value="2–3 rooms" data-en="2–3 rooms" data-es="2–3 habitaciones">2–3 rooms</option>
+                <option value="4+ rooms" data-en="4+ rooms" data-es="4+ habitaciones">4+ rooms</option>
               </select>
             </div>
 
             <!-- Cleaning type -->
             <div class="form-group">
-              <label class="form-label" for="clean_type">
+              <label class="form-label" for="clean_type" data-en="Type of cleaning <span class='required'>*</span>" data-es="Tipo de limpieza <span class='required'>*</span>">
                 Type of cleaning <span class="required">*</span>
               </label>
               <select class="form-control" id="clean_type" name="clean_type" required>
-                <option value="" disabled selected>Select…</option>
-                <option value="Regular cleaning">Regular cleaning</option>
-                <option value="Deep cleaning">Deep cleaning</option>
-                <option value="Move-in / Move-out">Move-in / Move-out</option>
-                <option value="Post-construction">Post-construction</option>
+                <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
+                <option value="Regular cleaning" data-en="Regular cleaning" data-es="Limpieza regular">Regular cleaning</option>
+                <option value="Deep cleaning" data-en="Deep cleaning" data-es="Limpieza profunda">Deep cleaning</option>
+                <option value="Move-in / Move-out" data-en="Move-in / Move-out" data-es="Entrada / Salida">Move-in / Move-out</option>
+                <option value="Post-construction" data-en="Post-construction" data-es="Post-construcción">Post-construction</option>
               </select>
             </div>
 
             <!-- Condition -->
             <div class="form-group">
-              <label class="form-label" for="condition">
+              <label class="form-label" for="condition" data-en="Current condition <span class='required'>*</span>" data-es="Estado actual <span class='required'>*</span>">
                 Current condition <span class="required">*</span>
               </label>
               <select class="form-control" id="condition" name="condition" required>
-                <option value="" disabled selected>Select…</option>
-                <option value="Light (routine upkeep)">Light — routine upkeep</option>
-                <option value="Medium (a few weeks since last clean)">Medium — a few weeks since last clean</option>
-                <option value="Heavy (needs thorough attention)">Heavy — needs thorough attention</option>
+                <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
+                <option value="Light (routine upkeep)" data-en="Light — routine upkeep" data-es="Leve — mantenimiento rutinario">Light — routine upkeep</option>
+                <option value="Medium (a few weeks since last clean)" data-en="Medium — a few weeks since last clean" data-es="Medio — varias semanas sin limpiar">Medium — a few weeks since last clean</option>
+                <option value="Heavy (needs thorough attention)" data-en="Heavy — needs thorough attention" data-es="Intenso — necesita atención detallada">Heavy — needs thorough attention</option>
               </select>
             </div>
 
             <!-- Location -->
             <div class="form-group">
-              <label class="form-label" for="location">
+              <label class="form-label" for="location" data-en="Location / Area <span class='required'>*</span>" data-es="Ubicación / Zona <span class='required'>*</span>">
                 Location / Area <span class="required">*</span>
               </label>
               <input
@@ -1388,13 +1444,15 @@
                 id="location"
                 name="location"
                 placeholder="e.g. Playa Guiones, Nosara"
+                data-en-placeholder="e.g. Playa Guiones, Nosara"
+                data-es-placeholder="ej. Playa Guiones, Nosara"
                 required
               />
             </div>
 
             <!-- Date -->
             <div class="form-group">
-              <label class="form-label" for="date">
+              <label class="form-label" for="date" data-en="Preferred date <span class='required'>*</span>" data-es="Fecha preferida <span class='required'>*</span>">
                 Preferred date <span class="required">*</span>
               </label>
               <input
@@ -1408,28 +1466,28 @@
 
             <!-- Extras -->
             <div class="form-group form-full">
-              <span class="form-label">Extras (optional)</span>
+              <span class="form-label" data-en="Extras (optional)" data-es="Extras (opcional)">Extras (optional)</span>
               <div class="form-checkboxes">
                 <label class="checkbox-label">
                   <input type="checkbox" name="extras" value="Oven" />
-                  Oven
+                  <span data-en="Oven" data-es="Horno">Oven</span>
                 </label>
                 <label class="checkbox-label">
                   <input type="checkbox" name="extras" value="Fridge" />
-                  Fridge
+                  <span data-en="Fridge" data-es="Nevera">Fridge</span>
                 </label>
                 <label class="checkbox-label">
                   <input type="checkbox" name="extras" value="Windows" />
-                  Windows
+                  <span data-en="Windows" data-es="Ventanas">Windows</span>
                 </label>
               </div>
-              <label class="form-label" for="extras_other" style="margin-top:10px;">Other extras</label>
-              <input type="text" class="form-control" id="extras_other" name="extras_other" placeholder="e.g. deep kitchen cleaning, balcony, laundry..." />
+              <label class="form-label" for="extras_other" style="margin-top:10px;" data-en="Other extras" data-es="Otros extras">Other extras</label>
+              <input type="text" class="form-control" id="extras_other" name="extras_other" placeholder="e.g. deep kitchen cleaning, balcony, laundry..." data-en-placeholder="e.g. deep kitchen cleaning, balcony, laundry..." data-es-placeholder="ej. limpieza profunda de cocina, balcón, ropa..." />
             </div>
 
             <!-- Image upload -->
             <div class="form-group form-full">
-              <span class="form-label">Photos of the space <span style="font-weight:300;color:var(--ink-light);">(recommended)</span></span>
+              <span class="form-label" data-en="Photos of the space <span style='font-weight:300;color:var(--ink-light);'>(recommended)</span>" data-es="Fotos del espacio <span style='font-weight:300;color:var(--ink-light);'>(recomendado)</span>">Photos of the space <span style="font-weight:300;color:var(--ink-light);">(recommended)</span></span>
               <div class="upload-area" id="upload-area">
                 <input
                   type="file"
@@ -1442,11 +1500,11 @@
                 <div class="upload-icon">
                   <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                 </div>
-                <div class="upload-label">Tap to add photos</div>
-                <div class="upload-sub">JPG, PNG, HEIC · Max 10MB each<br>Photos help us give you a more accurate estimate</div>
+                <div class="upload-label" data-en="Tap to add photos" data-es="Toca para agregar fotos">Tap to add photos</div>
+                <div class="upload-sub" data-en="JPG, PNG, HEIC · Max 10MB each<br>Photos help us give you a more accurate estimate" data-es="JPG, PNG, HEIC · Máx. 10MB cada una<br>Las fotos nos ayudan a darte una estimación más precisa">JPG, PNG, HEIC · Max 10MB each<br>Photos help us give you a more accurate estimate</div>
                 <div class="upload-filenames" id="upload-filenames"></div>
               </div>
-              <p style="font-size:11.5px;color:var(--ink-light);margin-top:6px;line-height:1.55;">
+              <p style="font-size:11.5px;color:var(--ink-light);margin-top:6px;line-height:1.55;" data-en="You can also send photos directly in the WhatsApp conversation after requesting your estimate." data-es="También puedes enviar fotos directamente en la conversación de WhatsApp después de solicitar tu estimación.">
                 You can also send photos directly in the WhatsApp conversation after requesting your estimate.
               </p>
             </div>
@@ -1456,14 +1514,14 @@
           <div class="form-submit-row" style="margin-top:24px;">
             <button type="submit" class="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Send Quote Request via WhatsApp
+              <span data-en="Send Quote Request via WhatsApp" data-es="Enviar Solicitud de Cotización por WhatsApp">Send Quote Request via WhatsApp</span>
             </button>
-            <p class="form-disclaimer">
+            <p class="form-disclaimer" data-en="Submitting opens WhatsApp with your details pre-filled. Free and no commitment." data-es="Al enviar se abrirá WhatsApp con tus datos prellenados. Gratis y sin compromiso.">
               Submitting opens WhatsApp with your details pre-filled. Free and no commitment.
             </p>
             <div class="form-email-alt">
-              <span>Don't have WhatsApp?</span>
-              <button type="button" class="btn-email" id="btn-send-email">
+              <span data-en="Don't have WhatsApp?" data-es="¿No tienes WhatsApp?">Don't have WhatsApp?</span>
+              <button type="button" class="btn-email" id="btn-send-email" data-en="Send via Email →" data-es="Enviar por Email →">
                 Send via Email →
               </button>
             </div>
@@ -1472,23 +1530,23 @@
 
         <aside class="quote-sidebar">
           <div class="sidebar-card">
-            <h3>How it works</h3>
+            <h3 data-en="How it works" data-es="¿Cómo funciona?">How it works</h3>
             <ol class="sidebar-steps">
-              <li>Fill out the form with your space details</li>
-              <li>We send you a personalised estimate via WhatsApp</li>
-              <li>You confirm and we take care of the rest</li>
+              <li data-en="Fill out the form with your space details" data-es="Completa el formulario con los detalles de tu espacio">Fill out the form with your space details</li>
+              <li data-en="We send you a personalised estimate via WhatsApp" data-es="Te enviamos una estimación personalizada por WhatsApp">We send you a personalised estimate via WhatsApp</li>
+              <li data-en="You confirm and we take care of the rest" data-es="Confirmas y nosotros nos encargamos del resto">You confirm and we take care of the rest</li>
             </ol>
           </div>
           <div class="sidebar-card">
-            <h3>Prefer to contact directly?</h3>
+            <h3 data-en="Prefer to contact directly?" data-es="¿Prefieres contactarnos directamente?">Prefer to contact directly?</h3>
             <div class="sidebar-contact">
               <div class="sidebar-contact-item">
                 <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.1 5.6C.1 4.5.9 3.6 2 3.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 11a16 16 0 006.09 6.09l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
-                <a href="https://wa.me/50600000000" target="_blank" rel="noopener">WhatsApp us directly</a>
+                <a href="https://wa.me/50600000000" target="_blank" rel="noopener" data-en="WhatsApp us directly" data-es="Escríbenos por WhatsApp">WhatsApp us directly</a>
               </div>
               <div class="sidebar-contact-item">
                 <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Nosara and surrounding areas
+                <span data-en="Nosara and surrounding areas" data-es="Nosara y alrededores">Nosara and surrounding areas</span>
               </div>
             </div>
           </div>
@@ -1506,9 +1564,9 @@
       </a>
       <p class="footer-copy">© 2025 Selva Cleaning Services · Nosara, Costa Rica</p>
       <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="#services">Services</a>
-        <a href="#trust">About</a>
-        <a href="#quote">Get a Quote</a>
+        <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+        <a href="#trust" data-en="About" data-es="Acerca de">About</a>
+        <a href="#quote" data-en="Get a Quote" data-es="Cotización">Get a Quote</a>
       </nav>
     </div>
   </footer>
@@ -1647,6 +1705,38 @@
       const today = new Date().toISOString().split('T')[0];
       dateInput.setAttribute('min', today);
     }
+
+    // ── Language toggle ────────────────────────────────────
+    function setLang(lang) {
+      // Swap innerHTML for all elements with data-en / data-es
+      document.querySelectorAll('[data-en]').forEach(function(el) {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+      // Swap placeholders
+      document.querySelectorAll('[data-en-placeholder]').forEach(function(el) {
+        el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
+      });
+      // Update toggle button states
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        var active = btn.dataset.lang === lang;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      // Set data-lang on <html> for CSS overrides (e.g. mobile tap hint)
+      document.documentElement.setAttribute('data-lang', lang);
+      // Persist
+      try { localStorage.setItem('selva_lang', lang); } catch(e) {}
+    }
+
+    // Init on load
+    (function() {
+      var saved = 'en';
+      try { saved = localStorage.getItem('selva_lang') || 'en'; } catch(e) {}
+      setLang(saved);
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { setLang(btn.dataset.lang); });
+      });
+    })();
   </script>
 </body>
 </html>
