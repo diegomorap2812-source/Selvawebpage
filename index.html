@@ -1774,17 +1774,18 @@
 
       const hasPhotos = (window._photoFiles || []).some(Boolean);
 
+      const extrasLine = extras + (extrasOther ? ' / Otro: ' + extrasOther : '');
+
       const msg =
-        'Hello Selva! I would like to request a cleaning estimate:\n\n' +
-        '🏠 Space type: ' + f.place_type.value + '\n' +
-        '📐 Size: ' + f.size.value + '\n' +
-        '🧹 Cleaning type: ' + f.clean_type.value + '\n' +
-        '📊 Condition: ' + f.condition.value + '\n' +
-        '📍 Location: ' + f.location.value + '\n' +
-        '📅 Preferred date: ' + f.date.value + '\n' +
-        '➕ Extras: ' + extras +
-        (extrasOther ? '\n➕ Other extras: ' + extrasOther : '') +
-        (hasPhotos ? '\n\n📷 I will send photos of the space in this chat.' : '');
+        'Hola Selva! 👋 Me interesa una cotización:\n\n' +
+        '🏠 Tipo de espacio: ' + f.place_type.value + ' (Casa / Airbnb / Negocio)\n' +
+        '📐 Tamaño: ' + f.size.value + ' (1 cuarto / 2-3 cuartos / 4+ cuartos)\n' +
+        '🧽 Tipo de limpieza: ' + f.clean_type.value + ' (Regular / Profunda / Mudanza)\n' +
+        '⚡ Estado del espacio: ' + f.condition.value + ' (Leve / Moderado / Intenso)\n' +
+        '📍 Ubicación: ' + f.location.value + '\n' +
+        '📅 Fecha preferida: ' + f.date.value + '\n' +
+        '➕ Extras: ' + extrasLine + ' (Horno / Refrigerador / Ventanas / Otro: ___)\n' +
+        '📸 Fotos: ' + (hasPhotos ? 'Adjuntaré fotos en el chat' : 'Sin fotos');
 
       window.open('https://wa.me/50600000000?text=' + encodeURIComponent(msg), '_blank');
     });
