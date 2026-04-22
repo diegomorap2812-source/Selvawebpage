@@ -684,40 +684,108 @@
       transform: rotate(-45deg);
     }
 
-    .upload-area {
-      border: 2px dashed rgba(0,0,0,.14);
-      border-radius: 8px;
-      padding: 20px 16px;
-      text-align: center;
+    /* Photo upload — two-button layout */
+    .photo-upload-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .photo-btn-wrap { position: relative; }
+    .photo-btn-wrap input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
       cursor: pointer;
-      transition: border-color .15s, background .15s;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    .photo-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 13px 10px;
+      border-radius: 10px;
+      font-family: var(--sans);
+      font-size: .875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease;
+      white-space: nowrap;
+      line-height: 1.2;
+      text-align: center;
+      pointer-events: none; /* clicks pass through to the file input */
+    }
+    .photo-btn-wrap:hover .photo-btn { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(40,64,16,.18); }
+
+    .photo-btn-filled {
+      background: var(--green-dark);
+      color: var(--white);
+      border: 2px solid var(--green-dark);
+    }
+
+    .photo-btn-outline {
+      background: var(--white);
+      color: var(--green-dark);
+      border: 2px solid var(--green-dark);
+    }
+
+    .photo-hint {
+      font-size: .78rem;
+      color: var(--ink-light);
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .photo-preview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .photo-preview:empty { display: none; }
+
+    .photo-thumb {
       position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      flex-shrink: 0;
     }
-    .upload-area:hover { border-color: var(--green-mid); background: var(--green-pale); }
-    .upload-area input[type="file"] {
-      position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    .photo-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-    .upload-icon {
-      width: 36px; height: 36px;
-      background: var(--green-pale);
+    .photo-thumb-remove {
+      position: absolute;
+      top: 3px; right: 3px;
+      width: 20px; height: 20px;
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 10px;
+      background: rgba(0,0,0,.55);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      line-height: 1;
+      padding: 0;
+      transition: background .15s;
     }
-    .upload-icon svg {
-      width: 18px; height: 18px;
-      stroke: var(--green-dark);
-      fill: none; stroke-width: 1.8;
-      stroke-linecap: round; stroke-linejoin: round;
-    }
-    .upload-label { font-size: 13.5px; color: var(--ink); font-weight: 500; margin-bottom: 3px; }
-    .upload-sub { font-size: 11.5px; color: var(--ink-light); line-height: 1.5; }
-    .upload-filenames {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--green-mid);
-      font-weight: 500;
-      display: none;
+    .photo-thumb-remove:hover { background: rgba(200,30,30,.8); }
+
+    @media (max-width: 520px) {
+      .photo-upload-row { grid-template-columns: 1fr; }
     }
 
     .form-submit-row {
@@ -1488,25 +1556,42 @@
             <!-- Image upload -->
             <div class="form-group form-full">
               <span class="form-label" data-en="Photos of the space <span style='font-weight:300;color:var(--ink-light);'>(recommended)</span>" data-es="Fotos del espacio <span style='font-weight:300;color:var(--ink-light);'>(recomendado)</span>">Photos of the space <span style="font-weight:300;color:var(--ink-light);">(recommended)</span></span>
-              <div class="upload-area" id="upload-area">
-                <input
-                  type="file"
-                  id="photos"
-                  name="photos"
-                  accept="image/*"
-                  multiple
-                  aria-label="Upload photos of the space"
-                />
-                <div class="upload-icon">
-                  <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+
+              <div class="photo-upload-row">
+                <div class="photo-btn-wrap">
+                  <input
+                    type="file"
+                    id="photos-gallery"
+                    name="photos-gallery"
+                    accept="image/*"
+                    multiple
+                    aria-label="Choose photos from gallery"
+                  />
+                  <div class="photo-btn photo-btn-filled">
+                    <span aria-hidden="true">📁</span>
+                    <span data-en="Choose from gallery" data-es="Elegir de galería">Choose from gallery</span>
+                  </div>
                 </div>
-                <div class="upload-label" data-en="Tap to add photos" data-es="Toca para agregar fotos">Tap to add photos</div>
-                <div class="upload-sub" data-en="JPG, PNG, HEIC · Max 10MB each<br>Photos help us give you a more accurate estimate" data-es="JPG, PNG, HEIC · Máx. 10MB cada una<br>Las fotos nos ayudan a darte una estimación más precisa">JPG, PNG, HEIC · Max 10MB each<br>Photos help us give you a more accurate estimate</div>
-                <div class="upload-filenames" id="upload-filenames"></div>
+
+                <div class="photo-btn-wrap">
+                  <input
+                    type="file"
+                    id="photos-camera"
+                    name="photos-camera"
+                    accept="image/*"
+                    capture="environment"
+                    aria-label="Take a photo with camera"
+                  />
+                  <div class="photo-btn photo-btn-outline">
+                    <span aria-hidden="true">📷</span>
+                    <span data-en="Take a photo" data-es="Tomar una foto">Take a photo</span>
+                  </div>
+                </div>
               </div>
-              <p style="font-size:11.5px;color:var(--ink-light);margin-top:6px;line-height:1.55;" data-en="You can also send photos directly in the WhatsApp conversation after requesting your estimate." data-es="También puedes enviar fotos directamente en la conversación de WhatsApp después de solicitar tu estimación.">
-                You can also send photos directly in the WhatsApp conversation after requesting your estimate.
-              </p>
+
+              <p class="photo-hint" data-en="Photos help us give you a more accurate estimate" data-es="Las fotos nos ayudan a darte una estimación más precisa">Photos help us give you a more accurate estimate</p>
+
+              <div class="photo-preview js-photo-preview" role="list" aria-label="Selected photos"></div>
             </div>
 
           </div><!-- /form-grid -->
@@ -1602,18 +1687,64 @@
       });
     });
 
-    // File upload — show selected filenames
-    const fileInput = document.getElementById('photos');
-    const fileNames = document.getElementById('upload-filenames');
-    fileInput.addEventListener('change', () => {
-      const files = Array.from(fileInput.files);
-      if (files.length) {
-        fileNames.style.display = 'block';
-        fileNames.textContent = files.map(f => f.name).join(', ');
-      } else {
-        fileNames.style.display = 'none';
+    // Photo upload — dual-input preview (gallery + camera)
+    (function () {
+      const preview = document.querySelector('.js-photo-preview');
+      const galleryInput = document.getElementById('photos-gallery');
+      const cameraInput  = document.getElementById('photos-camera');
+      const selectedFiles = []; // shared store across both inputs
+
+      function addFiles(fileList) {
+        Array.from(fileList).forEach(function(file) {
+          if (!file.type.startsWith('image/')) return;
+          var index = selectedFiles.length;
+          selectedFiles.push(file);
+          renderThumb(file, index);
+        });
       }
-    });
+
+      function renderThumb(file, index) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var wrap = document.createElement('div');
+          wrap.className = 'photo-thumb';
+          wrap.setAttribute('role', 'listitem');
+          wrap.dataset.index = index;
+
+          var img = document.createElement('img');
+          img.src = e.target.result;
+          img.alt = file.name;
+
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'photo-thumb-remove';
+          btn.setAttribute('aria-label', 'Remove ' + file.name);
+          btn.textContent = '×';
+          btn.addEventListener('click', function() {
+            selectedFiles[index] = null;
+            wrap.remove();
+          });
+
+          wrap.appendChild(img);
+          wrap.appendChild(btn);
+          preview.appendChild(wrap);
+        };
+        reader.readAsDataURL(file);
+      }
+
+      galleryInput.addEventListener('change', function() {
+        addFiles(this.files);
+        this.value = '';
+      });
+
+      cameraInput.addEventListener('change', function() {
+        addFiles(this.files);
+        this.value = '';
+      });
+
+      // Expose for WhatsApp message builder
+      window._photoFiles = selectedFiles;
+    })();
 
     // Form submit → build WhatsApp message
     document.getElementById('quote-form').addEventListener('submit', function(e) {
@@ -1641,7 +1772,7 @@
         .map(i => i.value).join(', ') || 'None';
       const extrasOther = (f.extras_other.value || '').trim();
 
-      const hasPhotos = fileInput.files.length > 0;
+      const hasPhotos = (window._photoFiles || []).some(Boolean);
 
       const msg =
         'Hello Selva! I would like to request a cleaning estimate:\n\n' +
