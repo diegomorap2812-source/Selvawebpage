@@ -944,9 +944,20 @@
       .quote-form { padding: 32px 28px; }
     }
 
-    /* ── Mobile nav: hide CTA, larger logo (≤ 768px) ── */
+    /* ── Mobile nav: hide CTA, larger logo, shrink on scroll (≤ 768px) ── */
     @media (max-width: 768px) {
       .nav-cta { display: none; }
+      .site-nav { transition: background .35s ease, border-color .35s ease, box-shadow .35s ease, height .3s ease; }
+      .nav-logo img { transition: filter .35s ease, height .3s ease; }
+      .site-nav.nav-shrunk {
+        height: 62px;
+        background: rgba(248,246,241,.98);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom-color: var(--border);
+        box-shadow: 0 2px 18px rgba(0,0,0,.07);
+      }
+      .site-nav.nav-shrunk .nav-logo img { height: 48px; }
     }
 
     /* ── Mobile (≤ 640px) ── */
@@ -1512,6 +1523,7 @@
     const nav = document.getElementById('site-nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 8);
+      nav.classList.toggle('nav-shrunk', window.scrollY > 60);
     }, { passive: true });
 
     // Smooth scroll for anchor links
