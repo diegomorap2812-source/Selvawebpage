@@ -853,6 +853,100 @@
       flex-wrap: wrap;
     }
 
+    /* ── HOW IT WORKS ────────────────────────────────────── */
+    .how-it-works { background: var(--cream); padding: 72px 0; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 48px;
+      position: relative;
+    }
+
+    .step {
+      text-align: center;
+      padding: 0 32px;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 22px;
+      right: 0;
+      width: 1px;
+      height: 44px;
+      background: var(--border);
+    }
+
+    .step-num {
+      width: 44px; height: 44px;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      font-family: var(--sans);
+    }
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--ink-dark);
+      margin-bottom: 8px;
+    }
+
+    .step-body {
+      font-size: .875rem;
+      color: var(--ink-light);
+      line-height: 1.68;
+      font-weight: 300;
+    }
+
+    /* ── FINAL CTA ────────────────────────────────────────── */
+    .final-cta {
+      background: var(--green-dark);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 220px;
+    }
+    .final-cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .final-cta .display {
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+    .final-cta .display em { color: rgba(168,201,138,.92); }
+
+    /* trust section intro para */
+    .trust-intro-para {
+      color: rgba(255,255,255,.58);
+      max-width: 500px;
+      margin-top: 14px;
+    }
+
+    /* responsive new sections */
+    @media (max-width: 640px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .step:not(:last-child)::after { display: none; }
+      .step { padding: 0 8px; }
+      .final-cta { padding: 60px 0; }
+      .how-it-works { padding: 52px 0; }
+    }
+
     /* ── FOOTER ──────────────────────────────────────────── */
     footer {
       background: var(--green-dark);
@@ -1126,11 +1220,11 @@
 
     <div class="container">
       <div class="hero-content">
-        <h1 data-en="Reliable cleaning<em>in Nosara.</em>" data-es="Limpieza confiable<em>en Nosara.</em>">
-          Reliable cleaning
-          <em>in Nosara.</em>
+        <h1 data-en="Cleaner spaces,<em>naturally cared for.</em>" data-es="Espacios más limpios,<em>cuidados naturalmente.</em>">
+          Cleaner spaces,
+          <em>naturally cared for.</em>
         </h1>
-        <p class="hero-sub" data-en="Professional service for Airbnb hosts and homeowners. Consistent results using safe, non-toxic products." data-es="Servicio profesional para anfitriones de Airbnb y propietarios. Resultados consistentes con productos seguros y no tóxicos.">Professional service for Airbnb hosts and homeowners. Consistent results using safe, non-toxic products.</p>
+        <p class="hero-sub" data-en="Reliable cleaning services in Nosara for Airbnb hosts and residential homes — using safe, non-toxic products that are better for your space and everyone in it." data-es="Servicios de limpieza confiables en Nosara para anfitriones de Airbnb y hogares — con productos seguros y no tóxicos que son mejores para tu espacio y todos en él.">Reliable cleaning services in Nosara for Airbnb hosts and residential homes — using safe, non-toxic products that are better for your space and everyone in it.</p>
         <div class="hero-actions">
           <a href="#quote" class="btn btn-primary">
             <span data-en="Request Service" data-es="Solicitar servicio">Request Service</span>
@@ -1163,14 +1257,40 @@
       <div class="section-head">
         <span class="eyebrow" data-en="Services" data-es="Servicios">Services</span>
         <h2 class="display" data-en="What we<br><em>offer</em>" data-es="Lo que<br><em>ofrecemos</em>">What we<br><em>offer</em></h2>
-        <p class="body-copy services-intro" data-en="Cleaning services for Airbnb rentals and residential homes in Nosara. Reliable, thorough, and done right every time." data-es="Servicios de limpieza para alquileres de Airbnb y hogares en Nosara. Confiables, detallados y bien hechos siempre.">
-          Cleaning services for Airbnb rentals and residential homes in Nosara. Reliable, thorough, and done right every time.
+        <p class="body-copy services-intro" data-en="We show up, we do the work, and we do it right — every time. Reliable scheduling, attention to detail, and clear communication. Every product we use is non-toxic and eco-friendly — safer for guests, families, and pets, without compromising on results." data-es="Llegamos, hacemos el trabajo y lo hacemos bien — siempre. Programación confiable, atención al detalle y comunicación clara. Cada producto que usamos es no tóxico y ecológico — más seguro para huéspedes, familias y mascotas, sin sacrificar resultados.">
+          We show up, we do the work, and we do it right — every time. Reliable scheduling, attention to detail, and clear communication. Every product we use is non-toxic and eco-friendly — safer for guests, families, and pets, without compromising on results.
         </p>
       </div>
 
       <div class="services-grid">
 
-        <!-- Card 1 -->
+        <!-- Card 1 — Airbnb Cleaning -->
+        <div class="svc-card">
+          <div class="svc-card-inner">
+            <div class="svc-front">
+              <div class="svc-icon">
+                <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
+              </div>
+              <h3 data-en="Airbnb Cleaning" data-es="Limpieza de Airbnb">Airbnb Cleaning</h3>
+              <p data-en="Fast, consistent turnovers that keep your property guest-ready and your reviews protected. Cleaned with products that are safe for every guest." data-es="Cambios rápidos y consistentes que mantienen tu propiedad lista para huéspedes y tus reseñas protegidas. Limpiado con productos seguros para cada huésped.">Fast, consistent turnovers that keep your property guest-ready and your reviews protected. Cleaned with products that are safe for every guest.</p>
+            </div>
+            <div class="svc-back">
+              <div>
+                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
+                <ul>
+                  <li data-en="Full reset between guests" data-es="Reset completo entre huéspedes">Full reset between guests</li>
+                  <li data-en="Kitchen &amp; bathroom cleaning" data-es="Limpieza de cocina y baño">Kitchen &amp; bathroom cleaning</li>
+                  <li data-en="Trash removal" data-es="Retiro de basura">Trash removal</li>
+                  <li data-en="Surface sanitizing" data-es="Sanitización de superficies">Surface sanitizing</li>
+                  <li data-en="Eco-friendly products safe for guests" data-es="Productos ecológicos seguros para huéspedes">Eco-friendly products safe for guests</li>
+                </ul>
+              </div>
+              <a href="#quote" class="svc-back-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 — Residential Cleaning -->
         <div class="svc-card">
           <div class="svc-card-inner">
             <div class="svc-front">
@@ -1178,16 +1298,17 @@
                 <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
               </div>
               <h3 data-en="Residential Cleaning" data-es="Limpieza Residencial">Residential Cleaning</h3>
-              <p data-en="Recurring service for homeowners who want a clean, well-maintained home without having to think about it." data-es="Servicio recurrente para propietarios que quieren un hogar limpio y bien mantenido sin preocupaciones.">Recurring service for homeowners who want a clean, well-maintained home without having to think about it.</p>
+              <p data-en="Recurring cleaning for homeowners who want a well-maintained home — with non-toxic products that are safe for your family and pets, every visit." data-es="Limpieza recurrente para propietarios que quieren un hogar bien mantenido — con productos no tóxicos seguros para tu familia y mascotas, en cada visita.">Recurring cleaning for homeowners who want a well-maintained home — with non-toxic products that are safe for your family and pets, every visit.</p>
             </div>
             <div class="svc-back">
               <div>
                 <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
                 <ul>
-                  <li data-en="Kitchen &amp; bathroom cleaning" data-es="Limpieza de cocina y baño">Kitchen &amp; bathroom cleaning</li>
-                  <li data-en="Floors, surfaces &amp; dusting" data-es="Pisos, superficies y desempolvado">Floors, surfaces &amp; dusting</li>
-                  <li data-en="Weekly or bi-weekly scheduling" data-es="Programación semanal o quincenal">Weekly or bi-weekly scheduling</li>
-                  <li data-en="Safe, non-toxic products throughout" data-es="Productos seguros y no tóxicos">Safe, non-toxic products throughout</li>
+                  <li data-en="Kitchen cleaning" data-es="Limpieza de cocina">Kitchen cleaning</li>
+                  <li data-en="Bathroom cleaning" data-es="Limpieza de baños">Bathroom cleaning</li>
+                  <li data-en="Floors (vacuum &amp; mop)" data-es="Pisos (aspirado y trapeado)">Floors (vacuum &amp; mop)</li>
+                  <li data-en="Dusting" data-es="Desempolvado">Dusting</li>
+                  <li data-en="Non-toxic products safe for families and pets" data-es="Productos no tóxicos seguros para familias y mascotas">Non-toxic products safe for families and pets</li>
                 </ul>
               </div>
               <a href="#quote" class="svc-back-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
@@ -1195,32 +1316,7 @@
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="svc-card">
-          <div class="svc-card-inner">
-            <div class="svc-front">
-              <div class="svc-icon">
-                <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
-              </div>
-              <h3 data-en="Airbnb Turnover" data-es="Limpieza de Airbnb">Airbnb Turnover</h3>
-              <p data-en="Fast, thorough turnovers between guests. Consistent quality that protects your property and your reviews." data-es="Cambios rápidos y detallados entre huéspedes. Calidad consistente que protege tu propiedad y tus reseñas.">Fast, thorough turnovers between guests. Consistent quality that protects your property and your reviews.</p>
-            </div>
-            <div class="svc-back">
-              <div>
-                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
-                <ul>
-                  <li data-en="Full property reset between guests" data-es="Reset completo de la propiedad entre huéspedes">Full property reset between guests</li>
-                  <li data-en="Kitchen, bathrooms &amp; common areas" data-es="Cocina, baños y áreas comunes">Kitchen, bathrooms &amp; common areas</li>
-                  <li data-en="Trash removal &amp; restocking" data-es="Retiro de basura y reposición">Trash removal &amp; restocking</li>
-                  <li data-en="Non-toxic sanitizing — safe for guests" data-es="Sanitización no tóxica — segura para huéspedes">Non-toxic sanitizing — safe for guests</li>
-                </ul>
-              </div>
-              <a href="#quote" class="svc-back-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
+        <!-- Card 3 — Deep Cleaning -->
         <div class="svc-card">
           <div class="svc-card-inner">
             <div class="svc-front">
@@ -1228,7 +1324,7 @@
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
               </div>
               <h3 data-en="Deep Cleaning" data-es="Limpieza Profunda">Deep Cleaning</h3>
-              <p data-en="A thorough reset for homes that need extra attention. Ideal as a first clean or seasonal refresh." data-es="Un reset profundo para hogares que necesitan atención especial. Ideal como primera limpieza o puesta a punto estacional.">A thorough reset for homes that need extra attention. Ideal as a first clean or seasonal refresh.</p>
+              <p data-en="A full reset for spaces that need extra attention. Ideal as a first clean, seasonal refresh, or move-in/out. Done right, with products that don't leave harsh residues." data-es="Un reset completo para espacios que necesitan atención especial. Ideal como primera limpieza, puesta a punto estacional o mudanza. Bien hecho, con productos que no dejan residuos agresivos.">A full reset for spaces that need extra attention. Ideal as a first clean, seasonal refresh, or move-in/out. Done right, with products that don't leave harsh residues.</p>
             </div>
             <div class="svc-back">
               <div>
@@ -1236,58 +1332,9 @@
                 <ul>
                   <li data-en="Grease &amp; buildup removal" data-es="Eliminación de grasa y acumulaciones">Grease &amp; buildup removal</li>
                   <li data-en="Deep bathroom sanitation" data-es="Sanitización profunda de baños">Deep bathroom sanitation</li>
-                  <li data-en="Baseboards, corners &amp; hard-to-reach areas" data-es="Zócalos, rincones y áreas de difícil acceso">Baseboards, corners &amp; hard-to-reach areas</li>
-                  <li data-en="Full kitchen detail" data-es="Limpieza detallada de cocina">Full kitchen detail</li>
-                </ul>
-              </div>
-              <a href="#quote" class="svc-back-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="svc-card">
-          <div class="svc-card-inner">
-            <div class="svc-front">
-              <div class="svc-icon">
-                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-              </div>
-              <h3 data-en="Office &amp; Commercial" data-es="Oficina y Comercial">Office &amp; Commercial</h3>
-              <p data-en="Professional cleaning for offices and small businesses. Flexible scheduling, consistent results." data-es="Limpieza profesional para oficinas y pequeños negocios. Horarios flexibles y resultados consistentes.">Professional cleaning for offices and small businesses. Flexible scheduling, consistent results.</p>
-            </div>
-            <div class="svc-back">
-              <div>
-                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
-                <ul>
-                  <li data-en="Workspaces &amp; desks" data-es="Escritorios y áreas de trabajo">Workspaces &amp; desks</li>
-                  <li data-en="Floors (vacuum &amp; mop)" data-es="Pisos (aspirado y trapeado)">Floors (vacuum &amp; mop)</li>
-                  <li data-en="Restrooms" data-es="Baños">Restrooms</li>
-                  <li data-en="Common areas" data-es="Áreas comunes">Common areas</li>
-                </ul>
-              </div>
-              <a href="#quote" class="svc-back-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="svc-card">
-          <div class="svc-card-inner">
-            <div class="svc-front">
-              <div class="svc-icon">
-                <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-              </div>
-              <h3 data-en="Add-On Services" data-es="Servicios Adicionales">Add-On Services</h3>
-              <p data-en="Extras you can add to any cleaning — just let us know what you need." data-es="Extras que puedes agregar a cualquier limpieza — dinos qué necesitas.">Extras you can add to any cleaning — just let us know what you need.</p>
-            </div>
-            <div class="svc-back">
-              <div>
-                <div class="svc-back-label" data-en="Available extras" data-es="Extras disponibles">Available extras</div>
-                <ul>
-                  <li data-en="Oven cleaning" data-es="Limpieza de horno">Oven cleaning</li>
-                  <li data-en="Fridge cleaning" data-es="Limpieza de nevera">Fridge cleaning</li>
-                  <li data-en="Interior windows" data-es="Ventanas interiores">Interior windows</li>
-                  <li data-en="Deep kitchen detail" data-es="Limpieza profunda de cocina">Deep kitchen detail</li>
+                  <li data-en="Baseboards &amp; corners" data-es="Zócalos y rincones">Baseboards &amp; corners</li>
+                  <li data-en="Detailed surface cleaning" data-es="Limpieza detallada de superficies">Detailed surface cleaning</li>
+                  <li data-en="Eco-friendly degreasers" data-es="Desengrasantes ecológicos">Eco-friendly degreasers</li>
                 </ul>
               </div>
               <a href="#quote" class="svc-back-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
@@ -1297,8 +1344,8 @@
 
       </div>
 
-      <div class="services-note" data-en="&lt;strong&gt;Have a large property or specific requirements?&lt;/strong&gt; We'll put together a plan that works for you. &lt;a href='#quote' style='color:var(--green-dark);font-weight:500;'&gt;Request a free estimate →&lt;/a&gt;" data-es="&lt;strong&gt;¿Tienes una propiedad grande o requisitos específicos?&lt;/strong&gt; Diseñamos un plan que funcione para ti. &lt;a href='#quote' style='color:var(--green-dark);font-weight:500;'&gt;Solicita una estimación gratuita →&lt;/a&gt;">
-        <strong>Have a large property or specific requirements?</strong> We'll put together a plan that works for you. <a href="#quote" style="color:var(--green-dark);font-weight:500;">Request a free estimate →</a>
+      <div class="services-note" data-en="&lt;strong&gt;Have a large property or specific requirements?&lt;/strong&gt; We'll work with you to put together the right plan. &lt;a href='#quote' style='color:var(--green-dark);font-weight:500;'&gt;Request a free estimate →&lt;/a&gt;" data-es="&lt;strong&gt;¿Tienes una propiedad grande o requisitos específicos?&lt;/strong&gt; Trabajamos contigo para diseñar el plan correcto. &lt;a href='#quote' style='color:var(--green-dark);font-weight:500;'&gt;Solicita una estimación gratuita →&lt;/a&gt;">
+        <strong>Have a large property or specific requirements?</strong> We'll work with you to put together the right plan. <a href="#quote" style="color:var(--green-dark);font-weight:500;">Request a free estimate →</a>
       </div>
     </div>
   </section>
@@ -1307,7 +1354,8 @@
   <section class="trust" id="trust">
     <div class="container trust-inner">
       <span class="eyebrow" data-en="Why Selva" data-es="Por qué Selva">Why Selva</span>
-      <h2 class="display" data-en="Consistent results,<br><em>every time.</em>" data-es="Resultados consistentes,<br><em>siempre.</em>">Consistent results,<br><em>every time.</em></h2>
+      <h2 class="display" data-en="Every detail.<br><em>Every time.</em>" data-es="Cada detalle.<br><em>Cada vez.</em>">Every detail.<br><em>Every time.</em></h2>
+      <p class="body-copy trust-intro-para" data-en="Every product we use is non-toxic, biodegradable, and safe." data-es="Cada producto que usamos es no tóxico, biodegradable y seguro.">Every product we use is non-toxic, biodegradable, and safe.</p>
 
       <div class="trust-layout">
 
@@ -1315,36 +1363,36 @@
           <ul class="trust-bullets" role="list">
             <li class="trust-bullet">
               <div class="trust-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <span class="trust-bullet-label" data-en="Reliability you can count on — we show up on time and do the job right" data-es="Confiabilidad en la que puedes contar — llegamos a tiempo y hacemos el trabajo bien">Reliability you can count on — we show up on time and do the job right</span>
-            </li>
-            <li class="trust-bullet">
-              <div class="trust-icon">
                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
               </div>
-              <span class="trust-bullet-label" data-en="Safe, non-toxic products — better for your guests, family, and pets" data-es="Productos seguros y no tóxicos — mejores para tus huéspedes, familia y mascotas">Safe, non-toxic products — better for your guests, family, and pets</span>
+              <span class="trust-bullet-label" data-en="Better for your guests. Better for your family. Better for Nosara." data-es="Mejor para tus huéspedes. Mejor para tu familia. Mejor para Nosara.">Better for your guests. Better for your family. Better for Nosara.</span>
             </li>
             <li class="trust-bullet">
               <div class="trust-icon">
-                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <span class="trust-bullet-label" data-en="Attention to detail — we take care of what others overlook" data-es="Atención al detalle — cuidamos lo que otros pasan por alto">Attention to detail — we take care of what others overlook</span>
+              <span class="trust-bullet-label" data-en="No harsh chemicals. No strong fumes. Just cleaner spaces." data-es="Sin químicos agresivos. Sin olores fuertes. Solo espacios más limpios.">No harsh chemicals. No strong fumes. Just cleaner spaces.</span>
             </li>
             <li class="trust-bullet">
               <div class="trust-icon">
-                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.1 5.6C.1 4.5.9 3.6 2 3.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 11a16 16 0 006.09 6.09l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
               </div>
-              <span class="trust-bullet-label" data-en="Clear communication — quick responses, no guesswork" data-es="Comunicación clara — respuestas rápidas, sin complicaciones">Clear communication — quick responses, no guesswork</span>
+              <span class="trust-bullet-label" data-en="Eco-friendly products on every single clean — no exceptions." data-es="Productos ecológicos en cada limpieza — sin excepciones.">Eco-friendly products on every single clean — no exceptions.</span>
             </li>
             <li class="trust-bullet">
               <div class="trust-icon">
                 <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
               </div>
-              <span class="trust-bullet-label" data-en="Flexible service — adapted to your property, schedule, and preferences" data-es="Servicio flexible — adaptado a tu propiedad, horario y preferencias">Flexible service — adapted to your property, schedule, and preferences</span>
+              <span class="trust-bullet-label" data-en="Safe for pets, children, and sensitive spaces." data-es="Seguros para mascotas, niños y espacios sensibles.">Safe for pets, children, and sensitive spaces.</span>
+            </li>
+            <li class="trust-bullet">
+              <div class="trust-icon">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="trust-bullet-label" data-en="Reliable, consistent results without compromising on safety." data-es="Resultados confiables y consistentes sin sacrificar la seguridad.">Reliable, consistent results without compromising on safety.</span>
             </li>
           </ul>
-          <p class="trust-note" data-en="A professional cleaning service based in Nosara, built around reliability and quality." data-es="Servicio de limpieza profesional en Nosara, enfocado en confiabilidad y calidad.">A professional cleaning service based in Nosara, built around reliability and quality.</p>
+          <p class="trust-note" data-en="A professional cleaning service based in Nosara — reliable, safe, and done right every time." data-es="Servicio de limpieza profesional en Nosara — confiable, seguro y bien hecho siempre.">A professional cleaning service based in Nosara — reliable, safe, and done right every time.</p>
         </div>
 
         <div class="trust-aside">
@@ -1360,6 +1408,33 @@
           </a>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ────────────────────────────────────────────── -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-head centered">
+        <span class="eyebrow" data-en="How it works" data-es="Cómo funciona">How it works</span>
+        <h2 class="display" data-en="Simple process,<br><em>reliable results.</em>" data-es="Proceso simple,<br><em>resultados confiables.</em>">Simple process,<br><em>reliable results.</em></h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-title" data-en="Request service" data-es="Solicita el servicio">Request service</div>
+          <p class="step-body" data-en="Fill out the form or message us on WhatsApp" data-es="Completa el formulario o escríbenos por WhatsApp">Fill out the form or message us on WhatsApp</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-title" data-en="We confirm details" data-es="Confirmamos los detalles">We confirm details</div>
+          <p class="step-body" data-en="Service type, date, and access — all via WhatsApp" data-es="Tipo de servicio, fecha y acceso — todo por WhatsApp">Service type, date, and access — all via WhatsApp</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-title" data-en="We deliver" data-es="Entregamos resultados">We deliver</div>
+          <p class="step-body" data-en="Consistent, reliable results every time" data-es="Resultados consistentes y confiables siempre">Consistent, reliable results every time</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1508,6 +1583,14 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ──────────────────────────────────────────────── -->
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <h2 class="display" data-en="Cleaner spaces,<br><em>naturally cared for.</em>" data-es="Espacios más limpios,<br><em>cuidados naturalmente.</em>">Cleaner spaces,<br><em>naturally cared for.</em></h2>
+      <a href="#quote" class="btn btn-ghost" style="margin-top:8px;" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
     </div>
   </section>
 
