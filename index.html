@@ -944,11 +944,9 @@
       .quote-form { padding: 32px 28px; }
     }
 
-    /* ── Mobile nav: centered logo, hide CTA (≤ 768px) ── */
+    /* ── Mobile nav: hide CTA, larger logo (≤ 768px) ── */
     @media (max-width: 768px) {
-      .nav-inner { position: relative; justify-content: flex-end; }
-      .nav-logo  { position: absolute; left: 50%; transform: translateX(-50%); }
-      .nav-cta   { display: none; }
+      .nav-cta { display: none; }
     }
 
     /* ── Mobile (≤ 640px) ── */
@@ -956,13 +954,12 @@
       /* Prevent horizontal scroll */
       html, body { overflow-x: hidden; max-width: 100%; }
 
-      /* Increase nav height to fit larger mobile logo */
-      :root { --nav-h: 88px; }
+      :root { --nav-h: 116px; }
       .container { padding: 0 18px; }
 
       /* Nav */
       .site-nav { height: var(--nav-h); }
-      .nav-logo img { height: 72px; }
+      .nav-logo img { height: 108px; }
       .nav-right { gap: 8px; }
       .nav-cta {
         min-height: 40px;
@@ -1061,7 +1058,7 @@
     /* ── Small phones (≤ 390px — iPhone SE / 14) ── */
     @media (max-width: 390px) {
       .container { padding: 0 16px; }
-      .nav-logo img { height: 64px; }
+      .nav-logo img { height: 96px; }
       .hero h1 { font-size: 1.85rem; }
       .display { font-size: 1.65rem; }
       .hero-actions .btn,
