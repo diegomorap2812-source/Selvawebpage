@@ -278,67 +278,55 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 8px;
+      gap: 20px;
+      margin-top: 16px;
+      align-items: start;
     }
 
-    /* ── flip card wrapper ── */
     .svc-card {
-      perspective: 1000px;
-      min-height: 240px;
-      cursor: default;
-    }
-
-    .svc-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      min-height: 240px;
-      transform-style: preserve-3d;
-      transition: transform .55s cubic-bezier(.4,0,.2,1);
-      border-radius: var(--radius);
-    }
-    .svc-card:hover .svc-card-inner { transform: rotateY(180deg); }
-
-    /* shared face styles */
-    .svc-front,
-    .svc-back {
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius);
-      padding: 26px 22px 22px;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-    }
-
-    /* front */
-    .svc-front {
       background: var(--white);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(45,90,27,.1);
+      border-radius: 14px;
+      padding: 32px 28px 28px;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .svc-card:hover {
+      box-shadow: 0 8px 28px rgba(45,90,27,.1);
+      transform: translateY(-2px);
+    }
+    .svc-card--accent {
+      background: #f7fdf4;
+      border-color: rgba(45,90,27,.22);
     }
 
-    /* back */
-    .svc-back {
-      background: #284010;
-      transform: rotateY(180deg);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 14px;
+    .svc-card-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--green-pale);
+      color: var(--green-dark);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      align-self: flex-start;
     }
 
     .svc-icon {
-      width: 42px; height: 42px;
+      width: 46px; height: 46px;
       background: var(--green-pale);
-      border-radius: 9px;
+      border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       flex-shrink: 0;
     }
     .svc-icon svg {
-      width: 20px; height: 20px;
+      width: 22px; height: 22px;
       stroke: var(--green-dark);
       fill: none;
       stroke-width: 1.7;
@@ -346,76 +334,49 @@
       stroke-linejoin: round;
     }
 
-    .svc-front h3 {
+    .svc-card h3 {
       font-family: var(--serif);
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       font-weight: 400;
       color: var(--ink-dark);
-      margin-bottom: 8px;
-      line-height: 1.25;
-    }
-    .svc-front p {
-      font-size: .875rem;
-      color: var(--ink-light);
-      line-height: 1.68;
-      font-weight: 300;
+      margin-bottom: 14px;
+      line-height: 1.2;
     }
 
-    /* back content */
-    .svc-back-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--green-light);
-      margin-bottom: 8px;
-    }
-    .svc-back ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
+    .svc-card-desc {
+      font-size: .875rem;
+      color: var(--ink);
+      line-height: 1.75;
+      font-weight: 400;
       flex: 1;
     }
-    .svc-back ul li {
-      font-size: .82rem;
-      color: rgba(255,255,255,.82);
-      line-height: 1.5;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
+    .svc-card-desc p + p { margin-top: 10px; }
+
+    .svc-card-tagline {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(45,90,27,.08);
+      font-size: .8rem;
+      color: var(--ink-light);
+      font-style: italic;
     }
-    .svc-back ul li::before {
-      content: '·';
-      color: var(--green-light);
-      font-size: 1.1rem;
-      line-height: 1.3;
-      flex-shrink: 0;
-    }
-    .svc-back-cta {
-      display: flex;
+
+    .svc-card-cta {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 4px;
-      padding: 9px 16px;
-      background: #fff;
-      border: 1px solid #fff;
-      border-radius: 5px;
-      color: #284010;
-      font-size: 12.5px;
+      margin-top: 20px;
+      padding: 10px 18px;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 7px;
+      font-size: .83rem;
       font-weight: 600;
-      letter-spacing: .2px;
       align-self: flex-start;
-      transition: background .18s, color .18s;
+      transition: background .18s;
       text-decoration: none;
     }
-    .svc-back-cta:hover { background: #f0f7e8; border-color: #f0f7e8; }
-
-    /* mobile: touch-tap to flip via .flipped class toggled by JS */
-    @media (hover: none) {
-      .svc-card.flipped .svc-card-inner { transform: rotateY(180deg); }
-      .svc-card:hover .svc-card-inner   { transform: none; }
-    }
+    .svc-card-cta:hover { background: var(--green-mid); }
 
     .services-note {
       margin-top: 28px;
@@ -1061,26 +1022,9 @@
       footer    { padding: 40px 0; }
       .section-head { margin-bottom: 28px; }
 
-      /* Service cards: single column, tap-to-flip */
+      /* Service cards: single column */
       .services-grid { grid-template-columns: 1fr; }
-      .svc-card       { min-height: 300px; }
-      .svc-card-inner { min-height: 300px; }
-      /* Disable CSS hover on touch, rely on .flipped class toggled by JS */
-      .svc-card:hover .svc-card-inner  { transform: none; }
-      .svc-card.flipped .svc-card-inner { transform: rotateY(180deg); }
-      /* "Tap to see details" hint — visible on mobile front face only */
-      .svc-front::after {
-        content: 'Tap to see details';
-        display: block;
-        margin-top: auto;
-        padding-top: 14px;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-        color: var(--green-mid);
-        opacity: .7;
-      }
+      .svc-card { transform: none !important; }
 
       /* Trust / Why Selva */
       .trust-layout { margin-top: 32px; gap: 28px; }
@@ -1135,8 +1079,7 @@
       .hero-actions .btn,
       .trust-aside .btn,
       .form-submit-row .btn { font-size: 14px; }
-      .svc-card,
-      .svc-card-inner { min-height: 310px; }
+      .svc-card { transform: none !important; }
     }
 
     /* ── LANGUAGE TOGGLE ─────────────────────────────────── */
@@ -1184,10 +1127,6 @@
       color: var(--white);
     }
 
-    /* ES tap hint override */
-    @media (max-width: 640px) {
-      [data-lang="es"] .svc-front::after { content: 'Toca para ver detalles'; }
-    }
   </style>
 </head>
 <body>
@@ -1264,82 +1203,47 @@
 
       <div class="services-grid">
 
-        <!-- Card 1 — Airbnb Cleaning -->
+        <!-- Card 1: Airbnb Turnovers -->
         <div class="svc-card">
-          <div class="svc-card-inner">
-            <div class="svc-front">
-              <div class="svc-icon">
-                <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
-              </div>
-              <h3 data-en="Airbnb Cleaning" data-es="Limpieza de Airbnb">Airbnb Cleaning</h3>
-              <p data-en="Fast, consistent turnovers that keep your property guest-ready and your reviews protected. Cleaned with products that are safe for every guest." data-es="Cambios rápidos y consistentes que mantienen tu propiedad lista para huéspedes y tus reseñas protegidas. Limpiado con productos seguros para cada huésped.">Fast, consistent turnovers that keep your property guest-ready and your reviews protected. Cleaned with products that are safe for every guest.</p>
-            </div>
-            <div class="svc-back">
-              <div>
-                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
-                <ul>
-                  <li data-en="Full reset between guests" data-es="Reset completo entre huéspedes">Full reset between guests</li>
-                  <li data-en="Kitchen &amp; bathroom cleaning" data-es="Limpieza de cocina y baño">Kitchen &amp; bathroom cleaning</li>
-                  <li data-en="Trash removal" data-es="Retiro de basura">Trash removal</li>
-                  <li data-en="Surface sanitizing" data-es="Sanitización de superficies">Surface sanitizing</li>
-                  <li data-en="Eco-friendly products safe for guests" data-es="Productos ecológicos seguros para huéspedes">Eco-friendly products safe for guests</li>
-                </ul>
-              </div>
-              <a href="#quote" class="svc-back-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
-            </div>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
           </div>
+          <h3 data-en="Airbnb Turnovers" data-es="Turnovers de Airbnb">Airbnb Turnovers</h3>
+          <div class="svc-card-desc">
+            <p data-en="Fast, reliable cleaning that keeps your property guest-ready, every time." data-es="Limpieza rápida y confiable que mantiene tu propiedad lista para huéspedes, siempre.">Fast, reliable cleaning that keeps your property guest-ready, every time.</p>
+            <p data-en="We focus on consistency, attention to detail, and making sure your space is ready for check-in without stress. Cleaned using safe, non-toxic products for every guest." data-es="Nos enfocamos en la consistencia, la atención al detalle y en asegurarnos de que tu espacio esté listo para el check-in sin estrés. Limpiado con productos seguros y no tóxicos para cada huésped.">We focus on consistency, attention to detail, and making sure your space is ready for check-in without stress. Cleaned using safe, non-toxic products for every guest.</p>
+          </div>
+          <p class="svc-card-tagline" data-en="No missed turnovers. No last-minute stress." data-es="Sin turnovers perdidos. Sin estrés de último momento.">No missed turnovers. No last-minute stress.</p>
+          <a href="#quote" class="svc-card-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
         </div>
 
-        <!-- Card 2 — Residential Cleaning -->
+        <!-- Card 2: Residential Cleaning -->
         <div class="svc-card">
-          <div class="svc-card-inner">
-            <div class="svc-front">
-              <div class="svc-icon">
-                <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
-              </div>
-              <h3 data-en="Residential Cleaning" data-es="Limpieza Residencial">Residential Cleaning</h3>
-              <p data-en="Recurring cleaning for homeowners who want a well-maintained home, using non-toxic products safe for your family and pets, every visit." data-es="Limpieza recurrente para propietarios que quieren un hogar bien mantenido, con productos no tóxicos seguros para tu familia y mascotas, en cada visita.">Recurring cleaning for homeowners who want a well-maintained home, using non-toxic products safe for your family and pets, every visit.</p>
-            </div>
-            <div class="svc-back">
-              <div>
-                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
-                <ul>
-                  <li data-en="Kitchen cleaning" data-es="Limpieza de cocina">Kitchen cleaning</li>
-                  <li data-en="Bathroom cleaning" data-es="Limpieza de baños">Bathroom cleaning</li>
-                  <li data-en="Floors (vacuum &amp; mop)" data-es="Pisos (aspirado y trapeado)">Floors (vacuum &amp; mop)</li>
-                  <li data-en="Dusting" data-es="Desempolvado">Dusting</li>
-                  <li data-en="Non-toxic products safe for families and pets" data-es="Productos no tóxicos seguros para familias y mascotas">Non-toxic products safe for families and pets</li>
-                </ul>
-              </div>
-              <a href="#quote" class="svc-back-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
-            </div>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
           </div>
+          <h3 data-en="Residential Cleaning" data-es="Limpieza Residencial">Residential Cleaning</h3>
+          <div class="svc-card-desc">
+            <p data-en="A cleaning service you can rely on, without having to think about it." data-es="Un servicio de limpieza en el que puedes confiar, sin tener que pensar en ello.">A cleaning service you can rely on, without having to think about it.</p>
+            <p data-en="We provide consistent, detail-focused cleaning using safe, non-toxic products, so your home always feels clean, fresh, and taken care of." data-es="Ofrecemos limpieza consistente y detallada con productos seguros y no tóxicos, para que tu hogar siempre se sienta limpio, fresco y bien cuidado.">We provide consistent, detail-focused cleaning using safe, non-toxic products, so your home always feels clean, fresh, and taken care of.</p>
+          </div>
+          <p class="svc-card-tagline" data-en="Consistent service you can trust." data-es="Servicio consistente en el que puedes confiar.">Consistent service you can trust.</p>
+          <a href="#quote" class="svc-card-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
         </div>
 
-        <!-- Card 3 — Deep Cleaning -->
-        <div class="svc-card">
-          <div class="svc-card-inner">
-            <div class="svc-front">
-              <div class="svc-icon">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
-              </div>
-              <h3 data-en="Deep Cleaning" data-es="Limpieza Profunda">Deep Cleaning</h3>
-              <p data-en="A full reset for spaces that need extra attention. Ideal as a first clean, seasonal refresh, or move-in/out. Done right, with products that don't leave harsh residues." data-es="Un reset completo para espacios que necesitan atención especial. Ideal como primera limpieza, puesta a punto estacional o mudanza. Bien hecho, con productos que no dejan residuos agresivos.">A full reset for spaces that need extra attention. Ideal as a first clean, seasonal refresh, or move-in/out. Done right, with products that don't leave harsh residues.</p>
-            </div>
-            <div class="svc-back">
-              <div>
-                <div class="svc-back-label" data-en="Includes" data-es="Incluye">Includes</div>
-                <ul>
-                  <li data-en="Grease &amp; buildup removal" data-es="Eliminación de grasa y acumulaciones">Grease &amp; buildup removal</li>
-                  <li data-en="Deep bathroom sanitation" data-es="Sanitización profunda de baños">Deep bathroom sanitation</li>
-                  <li data-en="Baseboards &amp; corners" data-es="Zócalos y rincones">Baseboards &amp; corners</li>
-                  <li data-en="Detailed surface cleaning" data-es="Limpieza detallada de superficies">Detailed surface cleaning</li>
-                  <li data-en="Eco-friendly degreasers" data-es="Desengrasantes ecológicos">Eco-friendly degreasers</li>
-                </ul>
-              </div>
-              <a href="#quote" class="svc-back-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
-            </div>
+        <!-- Card 3: Property Reset (accent) -->
+        <div class="svc-card svc-card--accent">
+          <span class="svc-card-badge" data-en="Deep Service" data-es="Servicio Profundo">Deep Service</span>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
           </div>
+          <h3 data-en="Property Reset" data-es="Reset de Propiedad">Property Reset</h3>
+          <div class="svc-card-desc">
+            <p data-en="A complete reset for your space." data-es="Un reset completo para tu espacio.">A complete reset for your space.</p>
+            <p data-en="Ideal for first-time service, seasonal refresh, or when your property needs extra attention. Thorough, detailed, and done with safe, non-toxic products." data-es="Ideal para el primer servicio, una puesta a punto estacional o cuando tu propiedad necesita atención extra. A fondo, detallado y con productos seguros y no tóxicos.">Ideal for first-time service, seasonal refresh, or when your property needs extra attention. Thorough, detailed, and done with safe, non-toxic products.</p>
+          </div>
+          <p class="svc-card-tagline" data-en="Noticeable results from the first visit." data-es="Resultados notables desde la primera visita.">Noticeable results from the first visit.</p>
+          <a href="#quote" class="svc-card-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
         </div>
 
       </div>
@@ -1770,22 +1674,6 @@
         'mailto:hello@selvaclean.com' +
         '?subject=' + encodeURIComponent('Availability Request — Selva Cleaning Services') +
         '&body=' + encodeURIComponent(body);
-    });
-
-    // Tap-to-flip for service cards — always attach so all touch devices work
-    document.querySelectorAll('.svc-card').forEach(card => {
-      card.addEventListener('click', e => {
-        // allow the CTA link to work normally
-        if (e.target.closest('.svc-back-cta')) return;
-        card.classList.toggle('flipped');
-      });
-      // On hover-capable devices (desktop) clear the class when mouse leaves,
-      // so the CSS :hover transition takes back over cleanly
-      card.addEventListener('mouseleave', () => {
-        if (window.matchMedia('(hover: hover)').matches) {
-          card.classList.remove('flipped');
-        }
-      });
     });
 
     // ── Language toggle ────────────────────────────────────
