@@ -543,145 +543,112 @@
     }
 
     /* ── QUOTE FORM ──────────────────────────────────────── */
-    .quote { background: var(--cream); padding: 80px 0; }
-
-    .quote-layout {
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 56px;
-      align-items: start;
+    .quote {
+      background: var(--cream);
+      padding: 88px 0 96px;
     }
 
-    .quote-intro { margin-bottom: 24px; }
-    .quote-intro .body-copy { margin-top: 14px; }
-
-    .quote-price-banner {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 18px;
-      background: #a7bf8f;
-      color: #284010;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .2px;
-      margin-bottom: 32px;
+    .quote-intro {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .quote-intro .display { margin-bottom: 10px; }
+    .quote-sub {
+      font-size: 1rem;
+      color: var(--ink-light);
+      margin: 0;
     }
 
     .quote-form {
+      max-width: 640px;
+      margin: 0 auto;
       background: var(--white);
       border-radius: var(--radius-lg);
-      padding: 36px 32px;
+      padding: 40px 40px 36px;
       box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
+    }
+
+    .form-section-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 28px 0 20px;
+    }
+    .form-section-divider:first-child { margin-top: 0; }
+    .form-section-divider span {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      white-space: nowrap;
+    }
+    .form-section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
     }
     .form-full { grid-column: 1 / -1; }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
     }
 
     .form-label {
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--ink);
       letter-spacing: .2px;
     }
-    .form-label .required { color: var(--green-mid); margin-left: 2px; }
+    .form-label .req { color: var(--green-mid); margin-left: 1px; }
 
     .form-control {
       appearance: none;
       -webkit-appearance: none;
       width: 100%;
-      min-height: 44px;
-      padding: 10px 14px;
-      border: 1.5px solid rgba(0,0,0,.12);
-      border-radius: 7px;
+      min-height: 46px;
+      padding: 11px 14px;
+      border: 1.5px solid rgba(0,0,0,.11);
+      border-radius: 8px;
       font-family: var(--sans);
-      font-size: 14px;
+      font-size: 14.5px;
       color: var(--ink-dark);
       background: var(--white);
       transition: border-color .15s, box-shadow .15s;
       outline: none;
     }
+    .form-control::placeholder { color: rgba(0,0,0,.30); }
     .form-control:focus {
       border-color: var(--green-mid);
       box-shadow: 0 0 0 3px rgba(74,122,46,.10);
+    }
+    .form-control.error {
+      border-color: #d1364a;
+      box-shadow: 0 0 0 3px rgba(209,54,74,.08);
     }
     select.form-control {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6460' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 12px center;
       background-size: 16px;
-      padding-right: 38px;
+      padding-right: 40px;
       cursor: pointer;
     }
-
-    .form-section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      padding-top: 8px;
-      padding-bottom: 4px;
-    }
-
-    .form-checkboxes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .checkbox-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border: 1.5px solid rgba(0,0,0,.12);
-      border-radius: 7px;
-      font-size: 13px;
-      color: var(--ink);
-      cursor: pointer;
-      transition: border-color .15s, background .15s;
-      user-select: none;
-    }
-    .checkbox-label:has(input:checked) {
-      border-color: var(--green-mid);
-      background: var(--green-pale);
-      color: var(--green-dark);
-    }
-    .checkbox-label input[type="checkbox"] {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 17px; height: 17px;
-      border: 1.5px solid rgba(0,0,0,.20);
-      border-radius: 4px;
-      flex-shrink: 0;
-      position: relative;
-      cursor: pointer;
-      transition: background .15s, border-color .15s;
-    }
-    .checkbox-label input[type="checkbox"]:checked {
-      background: var(--green-mid);
-      border-color: var(--green-mid);
-    }
-    .checkbox-label input[type="checkbox"]:checked::after {
-      content: '';
-      position: absolute;
-      left: 3px; top: 1px;
-      width: 9px; height: 6px;
-      border-left: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      transform: rotate(-45deg);
+    textarea.form-control {
+      min-height: 96px;
+      resize: vertical;
+      line-height: 1.55;
     }
 
     /* Photo upload — two-button layout */
@@ -788,19 +755,26 @@
       .photo-upload-row { grid-template-columns: 1fr; }
     }
 
+    .form-trust-line {
+      font-size: 12.5px;
+      color: var(--ink-light);
+      line-height: 1.6;
+      text-align: center;
+      margin: 24px 0 16px;
+      padding: 0 4px;
+    }
+
     .form-submit-row {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 8px;
     }
-    .form-submit-row .btn { width: 100%; justify-content: center; min-height: 50px; font-size: 15px; }
-
-    .form-disclaimer {
-      font-size: 11.5px;
-      color: var(--ink-light);
-      text-align: center;
-      line-height: 1.55;
+    .form-submit-row .btn {
+      width: 100%;
+      justify-content: center;
+      min-height: 52px;
+      font-size: 15.5px;
+      letter-spacing: .2px;
     }
 
     .form-email-alt {
@@ -810,7 +784,6 @@
       gap: 10px;
       padding-top: 14px;
       border-top: 1px solid var(--border);
-      margin-top: 4px;
     }
     .form-email-alt span {
       font-size: 12.5px;
@@ -821,7 +794,7 @@
       align-items: center;
       gap: 5px;
       padding: 7px 14px;
-      border: 1.5px solid rgba(45,90,27,.30);
+      border: 1.5px solid rgba(45,90,27,.28);
       border-radius: 6px;
       font-family: var(--sans);
       font-size: 12.5px;
@@ -834,77 +807,51 @@
     }
     .btn-email:hover { background: var(--green-pale); border-color: var(--green-mid); }
 
-    .quote-sidebar {
-      position: sticky;
-      top: calc(var(--nav-h) + 20px);
-    }
-
-    .sidebar-card {
+    /* Success state */
+    .qf-success {
+      max-width: 640px;
+      margin: 0 auto;
       background: var(--white);
       border-radius: var(--radius-lg);
-      padding: 30px 26px;
-      box-shadow: var(--shadow-sm);
+      padding: 56px 40px;
+      box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
-      margin-bottom: 16px;
+      text-align: center;
     }
-
-    .sidebar-card h3 {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--ink-dark);
-      margin-bottom: 16px;
-    }
-
-    .sidebar-steps {
-      list-style: none;
-      counter-reset: steps;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .sidebar-steps li {
-      counter-increment: steps;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: .88rem;
-      color: var(--ink);
-      line-height: 1.5;
-    }
-    .sidebar-steps li::before {
-      content: counter(steps);
-      width: 24px; height: 24px;
-      background: var(--green-dark);
-      color: #fff;
+    .qf-success[hidden] { display: none; }
+    .qf-success-icon {
+      width: 56px; height: 56px;
+      background: var(--green-pale);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      flex-shrink: 0;
+      margin: 0 auto 20px;
     }
-
-    .sidebar-contact {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .sidebar-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .875rem;
-      color: var(--ink-light);
-    }
-    .sidebar-contact-item svg {
-      width: 16px; height: 16px;
-      stroke: var(--brown);
-      fill: none; stroke-width: 1.8;
+    .qf-success-icon svg {
+      width: 26px; height: 26px;
+      stroke: var(--green-dark);
+      fill: none; stroke-width: 2.2;
       stroke-linecap: round; stroke-linejoin: round;
-      flex-shrink: 0;
     }
-    .sidebar-contact-item a { color: var(--brown); font-weight: 500; }
-    .sidebar-contact-item a:hover { color: var(--green-dark); }
+    .qf-success h3 {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--ink-dark);
+      margin-bottom: 10px;
+    }
+    .qf-success p {
+      font-size: .92rem;
+      color: var(--ink-light);
+      line-height: 1.65;
+      max-width: 380px;
+      margin: 0 auto 28px;
+    }
+    .qf-success-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
     /* ── FOOTER ──────────────────────────────────────────── */
     footer {
@@ -959,9 +906,7 @@
     @media (max-width: 960px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
       .trust-layout { grid-template-columns: 1fr; }
-      .quote-layout { grid-template-columns: 1fr; }
-      .quote-sidebar { position: static; }
-      .sidebar-card:last-child { display: none; }
+      .quote-form { padding: 32px 28px; }
     }
 
     /* ── Mobile (≤ 640px) ── */
@@ -1053,30 +998,17 @@
         justify-content: center;
       }
 
-      /* Quote / Contact form */
-      .quote-layout { width: 100%; }
-      .quote-price-banner { max-width: 100%; white-space: normal; text-align: center; }
-      .quote-form { padding: 24px 16px; width: 100%; min-width: 0; box-sizing: border-box; }
+      /* Quote form */
+      .quote-form { padding: 24px 18px; }
+      .qf-success { padding: 44px 22px; }
       .form-grid { grid-template-columns: 1fr; }
       /* font-size 16px prevents iOS auto-zoom on focus */
-      .form-control       { min-height: 48px; font-size: 16px; }
-      select.form-control { min-height: 48px; font-size: 16px; }
-      .form-checkboxes { gap: 8px; }
-      .checkbox-label {
-        padding: 11px 14px;
-        min-height: 44px;
-        font-size: 14px;
-      }
-      .upload-area { padding: 24px 16px; }
+      .form-control       { min-height: 50px; font-size: 16px; }
+      select.form-control { min-height: 50px; font-size: 16px; }
       .form-submit-row .btn {
-        width: 100%;
         min-height: 54px;
         font-size: 15px;
-        justify-content: center;
       }
-
-      /* Sidebar (How it works) */
-      .sidebar-card { padding: 24px 20px; }
 
       /* Footer */
       .footer-row {
@@ -1435,209 +1367,146 @@
   <!-- ── QUOTE FORM ────────────────────────────────────────────── -->
   <section class="quote" id="quote">
     <div class="container">
+
       <div class="quote-intro">
         <span class="eyebrow" data-en="Get a quote" data-es="Solicitar cotización">Get a quote</span>
-        <h2 class="display" data-en="Request your<br><em>free estimate.</em>" data-es="¿Listo para un<br><em>hogar más limpio?</em>">Request your<br><em>free estimate.</em></h2>
-        <p class="body-copy" data-en="Fill out the form and we'll send you a quote via WhatsApp in minutes. No commitment required." data-es="Completa el formulario y te enviaremos una cotización por WhatsApp en minutos. Sin compromiso.">Fill out the form and we'll send you a quote via WhatsApp in minutes. No commitment required.</p>
+        <h2 class="display" data-en="Reliable Cleaning Services<br><em>in Nosara</em>" data-es="Servicio de Limpieza Confiable<br><em>en Nosara</em>">Reliable Cleaning Services<br><em>in Nosara</em></h2>
+        <p class="quote-sub" data-en="For Airbnb hosts and residential homes" data-es="Para anfitriones de Airbnb y hogares residenciales">For Airbnb hosts and residential homes</p>
       </div>
 
-      <div class="quote-price-banner" data-en="Starting at ₡25,000 — price varies by size and condition" data-es="Desde ₡25,000 · el precio varía según tamaño y estado">Starting at ₡25,000 — price varies by size and condition</div>
+      <form class="quote-form" id="quote-form" novalidate>
 
-      <div class="quote-layout">
-
-        <form class="quote-form" id="quote-form" novalidate>
-          <div class="form-grid">
-
-            <!-- Type of place -->
-            <div class="form-group">
-              <label class="form-label" for="place_type" data-en="Type of space <span class='required'>*</span>" data-es="Tipo de espacio <span class='required'>*</span>">
-                Type of space <span class="required">*</span>
-              </label>
-              <select class="form-control" id="place_type" name="place_type" required>
-                <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
-                <option value="Home" data-en="Home" data-es="Casa">Home</option>
-                <option value="Airbnb / Vacation rental" data-en="Airbnb / Vacation rental" data-es="Airbnb / Alquiler vacacional">Airbnb / Vacation rental</option>
-                <option value="Business / Office" data-en="Business / Office" data-es="Negocio / Oficina">Business / Office</option>
-              </select>
-            </div>
-
-            <!-- Size -->
-            <div class="form-group">
-              <label class="form-label" for="size" data-en="Size <span class='required'>*</span>" data-es="Tamaño <span class='required'>*</span>">
-                Size <span class="required">*</span>
-              </label>
-              <select class="form-control" id="size" name="size" required>
-                <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
-                <option value="1 room / Studio" data-en="1 room / Studio" data-es="1 habitación / Estudio">1 room / Studio</option>
-                <option value="2–3 rooms" data-en="2–3 rooms" data-es="2–3 habitaciones">2–3 rooms</option>
-                <option value="4+ rooms" data-en="4+ rooms" data-es="4+ habitaciones">4+ rooms</option>
-              </select>
-            </div>
-
-            <!-- Cleaning type -->
-            <div class="form-group">
-              <label class="form-label" for="clean_type" data-en="Type of cleaning <span class='required'>*</span>" data-es="Tipo de limpieza <span class='required'>*</span>">
-                Type of cleaning <span class="required">*</span>
-              </label>
-              <select class="form-control" id="clean_type" name="clean_type" required>
-                <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
-                <option value="Regular cleaning" data-en="Regular cleaning" data-es="Limpieza regular">Regular cleaning</option>
-                <option value="Deep cleaning" data-en="Deep cleaning" data-es="Limpieza profunda">Deep cleaning</option>
-                <option value="Move-in / Move-out" data-en="Move-in / Move-out" data-es="Entrada / Salida">Move-in / Move-out</option>
-                <option value="Post-construction" data-en="Post-construction" data-es="Post-construcción">Post-construction</option>
-              </select>
-            </div>
-
-            <!-- Condition -->
-            <div class="form-group">
-              <label class="form-label" for="condition" data-en="Current condition <span class='required'>*</span>" data-es="Estado actual <span class='required'>*</span>">
-                Current condition <span class="required">*</span>
-              </label>
-              <select class="form-control" id="condition" name="condition" required>
-                <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
-                <option value="Light (routine upkeep)" data-en="Light — routine upkeep" data-es="Leve — mantenimiento rutinario">Light — routine upkeep</option>
-                <option value="Medium (a few weeks since last clean)" data-en="Medium — a few weeks since last clean" data-es="Medio — varias semanas sin limpiar">Medium — a few weeks since last clean</option>
-                <option value="Heavy (needs thorough attention)" data-en="Heavy — needs thorough attention" data-es="Intenso — necesita atención detallada">Heavy — needs thorough attention</option>
-              </select>
-            </div>
-
-            <!-- Location -->
-            <div class="form-group">
-              <label class="form-label" for="location" data-en="Location / Area <span class='required'>*</span>" data-es="Ubicación / Zona <span class='required'>*</span>">
-                Location / Area <span class="required">*</span>
-              </label>
-              <input
-                class="form-control"
-                type="text"
-                id="location"
-                name="location"
-                placeholder="e.g. Playa Guiones, Nosara"
-                data-en-placeholder="e.g. Playa Guiones, Nosara"
-                data-es-placeholder="ej. Playa Guiones, Nosara"
-                required
-              />
-            </div>
-
-            <!-- Date -->
-            <div class="form-group">
-              <label class="form-label" for="date" data-en="Preferred date <span class='required'>*</span>" data-es="Fecha preferida <span class='required'>*</span>">
-                Preferred date <span class="required">*</span>
-              </label>
-              <input
-                class="form-control"
-                type="date"
-                id="date"
-                name="date"
-                required
-              />
-            </div>
-
-            <!-- Extras -->
-            <div class="form-group form-full">
-              <span class="form-label" data-en="Extras (optional)" data-es="Extras (opcional)">Extras (optional)</span>
-              <div class="form-checkboxes">
-                <label class="checkbox-label">
-                  <input type="checkbox" name="extras" value="Oven" />
-                  <span data-en="Oven" data-es="Horno">Oven</span>
-                </label>
-                <label class="checkbox-label">
-                  <input type="checkbox" name="extras" value="Fridge" />
-                  <span data-en="Fridge" data-es="Nevera">Fridge</span>
-                </label>
-                <label class="checkbox-label">
-                  <input type="checkbox" name="extras" value="Windows" />
-                  <span data-en="Windows" data-es="Ventanas">Windows</span>
-                </label>
-              </div>
-              <label class="form-label" for="extras_other" style="margin-top:10px;" data-en="Other extras" data-es="Otros extras">Other extras</label>
-              <input type="text" class="form-control" id="extras_other" name="extras_other" placeholder="e.g. deep kitchen cleaning, balcony, laundry..." data-en-placeholder="e.g. deep kitchen cleaning, balcony, laundry..." data-es-placeholder="ej. limpieza profunda de cocina, balcón, ropa..." />
-            </div>
-
-            <!-- Image upload -->
-            <div class="form-group form-full">
-              <span class="form-label" data-en="Photos of the space <span style='font-weight:300;color:var(--ink-light);'>(recommended)</span>" data-es="Fotos del espacio <span style='font-weight:300;color:var(--ink-light);'>(recomendado)</span>">Photos of the space <span style="font-weight:300;color:var(--ink-light);">(recommended)</span></span>
-
-              <div class="photo-upload-row">
-                <div class="photo-btn-wrap">
-                  <input
-                    type="file"
-                    id="photos-gallery"
-                    name="photos-gallery"
-                    accept="image/*"
-                    multiple
-                    aria-label="Choose photos from gallery"
-                  />
-                  <div class="photo-btn photo-btn-filled">
-                    <span aria-hidden="true">📁</span>
-                    <span data-en="Choose from gallery" data-es="Elegir de galería">Choose from gallery</span>
-                  </div>
-                </div>
-
-                <div class="photo-btn-wrap">
-                  <input
-                    type="file"
-                    id="photos-camera"
-                    name="photos-camera"
-                    accept="image/*"
-                    capture="environment"
-                    aria-label="Take a photo with camera"
-                  />
-                  <div class="photo-btn photo-btn-outline">
-                    <span aria-hidden="true">📷</span>
-                    <span data-en="Take a photo" data-es="Tomar una foto">Take a photo</span>
-                  </div>
-                </div>
-              </div>
-
-              <p class="photo-hint" data-en="Photos help us give you a more accurate estimate" data-es="Las fotos nos ayudan a darte una estimación más precisa">Photos help us give you a more accurate estimate</p>
-
-              <div class="photo-preview js-photo-preview" role="list" aria-label="Selected photos"></div>
-            </div>
-
-          </div><!-- /form-grid -->
-
-          <div class="form-submit-row" style="margin-top:24px;">
-            <button type="submit" class="btn btn-primary">
-              <svg viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              <span data-en="Send Quote Request via WhatsApp" data-es="Enviar Solicitud de Cotización por WhatsApp">Send Quote Request via WhatsApp</span>
-            </button>
-            <p class="form-disclaimer" data-en="Submitting opens WhatsApp with your details pre-filled. Free and no commitment." data-es="Al enviar se abrirá WhatsApp con tus datos prellenados. Gratis y sin compromiso.">
-              Submitting opens WhatsApp with your details pre-filled. Free and no commitment.
-            </p>
-            <div class="form-email-alt">
-              <span data-en="Don't have WhatsApp?" data-es="¿No tienes WhatsApp?">Don't have WhatsApp?</span>
-              <button type="button" class="btn-email" id="btn-send-email" data-en="Send via Email →" data-es="Enviar por Email →">
-                Send via Email →
-              </button>
-            </div>
+        <!-- Section 1 — Contact -->
+        <div class="form-section-divider"><span data-en="Contact information" data-es="Información de contacto">Contact information</span></div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="full_name" data-en="Full name <span class='req'>*</span>" data-es="Nombre completo <span class='req'>*</span>">Full name <span class="req">*</span></label>
+            <input class="form-control" type="text" id="full_name" name="full_name"
+              placeholder="Jane Smith"
+              data-en-placeholder="Jane Smith"
+              data-es-placeholder="Juan Pérez"
+              autocomplete="name" required />
           </div>
-        </form>
-
-        <aside class="quote-sidebar">
-          <div class="sidebar-card">
-            <h3 data-en="How it works" data-es="¿Cómo funciona?">How it works</h3>
-            <ol class="sidebar-steps">
-              <li data-en="Fill out the form with your space details" data-es="Completa el formulario con los detalles de tu espacio">Fill out the form with your space details</li>
-              <li data-en="We send you a personalised estimate via WhatsApp" data-es="Te enviamos una estimación personalizada por WhatsApp">We send you a personalised estimate via WhatsApp</li>
-              <li data-en="You confirm and we take care of the rest" data-es="Confirmas y nosotros nos encargamos del resto">You confirm and we take care of the rest</li>
-            </ol>
+          <div class="form-group">
+            <label class="form-label" for="phone" data-en="Phone / WhatsApp <span class='req'>*</span>" data-es="Teléfono / WhatsApp <span class='req'>*</span>">Phone / WhatsApp <span class="req">*</span></label>
+            <input class="form-control" type="tel" id="phone" name="phone"
+              placeholder="+506 8888 0000"
+              data-en-placeholder="+506 8888 0000"
+              data-es-placeholder="+506 8888 0000"
+              autocomplete="tel" required />
           </div>
-          <div class="sidebar-card">
-            <h3 data-en="Prefer to contact directly?" data-es="¿Prefieres contactarnos directamente?">Prefer to contact directly?</h3>
-            <div class="sidebar-contact">
-              <div class="sidebar-contact-item">
-                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.1 5.6C.1 4.5.9 3.6 2 3.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 11a16 16 0 006.09 6.09l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
-                <a href="https://wa.me/50672039783" target="_blank" rel="noopener" data-en="WhatsApp us directly" data-es="Escríbenos por WhatsApp">WhatsApp us directly</a>
+          <div class="form-group form-full">
+            <label class="form-label" for="email" data-en="Email <span class='req'>*</span>" data-es="Correo electrónico <span class='req'>*</span>">Email <span class="req">*</span></label>
+            <input class="form-control" type="email" id="email" name="email"
+              placeholder="you@example.com"
+              data-en-placeholder="you@example.com"
+              data-es-placeholder="tu@correo.com"
+              autocomplete="email" required />
+          </div>
+        </div>
+
+        <!-- Section 2 — Property -->
+        <div class="form-section-divider"><span data-en="Property details" data-es="Detalles de la propiedad">Property details</span></div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="property_type" data-en="Property type <span class='req'>*</span>" data-es="Tipo de propiedad <span class='req'>*</span>">Property type <span class="req">*</span></label>
+            <select class="form-control" id="property_type" name="property_type" required>
+              <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
+              <option value="Apartment" data-en="Apartment" data-es="Apartamento">Apartment</option>
+              <option value="House" data-en="House" data-es="Casa">House</option>
+              <option value="Villa" data-en="Villa" data-es="Villa">Villa</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bedrooms" data-en="Bedrooms <span class='req'>*</span>" data-es="Habitaciones <span class='req'>*</span>">Bedrooms <span class="req">*</span></label>
+            <select class="form-control" id="bedrooms" name="bedrooms" required>
+              <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
+              <option value="1–2" data-en="1–2 bedrooms" data-es="1–2 habitaciones">1–2 bedrooms</option>
+              <option value="2–3" data-en="2–3 bedrooms" data-es="2–3 habitaciones">2–3 bedrooms</option>
+              <option value="3–5" data-en="3–5 bedrooms" data-es="3–5 habitaciones">3–5 bedrooms</option>
+              <option value="5+" data-en="5+ bedrooms" data-es="5+ habitaciones">5+ bedrooms</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="service_type" data-en="Service type <span class='req'>*</span>" data-es="Tipo de servicio <span class='req'>*</span>">Service type <span class="req">*</span></label>
+            <select class="form-control" id="service_type" name="service_type" required>
+              <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
+              <option value="Airbnb Turnover" data-en="Airbnb Turnover" data-es="Cambio de Airbnb">Airbnb Turnover</option>
+              <option value="Residential Cleaning" data-en="Residential Cleaning" data-es="Limpieza residencial">Residential Cleaning</option>
+              <option value="Deep Cleaning" data-en="Deep Cleaning" data-es="Limpieza profunda">Deep Cleaning</option>
+              <option value="One-time Cleaning" data-en="One-time Cleaning" data-es="Limpieza única">One-time Cleaning</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="frequency" data-en="Frequency <span class='req'>*</span>" data-es="Frecuencia <span class='req'>*</span>">Frequency <span class="req">*</span></label>
+            <select class="form-control" id="frequency" name="frequency" required>
+              <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
+              <option value="Occasional" data-en="Occasional" data-es="Ocasional">Occasional</option>
+              <option value="Weekly" data-en="Weekly" data-es="Semanal">Weekly</option>
+              <option value="Multiple times per week" data-en="Multiple times per week" data-es="Varias veces por semana">Multiple times per week</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Section 3 — Optional -->
+        <div class="form-section-divider">
+          <span data-en="Additional notes" data-es="Notas adicionales">Additional notes</span>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" id="notes" name="notes" rows="3"
+            placeholder="Anything we should know about the property?"
+            data-en-placeholder="Anything we should know about the property?"
+            data-es-placeholder="¿Algo que debamos saber sobre la propiedad?"></textarea>
+        </div>
+
+        <!-- Photos -->
+        <div class="form-group" style="margin-top:14px;">
+          <span class="form-label" data-en="Photos <span style='font-weight:400;color:var(--ink-light);'>(optional)</span>" data-es="Fotos <span style='font-weight:400;color:var(--ink-light);'>(opcional)</span>">Photos <span style="font-weight:400;color:var(--ink-light);">(optional)</span></span>
+          <div class="photo-upload-row" style="margin-top:6px;">
+            <div class="photo-btn-wrap">
+              <input type="file" id="photos-gallery" name="photos-gallery" accept="image/*" multiple aria-label="Choose photos from gallery" />
+              <div class="photo-btn photo-btn-filled">
+                <span aria-hidden="true">📁</span>
+                <span data-en="Choose from gallery" data-es="Elegir de galería">Choose from gallery</span>
               </div>
-              <div class="sidebar-contact-item">
-                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span data-en="Nosara and surrounding areas" data-es="Nosara y alrededores">Nosara and surrounding areas</span>
+            </div>
+            <div class="photo-btn-wrap">
+              <input type="file" id="photos-camera" name="photos-camera" accept="image/*" capture="environment" aria-label="Take a photo with camera" />
+              <div class="photo-btn photo-btn-outline">
+                <span aria-hidden="true">📷</span>
+                <span data-en="Take a photo" data-es="Tomar una foto">Take a photo</span>
               </div>
             </div>
           </div>
-        </aside>
+          <p class="photo-hint" data-en="Photos help us give you a more accurate estimate" data-es="Las fotos nos ayudan a darte una estimación más precisa">Photos help us give you a more accurate estimate</p>
+          <div class="photo-preview js-photo-preview" role="list" aria-label="Selected photos"></div>
+        </div>
 
+        <!-- Trust + CTA -->
+        <p class="form-trust-line" data-en="We focus on reliable, high-quality service. We'll get back to you shortly with availability and pricing." data-es="Nos enfocamos en un servicio confiable y de alta calidad. Te contactaremos pronto con disponibilidad y precios.">We focus on reliable, high-quality service. We'll get back to you shortly with availability and pricing.</p>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary" data-en="Check Availability" data-es="Consultar disponibilidad">Check Availability</button>
+          <div class="form-email-alt">
+            <span data-en="Prefer email?" data-es="¿Prefieres el correo?">Prefer email?</span>
+            <button type="button" class="btn-email" id="btn-send-email" data-en="Send via Email →" data-es="Enviar por Email →">Send via Email →</button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Success state -->
+      <div class="qf-success" id="qf-success" hidden>
+        <div class="qf-success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 data-en="Thanks! We'll be in touch shortly." data-es="¡Gracias! Te contactaremos pronto.">Thanks! We'll be in touch shortly.</h3>
+        <p data-en="Your request has been sent. Expect a message from us on WhatsApp within a few hours." data-es="Tu solicitud fue enviada. Espera un mensaje nuestro por WhatsApp en pocas horas.">Your request has been sent. Expect a message from us on WhatsApp within a few hours.</p>
+        <div class="qf-success-actions">
+          <a href="https://wa.me/50672039783" class="btn btn-primary" target="_blank" rel="noopener" data-en="Message us on WhatsApp" data-es="Escríbenos por WhatsApp">Message us on WhatsApp</a>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -1746,72 +1615,76 @@
       window._photoFiles = selectedFiles;
     })();
 
-    // Form submit → build WhatsApp message
+    // Form submit → build WhatsApp message + show success
     document.getElementById('quote-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const f = this;
 
       // Validate required fields
-      const required = ['place_type', 'size', 'clean_type', 'condition', 'location', 'date'];
-      let valid = true;
-      required.forEach(name => {
+      const required = ['full_name', 'phone', 'email', 'property_type', 'bedrooms', 'service_type', 'frequency'];
+      let firstError = null;
+      required.forEach(function(name) {
         const el = f.querySelector('[name="' + name + '"]');
-        if (!el || !el.value.trim()) {
-          el && (el.style.borderColor = '#d1364a');
-          valid = false;
-        } else {
-          el.style.borderColor = '';
-        }
+        if (!el) return;
+        const empty = !el.value.trim();
+        el.classList.toggle('error', empty);
+        if (empty && !firstError) firstError = el;
       });
-      if (!valid) {
-        f.querySelector('[style*="d1364a"]').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstError.focus();
         return;
       }
 
-      const extras = [...f.querySelectorAll('input[name="extras"]:checked')]
-        .map(i => i.value).join(', ') || 'None';
-      const extrasOther = (f.extras_other.value || '').trim();
-
       const hasPhotos = (window._photoFiles || []).some(Boolean);
-
-      const extrasLine = extras + (extrasOther ? ' / Otro: ' + extrasOther : '');
+      const notes = (f.notes.value || '').trim();
 
       const msg =
         'Hola Selva! 👋 Me interesa una cotización:\n\n' +
-        '🏠 Tipo de espacio: ' + f.place_type.value + ' (Casa / Airbnb / Negocio)\n' +
-        '📐 Tamaño: ' + f.size.value + ' (1 cuarto / 2-3 cuartos / 4+ cuartos)\n' +
-        '🧽 Tipo de limpieza: ' + f.clean_type.value + ' (Regular / Profunda / Mudanza)\n' +
-        '⚡ Estado del espacio: ' + f.condition.value + ' (Leve / Moderado / Intenso)\n' +
-        '📍 Ubicación: ' + f.location.value + '\n' +
-        '📅 Fecha preferida: ' + f.date.value + '\n' +
-        '➕ Extras: ' + extrasLine + ' (Horno / Refrigerador / Ventanas / Otro: ___)\n' +
+        '👤 Nombre: ' + f.full_name.value + '\n' +
+        '📱 Teléfono: ' + f.phone.value + '\n' +
+        '📧 Email: ' + f.email.value + '\n\n' +
+        '🏠 Tipo de propiedad: ' + f.property_type.value + ' (Apartamento / Casa / Villa)\n' +
+        '🛏️ Habitaciones: ' + f.bedrooms.value + ' (1-2 / 2-3 / 3-5 / 5+)\n' +
+        '🧹 Servicio: ' + f.service_type.value + ' (Airbnb Turnover / Residencial / Profunda / Única vez)\n' +
+        '🔁 Frecuencia: ' + f.frequency.value + ' (Ocasional / Semanal / Varias veces por semana)\n\n' +
+        '💬 Notas: ' + (notes || 'Sin notas adicionales') + '\n' +
         '📸 Fotos: ' + (hasPhotos ? 'Adjuntaré fotos en el chat' : 'Sin fotos');
 
       window.open('https://wa.me/50672039783?text=' + encodeURIComponent(msg), '_blank');
+
+      // Show success state
+      f.hidden = true;
+      const success = document.getElementById('qf-success');
+      success.hidden = false;
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 
-    // Email fallback — reads the same form fields and opens mailto:
+    // Clear error class on input
+    document.getElementById('quote-form').addEventListener('input', function(e) {
+      if (e.target.classList.contains('error')) e.target.classList.remove('error');
+    });
+
+    // Email fallback
     document.getElementById('btn-send-email').addEventListener('click', function() {
       const f = document.getElementById('quote-form');
-      const extras = [...f.querySelectorAll('input[name="extras"]:checked')]
-        .map(i => i.value).join(', ') || 'None';
-      const extrasOther = (f.extras_other.value || '').trim();
+      const notes = (f.notes.value || '').trim();
 
       const body =
-        'Hello Selva! I would like to request a cleaning estimate:\n\n' +
-        'Space type: ' + (f.place_type.value || '[please fill in]') + '\n' +
-        'Size: ' + (f.size.value || '[please fill in]') + '\n' +
-        'Cleaning type: ' + (f.clean_type.value || '[please fill in]') + '\n' +
-        'Condition: ' + (f.condition.value || '[please fill in]') + '\n' +
-        'Location: ' + (f.location.value || '[please fill in]') + '\n' +
-        'Preferred date: ' + (f.date.value || '[please fill in]') + '\n' +
-        'Extras: ' + extras + '\n' +
-        (extrasOther ? 'Other extras: ' + extrasOther + '\n' : '') +
-        '\nPlease send me a quote at your earliest convenience. Thank you!';
+        'Hello Selva! I would like to check availability:\n\n' +
+        'Name: ' + (f.full_name.value || '[your name]') + '\n' +
+        'Phone / WhatsApp: ' + (f.phone.value || '[your number]') + '\n' +
+        'Email: ' + (f.email.value || '[your email]') + '\n\n' +
+        'Property type: ' + (f.property_type.value || '[please fill in]') + '\n' +
+        'Bedrooms: ' + (f.bedrooms.value || '[please fill in]') + '\n' +
+        'Service: ' + (f.service_type.value || '[please fill in]') + '\n' +
+        'Frequency: ' + (f.frequency.value || '[please fill in]') + '\n\n' +
+        'Notes: ' + (notes || 'None') + '\n\n' +
+        'Please let me know your availability and pricing. Thank you!';
 
       window.location.href =
         'mailto:hello@selvaclean.com' +
-        '?subject=' + encodeURIComponent('Quote Request — Selva Cleaning Services') +
+        '?subject=' + encodeURIComponent('Availability Request — Selva Cleaning Services') +
         '&body=' + encodeURIComponent(body);
     });
 
@@ -1830,13 +1703,6 @@
         }
       });
     });
-
-    // Min date = today for date input
-    const dateInput = document.getElementById('date');
-    if (dateInput) {
-      const today = new Date().toISOString().split('T')[0];
-      dateInput.setAttribute('min', today);
-    }
 
     // ── Language toggle ────────────────────────────────────
     function setLang(lang) {
