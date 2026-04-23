@@ -398,18 +398,18 @@
       gap: 6px;
       margin-top: 4px;
       padding: 9px 16px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.28);
+      background: #fff;
+      border: 1px solid #fff;
       border-radius: 5px;
-      color: var(--white);
+      color: #284010;
       font-size: 12.5px;
       font-weight: 600;
       letter-spacing: .2px;
       align-self: flex-start;
-      transition: background .18s;
+      transition: background .18s, color .18s;
       text-decoration: none;
     }
-    .svc-back-cta:hover { background: rgba(255,255,255,.22); }
+    .svc-back-cta:hover { background: #f0f7e8; border-color: #f0f7e8; }
 
     /* mobile: touch-tap to flip via .flipped class toggled by JS */
     @media (hover: none) {
@@ -1730,9 +1730,9 @@
         '📧 Email: ' + f.email.value + '\n\n' +
         '🏠 Tipo de propiedad: ' + f.property_type.value + ' (Apartamento / Casa / Villa)\n' +
         '🛏️ Habitaciones: ' + f.bedrooms.value + ' (1-2 / 2-3 / 3-5 / 5+)\n' +
-        '🧹 Servicio: ' + f.service_type.value + ' (Airbnb Turnover / Residencial / Profunda / Única vez)\n' +
-        '🔁 Frecuencia: ' + f.frequency.value + ' (Ocasional / Semanal / Varias veces por semana)\n\n' +
-        '💬 Notas: ' + (notes || 'Sin notas adicionales') + '\n' +
+        '🧽 Servicio: ' + f.service_type.value + ' (Airbnb Turnover / Residencial / Profunda / Única vez)\n' +
+        '🔄 Frecuencia: ' + f.frequency.value + ' (Ocasional / Semanal / Varias veces por semana)\n\n' +
+        '📝 Notas: ' + (notes || 'Sin notas adicionales') + '\n' +
         '📸 Fotos: ' + (hasPhotos ? 'Adjuntaré fotos en el chat' : 'Sin fotos');
 
       window.open('https://wa.me/50672039783?text=' + encodeURIComponent(msg), '_blank');
