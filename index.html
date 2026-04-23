@@ -1600,16 +1600,16 @@
       const notes = (f.notes.value || '').trim();
 
       const msg =
-        'Hola Selva! 👋 Me interesa una cotización:\n\n' +
-        '👤 Nombre: ' + f.full_name.value + '\n' +
-        '📱 Teléfono: ' + f.phone.value + '\n' +
-        '📧 Email: ' + f.email.value + '\n\n' +
-        '🏠 Tipo de propiedad: ' + f.property_type.value + ' (Apartamento / Casa / Villa)\n' +
-        '🛏️ Habitaciones: ' + f.bedrooms.value + ' (1-2 / 2-3 / 3-5 / 5+)\n' +
-        '🧽 Servicio: ' + f.service_type.value + ' (Airbnb Turnover / Residencial / Profunda / Única vez)\n' +
-        '🔄 Frecuencia: ' + f.frequency.value + ' (Ocasional / Semanal / Varias veces por semana)\n\n' +
-        '📝 Notas: ' + (notes || 'Sin notas adicionales') + '\n' +
-        '📸 Fotos: ' + (hasPhotos ? 'Adjuntaré fotos en el chat' : 'Sin fotos');
+        'Hola Selva! Me interesa solicitar el servicio de limpieza.\n\n' +
+        'Nombre: ' + f.full_name.value + '\n' +
+        'Teléfono: ' + f.phone.value + '\n' +
+        'Email: ' + f.email.value + '\n\n' +
+        'Tipo de propiedad: ' + f.property_type.value + '\n' +
+        'Habitaciones: ' + f.bedrooms.value + '\n' +
+        'Servicio: ' + f.service_type.value + '\n' +
+        'Frecuencia: ' + f.frequency.value + '\n' +
+        'Notas: ' + (notes || 'Sin notas adicionales') + '\n' +
+        'Fotos: ' + (hasPhotos ? 'Adjuntaré fotos en el chat' : 'Sin fotos');
 
       window.open('https://wa.me/50672039783?text=' + encodeURIComponent(msg), '_blank');
 
