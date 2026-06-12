@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,33 +8,30 @@
   <link rel="stylesheet" href="https://use.typekit.net/guk2ekc.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Reset ───────────────────────────────────────────── */
+    /* ── Reset ───────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green-dark:  #2d5a1b;
-      --green-mid:   #4a7a2e;
-      --green-light: #a8c98a;
-      --green-pale:  #eef5e8;
+      --green-dark:  #284010;
+      --green-mid:   #59733F;
+      --green-light: #A7BF8F;
       --brown:       #735439;
-      --cream:       #f8f6f1;
-      --off-white:   #f4f1ec;
+      --cream:       #F7F5F0;
+      --off-white:   #F7F5F0;
       --white:       #ffffff;
+      --ink-light:   #78706a;
       --ink:         #3d3630;
-      --ink-light:   #6b6460;
       --ink-dark:    #1c1917;
-      --border:      rgba(45,90,27,.12);
       --serif:       'the-seasons', 'Cormorant Garamond', Georgia, serif;
       --sans:        'DM Sans', sans-serif;
-      --radius:      10px;
-      --radius-lg:   18px;
-      --nav-h:       96px;
-      --shadow-sm:   0 1px 4px rgba(0,0,0,.06);
-      --shadow-md:   0 4px 20px rgba(0,0,0,.09);
-      --shadow-lg:   0 12px 44px rgba(0,0,0,.13);
+      --radius:      12px;
+      --nav-h:       72px;
+      --shadow-sm:   0 1px 4px rgba(40,64,16,.07);
+      --shadow-md:   0 6px 28px rgba(40,64,16,.11);
+      --shadow-lg:   0 18px 52px rgba(40,64,16,.16);
     }
 
     html { scroll-behavior: smooth; }
@@ -41,41 +39,45 @@
     body {
       font-family: var(--sans);
       color: var(--ink-dark);
-      background: var(--cream);
+      background: var(--off-white);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
-    img { display: block; max-width: 100%; }
-    a   { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
 
     .container {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 28px;
     }
 
-    /* ── Typography helpers ──────────────────────────────── */
+    /* ── Typography tokens ───────────────────────────────────── */
     .eyebrow {
       display: inline-block;
+      font-family: var(--sans);
       font-size: 10.5px;
       font-weight: 600;
-      letter-spacing: 2.6px;
+      letter-spacing: 2.8px;
       text-transform: uppercase;
-      color: var(--green-mid);
-      margin-bottom: 14px;
+      color: var(--brown);
+      margin-bottom: 16px;
     }
 
     .display {
       font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
       font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -.2px;
+      line-height: 1.08;
+      letter-spacing: -.3px;
       color: var(--ink-dark);
     }
-    .display em { font-family: 'ivymode', sans-serif; font-weight: 300; font-style: italic; color: var(--green-dark); }
+    .display em {
+      font-style: italic;
+      color: var(--green-dark);
+    }
 
     .body-copy {
       font-size: 1rem;
@@ -84,96 +86,71 @@
       font-weight: 300;
     }
 
-    /* ── Buttons ─────────────────────────────────────────── */
+    /* ── Buttons ─────────────────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
-      min-height: 48px;
-      padding: 13px 26px;
-      border-radius: 6px;
+      padding: 14px 28px;
+      border-radius: 4px;
       font-family: var(--sans);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: .3px;
+      letter-spacing: .6px;
       cursor: pointer;
       border: none;
       white-space: nowrap;
       touch-action: manipulation;
-      transition: background .18s, color .18s, box-shadow .18s, transform .18s;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
     }
     .btn:focus-visible { outline: 2px solid var(--green-mid); outline-offset: 3px; }
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
       background: var(--green-dark);
       color: var(--white);
-      box-shadow: 0 4px 16px rgba(45,90,27,.30);
+      box-shadow: 0 4px 18px rgba(40,64,16,.28);
     }
-    .btn-primary:hover { background: var(--green-mid); box-shadow: 0 6px 22px rgba(45,90,27,.38); }
+    .btn-primary:hover {
+      background: var(--green-mid);
+      box-shadow: 0 8px 28px rgba(40,64,16,.36);
+    }
 
     .btn-outline {
       background: transparent;
       color: var(--green-dark);
       border: 1.5px solid var(--green-dark);
     }
-    .btn-outline:hover { background: var(--green-dark); color: var(--white); }
+    .btn-outline:hover {
+      background: var(--green-dark);
+      color: var(--white);
+    }
 
     .btn-ghost {
-      background: rgba(255,255,255,.13);
+      background: rgba(255,255,255,.10);
       color: var(--white);
-      border: 1.5px solid rgba(255,255,255,.40);
+      border: 1.5px solid rgba(255,255,255,.38);
       backdrop-filter: blur(6px);
     }
-    .btn-ghost:hover { background: rgba(255,255,255,.22); }
-
-    .btn-wa {
-      background: #25d366;
-      color: var(--white);
-      box-shadow: 0 4px 16px rgba(37,211,102,.32);
-    }
-    .btn-wa:hover { background: #20bc5a; }
-
-    .btn-wa svg, .btn-primary svg, .btn-outline svg {
-      width: 18px; height: 18px;
-      flex-shrink: 0;
+    .btn-ghost:hover {
+      background: rgba(255,255,255,.20);
     }
 
-    /* ── NAV ─────────────────────────────────────────────── */
-    .site-nav {
-      position: fixed;
+    /* ── NAV ─────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 100;
       height: var(--nav-h);
-      background: transparent;
-      border-bottom: 1px solid transparent;
+      background: rgba(250,246,241,.93);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(115,84,57,.09);
       display: flex;
       align-items: center;
-      transition: background .35s ease, border-color .35s ease, box-shadow .35s ease;
+      transition: box-shadow .25s;
     }
-    .site-nav.scrolled {
-      background: rgba(248,246,241,.96);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom-color: var(--border);
-      box-shadow: 0 2px 18px rgba(0,0,0,.07);
-    }
-
-    /* Logo: white/inverted when transparent, normal when scrolled */
-    .site-nav:not(.scrolled) .nav-logo img { filter: brightness(0) invert(1); }
-    .site-nav:not(.scrolled) .nav-cta {
-      background: rgba(255,255,255,.15);
-      border: 1.5px solid rgba(255,255,255,.50);
-      color: var(--white);
-      box-shadow: none;
-    }
-    .site-nav:not(.scrolled) .nav-cta:hover {
-      background: rgba(255,255,255,.28);
-      box-shadow: none;
-    }
+    nav.is-scrolled { box-shadow: 0 2px 24px rgba(40,64,16,.09); }
 
     .nav-inner {
       display: flex;
@@ -182,23 +159,51 @@
       width: 100%;
     }
 
-    .nav-logo {
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-mark {
+      width: 38px; height: 38px;
+      background: var(--green-dark);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      line-height: 0;
     }
-    .nav-logo img {
-      height: 90px;
-      width: auto;
+    .logo-mark svg {
+      width: 19px; height: 19px;
+      fill: none; stroke: #fff;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .logo-wordmark { line-height: 1.18; }
+    .logo-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--green-dark);
       display: block;
-      transition: filter .35s ease;
+      letter-spacing: .1px;
+    }
+    .logo-sub {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--brown);
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      opacity: .7;
     }
 
-    .nav-cta { padding: 11px 22px; font-size: 13.5px; min-height: 42px; }
+    .nav-btn { padding: 11px 22px; font-size: 13px; }
 
-    /* ── HERO ─────────────────────────────────────────────── */
+    /* ── HERO ─────────────────────────────────────────────────── */
     .hero {
       position: relative;
-      min-height: 95vh;
+      min-height: 72vh;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -209,701 +214,621 @@
       inset: 0;
       z-index: 0;
     }
-    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 42% center; }
+    .hero-bg img { height: 100%; object-position: 60% center; }
+
+    /* Multi-layer overlay for depth */
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(110deg, rgba(22,50,10,.86) 0%, rgba(22,50,10,.60) 52%, rgba(22,50,10,.22) 100%);
+      background:
+        linear-gradient(108deg,
+          rgba(40,64,16,.88) 0%,
+          rgba(40,64,16,.62) 48%,
+          rgba(40,64,16,.22) 100%
+        );
+    }
+
+    /* Grain texture layer */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .055;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 220px;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 620px;
-      padding: calc(var(--nav-h) + 48px) 0 88px;
+      max-width: 640px;
+      padding: 60px 0 80px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(167,191,143,.38);
+      background: rgba(167,191,143,.10);
+      color: rgba(255,255,255,.82);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 7px 15px;
+      border-radius: 100px;
+      margin-bottom: 34px;
+      letter-spacing: .5px;
+    }
+    .hero-dot {
+      width: 6px; height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.8rem, 4.5vw, 4rem);
       font-weight: 300;
       color: var(--white);
-      line-height: 1.0;
-      letter-spacing: -.3px;
-      margin-bottom: 22px;
+      line-height: .98;
+      letter-spacing: -.4px;
+      margin-bottom: 28px;
     }
     .hero h1 em {
-      font-family: 'ivymode', sans-serif;
-      font-weight: 300;
       font-style: italic;
-      color: rgba(168,201,138,.92);
+      color: rgba(167,191,143,.92);
       display: block;
       margin-top: 6px;
     }
 
     .hero-sub {
       font-size: 1.05rem;
-      color: rgba(255,255,255,.74);
-      max-width: 480px;
-      margin-bottom: 38px;
-      line-height: 1.74;
+      color: rgba(255,255,255,.72);
+      max-width: 470px;
+      margin-bottom: 44px;
+      line-height: 1.72;
       font-weight: 300;
     }
 
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    .hero-microcopy {
-      margin-top: 18px;
-      font-size: 12px;
-      color: rgba(255,255,255,.46);
-      font-weight: 400;
-      letter-spacing: .3px;
+    /* Animated scroll line */
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .hero-scroll-bar {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
+      animation: scrollDrop 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0%   { opacity: .3; transform: scaleY(.5) translateY(-10px); }
+      50%  { opacity: .9; transform: scaleY(1) translateY(0); }
+      100% { opacity: .3; transform: scaleY(.5) translateY(10px); }
     }
 
+    /* Organic wave transition */
     .hero-wave {
       position: absolute;
-      bottom: -1px; left: 0; right: 0;
-      z-index: 3; line-height: 0;
+      bottom: -1px;
+      left: 0; right: 0;
+      z-index: 3;
+      line-height: 0;
     }
     .hero-wave svg { display: block; width: 100%; }
 
-    /* ── SERVICES ────────────────────────────────────────── */
-    .services { background: var(--off-white); padding: 72px 0 104px; }
+    /* ── SECTION BASE ────────────────────────────────────────── */
+    section { padding: 64px 0; }
 
-    .section-head { margin-bottom: 40px; }
-    .section-head.centered { text-align: center; }
+    /* ── WHY SELVA ───────────────────────────────────────────── */
+    .why { background: var(--off-white); }
 
-    .services-intro {
-      max-width: 560px;
-      margin-top: 12px;
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .why-visual { position: relative; }
+
+    .why-photo {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      box-shadow: var(--shadow-lg);
+    }
+    .why-photo img { height: 100%; }
+
+    /* Floating stat card */
+    .why-float {
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 22px 26px;
+      box-shadow: var(--shadow-md);
+      min-width: 170px;
+    }
+    .why-float-num {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      line-height: 1;
+    }
+    .why-float-label {
+      font-size: 11.5px;
+      color: var(--ink-light);
+      margin-top: 5px;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    .why-body { padding-bottom: 4px; }
+    .why-body .display { margin-bottom: 22px; }
+    .why-body .body-copy { margin-bottom: 28px; }
+
+    .why-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .stat-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 15px 20px;
+      background: var(--white);
+      border-radius: 10px;
+      border-left: 3px solid var(--green-light);
+      box-shadow: var(--shadow-sm);
+      transition: border-color .2s;
+    }
+    .stat-row:hover { border-color: var(--green-dark); }
+    .stat-val {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      min-width: 72px;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.4;
+    }
+
+    /* ── SERVICES ────────────────────────────────────────────── */
+    .services { background: var(--cream); }
+
+    .services-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 36px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 16px;
-      align-items: stretch;
+      gap: 18px;
     }
 
     .svc-card {
       background: var(--white);
-      border: 1px solid rgba(45,90,27,.1);
-      border-radius: 14px;
-      padding: 32px 28px 28px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 2px 12px rgba(0,0,0,.05);
-      transition: box-shadow .2s, transform .2s;
-    }
-    .svc-card:hover {
-      box-shadow: 0 8px 28px rgba(45,90,27,.1);
-      transform: translateY(-2px);
-    }
-    .svc-card--accent {
-      background: #f7fdf4;
-      border-color: rgba(45,90,27,.22);
+      border-radius: var(--radius);
+      padding: 28px 24px 24px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
     }
 
-    .svc-icon {
-      width: 46px; height: 46px;
-      background: var(--green-pale);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px;
-      flex-shrink: 0;
+    /* Animated gradient border on hover */
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      padding: 1px;
+      background: linear-gradient(135deg, var(--green-light), var(--green-dark) 70%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity .3s ease;
     }
+    .svc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); background: var(--white); }
+    .svc-card:hover::before { opacity: 1; }
+
+    .svc-num {
+      font-family: var(--serif);
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: rgba(167,191,143,.35);
+      line-height: 1;
+      margin-bottom: 18px;
+      transition: color .25s;
+    }
+    .svc-card:hover .svc-num { color: var(--green-light); }
+
+    .svc-icon {
+      width: 44px; height: 44px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      transition: background .2s;
+    }
+    .svc-card:hover .svc-icon { background: var(--green-dark); }
     .svc-icon svg {
-      width: 22px; height: 22px;
+      width: 19px; height: 19px;
       stroke: var(--green-dark);
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke .2s;
+    }
+    .svc-card:hover .svc-icon svg { stroke: var(--white); }
+
+    .svc-card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--ink-dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .svc-card p {
+      font-size: .88rem;
+      color: var(--ink-light);
+      line-height: 1.72;
+      font-weight: 300;
+    }
+
+    .services-row2 {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      max-width: calc(66.66% - 6px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── HOW IT WORKS ────────────────────────────────────────── */
+    .how {
+      background: var(--green-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Grain on dark bg */
+    .how::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 220px;
+      pointer-events: none;
+    }
+
+    .how-inner { position: relative; z-index: 1; }
+
+    .how-header {
+      margin-bottom: 40px;
+    }
+    .how .eyebrow { color: var(--green-light); }
+    .how .display { color: var(--white); }
+    .how .display em { color: var(--green-light); }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.07);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .how-step {
+      padding: 36px 32px;
+      background: var(--green-dark);
+      position: relative;
+      transition: background .25s;
+    }
+    .how-step:hover { background: rgba(89,115,63,.2); }
+
+    .how-step-num {
+      font-family: var(--serif);
+      font-size: 5.5rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.06);
+      line-height: 1;
+      position: absolute;
+      top: 20px; right: 24px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .how-icon {
+      width: 48px; height: 48px;
+      border: 1.5px solid rgba(167,191,143,.28);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 26px;
+      transition: border-color .2s, background .2s;
+    }
+    .how-step:hover .how-icon {
+      border-color: var(--green-light);
+      background: rgba(167,191,143,.10);
+    }
+    .how-icon svg {
+      width: 20px; height: 20px;
+      stroke: var(--green-light);
       fill: none;
       stroke-width: 1.7;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    .svc-card h3 {
+    .how-step h3 {
       font-family: var(--serif);
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       font-weight: 400;
-      color: var(--ink-dark);
-      margin-bottom: 14px;
-      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .how-step p {
+      font-size: .9rem;
+      color: rgba(255,255,255,.52);
+      line-height: 1.7;
+      font-weight: 300;
     }
 
-    .svc-card-desc {
-      font-size: .875rem;
-      color: var(--ink);
-      line-height: 1.75;
-      font-weight: 400;
-      flex: 1;
-    }
-    .svc-card-desc p + p { margin-top: 10px; }
+    /* ── WHY TRUST ───────────────────────────────────────────── */
+    .trust { background: var(--off-white); }
 
-    .svc-card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 20px;
-      padding: 10px 18px;
-      background: #A7BF8F;
-      color: #284010;
-      border-radius: 7px;
-      font-size: .83rem;
-      font-weight: 600;
-      align-self: flex-start;
-      transition: background .18s;
-      text-decoration: none;
-    }
-    .svc-card-cta:hover { background: #93ae77; }
-
-    .services-note {
-      margin-top: 28px;
-      padding: 16px 20px;
-      background: var(--green-pale);
-      border-radius: var(--radius);
-      border-left: 3px solid var(--green-light);
-      font-size: .88rem;
-      color: var(--ink);
-      line-height: 1.6;
-    }
-
-    /* ── TRUST ───────────────────────────────────────────── */
-    .trust { background: var(--green-dark); padding: 72px 0; position: relative; overflow: hidden; }
-    .trust::before {
-      content: '';
-      position: absolute; inset: 0; pointer-events: none;
-      opacity: .04;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
-      background-size: 220px;
-    }
-
-    .trust-inner { position: relative; z-index: 1; }
-
-    .trust .eyebrow { color: var(--green-light); }
-    .trust .display { color: var(--white); }
-    .trust .display em { color: var(--green-light); }
-
-    .trust-layout {
-      margin-top: 44px;
+    .trust-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
+      gap: 56px;
+      align-items: center;
     }
 
-    .trust-bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+    .trust-content { order: 1; }
+
+    .trust-photo {
+      order: 2;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 5/4;
+      box-shadow: var(--shadow-lg);
     }
-    .trust-bullet {
+    .trust-photo img { height: 100%; }
+
+    .trust-list {
+      margin-top: 38px;
+      list-style: none;
+    }
+    .trust-item {
       display: flex;
       align-items: flex-start;
       gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(115,84,57,.09);
     }
-    .trust-bullet:first-child { border-top: 1px solid rgba(255,255,255,.08); }
+    .trust-item:first-of-type { border-top: 1px solid rgba(115,84,57,.09); }
 
-    .trust-icon {
-      width: 38px; height: 38px;
-      border: 1px solid rgba(168,201,138,.28);
+    .trust-check {
+      width: 26px; height: 26px;
+      background: var(--green-light);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
       margin-top: 1px;
     }
-    .trust-icon svg {
-      width: 17px; height: 17px;
-      stroke: var(--green-light);
+    .trust-check svg {
+      width: 12px; height: 12px;
+      stroke: var(--green-dark);
+      fill: none;
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .trust-item-label {
+      font-size: .96rem;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    /* ── FAMILIA ────────────────────────────────────────────── */
+    .familia { background: var(--off-white); }
+
+    .familia-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .familia-visual { position: relative; }
+
+    .familia-photo {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      box-shadow: var(--shadow-lg);
+    }
+    .familia-photo img { height: 100%; object-position: center top; }
+
+    .familia-pull {
+      position: absolute;
+      bottom: -28px;
+      left: -28px;
+      background: var(--green-dark);
+      border-radius: 14px;
+      padding: 22px 26px;
+      box-shadow: var(--shadow-md);
+      max-width: 215px;
+    }
+    .familia-pull-text {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(255,255,255,.88);
+      line-height: 1.52;
+    }
+    .familia-pull-attr {
+      font-size: 11px;
+      color: var(--green-light);
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .familia-body { padding-bottom: 4px; }
+    .familia-body .display { margin-bottom: 22px; }
+
+    .familia-members {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 36px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(115,84,57,.09);
+    }
+
+    .familia-member {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .familia-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2.5px solid var(--green-light);
+      box-shadow: var(--shadow-sm);
+    }
+    .familia-avatar img { height: 100%; object-position: center top; }
+
+    .familia-avatar-mono {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: rgba(255,255,255,.82);
+      border: 2.5px solid var(--green-mid);
+    }
+
+    .familia-member-info strong {
+      display: block;
+      font-size: .95rem;
+      color: var(--ink-dark);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .familia-member-info span {
+      font-size: .82rem;
+      color: var(--ink-light);
+      font-weight: 300;
+    }
+
+    /* ── CONTACT ─────────────────────────────────────────────── */
+    .contact { background: var(--cream); text-align: center; }
+
+    .contact-inner { max-width: 600px; margin: 0 auto; }
+    .contact .display { margin-bottom: 18px; }
+    .contact .body-copy { margin-bottom: 28px; }
+
+    .contact-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 28px;
+      margin-bottom: 28px;
+    }
+    .contact-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .88rem;
+      color: var(--ink-light);
+    }
+    .contact-meta-item svg {
+      width: 15px; height: 15px;
+      stroke: var(--brown);
       fill: none;
       stroke-width: 1.8;
       stroke-linecap: round;
       stroke-linejoin: round;
-    }
-
-    .trust-bullet-label {
-      font-size: .95rem;
-      color: rgba(255,255,255,.80);
-      line-height: 1.55;
-      padding-top: 8px;
-    }
-
-    .trust-note {
-      margin-top: 32px;
-      font-size: .88rem;
-      color: rgba(255,255,255,.42);
-      line-height: 1.68;
-      font-family: 'ivymode', sans-serif;
-      font-weight: 300;
-      font-style: italic;
-    }
-
-    .trust-aside {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
-    }
-
-    .trust-aside-title {
-      font-family: var(--serif);
-      font-size: 1.45rem;
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 22px;
-      line-height: 1.25;
-    }
-    .trust-aside-title em { font-family: 'ivymode', sans-serif; font-weight: 300; font-style: italic; color: var(--green-light); }
-
-    .trust-aside-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 30px;
-    }
-    .trust-aside-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .88rem;
-      color: rgba(255,255,255,.72);
-    }
-    .trust-aside-list li svg {
-      width: 15px; height: 15px;
-      stroke: var(--green-light);
-      fill: none;
-      stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
       flex-shrink: 0;
     }
+    .contact-meta-item a {
+      color: var(--brown);
+      font-weight: 500;
+      transition: color .15s;
+    }
+    .contact-meta-item a:hover { color: var(--green-dark); }
 
-    /* ── QUOTE FORM ──────────────────────────────────────── */
-    .quote {
-      background: var(--cream);
-      padding: 88px 0 96px;
-    }
+    .contact-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
 
-    .quote-intro {
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto 40px;
-    }
-    .quote-intro .display { margin-bottom: 10px; }
-    .quote-sub {
-      font-size: 1rem;
-      color: var(--ink-light);
-      margin: 0;
-    }
-
-    .quote-form {
-      max-width: 640px;
-      margin: 0 auto;
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 40px 40px 36px;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
-    }
-
-    .form-section-divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 28px 0 20px;
-    }
-    .form-section-divider:first-child { margin-top: 0; }
-    .form-section-divider span {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      white-space: nowrap;
-    }
-    .form-section-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .form-full { grid-column: 1 / -1; }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .form-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--ink);
-      letter-spacing: .2px;
-    }
-    .form-label .req { color: var(--green-mid); margin-left: 1px; }
-
-    .form-control {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 100%;
-      min-height: 46px;
-      padding: 11px 14px;
-      border: 1.5px solid rgba(0,0,0,.11);
-      border-radius: 8px;
-      font-family: var(--sans);
-      font-size: 14.5px;
-      color: var(--ink-dark);
-      background: var(--white);
-      transition: border-color .15s, box-shadow .15s;
-      outline: none;
-    }
-    .form-control::placeholder { color: rgba(0,0,0,.30); }
-    .form-control:focus {
-      border-color: var(--green-mid);
-      box-shadow: 0 0 0 3px rgba(74,122,46,.10);
-    }
-    .form-control.error {
-      border-color: #d1364a;
-      box-shadow: 0 0 0 3px rgba(209,54,74,.08);
-    }
-    select.form-control {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6460' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      background-size: 16px;
-      padding-right: 40px;
-      cursor: pointer;
-    }
-    textarea.form-control {
-      min-height: 96px;
-      resize: vertical;
-      line-height: 1.55;
-    }
-
-    /* Photo upload — two-button layout */
-    .photo-upload-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .photo-btn-wrap { position: relative; }
-    .photo-btn-wrap input[type="file"] {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-    }
-
-    .photo-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 13px 10px;
-      border-radius: 10px;
-      font-family: var(--sans);
-      font-size: .875rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform .15s ease, box-shadow .15s ease;
-      white-space: nowrap;
-      line-height: 1.2;
-      text-align: center;
-      pointer-events: none; /* clicks pass through to the file input */
-    }
-    .photo-btn-wrap:hover .photo-btn { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(40,64,16,.18); }
-
-    .photo-btn-filled {
-      background: var(--green-dark);
-      color: var(--white);
-      border: 2px solid var(--green-dark);
-    }
-
-    .photo-btn-outline {
-      background: var(--white);
-      color: var(--green-dark);
-      border: 2px solid var(--green-dark);
-    }
-
-    .photo-hint {
-      font-size: .78rem;
-      color: var(--ink-light);
-      text-align: center;
-      margin-bottom: 14px;
-    }
-
-    .photo-preview {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
-    }
-    .photo-preview:empty { display: none; }
-
-    .photo-thumb {
-      position: relative;
-      width: 72px;
-      height: 72px;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,.12);
-      flex-shrink: 0;
-    }
-    .photo-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .photo-thumb-remove {
-      position: absolute;
-      top: 3px; right: 3px;
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: rgba(0,0,0,.55);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 13px;
-      line-height: 1;
-      padding: 0;
-      transition: background .15s;
-    }
-    .photo-thumb-remove:hover { background: rgba(200,30,30,.8); }
-
-    @media (max-width: 520px) {
-      .photo-upload-row { grid-template-columns: 1fr; }
-    }
-
-    .form-trust-line {
-      font-size: 12.5px;
-      color: var(--ink-light);
-      line-height: 1.6;
-      text-align: center;
-      margin: 24px 0 16px;
-      padding: 0 4px;
-    }
-
-    .form-submit-row {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .form-submit-row .btn {
-      width: 100%;
-      justify-content: center;
-      min-height: 52px;
-      font-size: 15.5px;
-      letter-spacing: .2px;
-    }
-
-    .form-email-alt {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-    }
-    .form-email-alt span {
-      font-size: 12.5px;
-      color: var(--ink-light);
-    }
-    .btn-email {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 7px 14px;
-      border: 1.5px solid rgba(45,90,27,.28);
-      border-radius: 6px;
-      font-family: var(--sans);
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--green-dark);
-      background: transparent;
-      cursor: pointer;
-      transition: background .15s, border-color .15s;
-      white-space: nowrap;
-    }
-    .btn-email:hover { background: var(--green-pale); border-color: var(--green-mid); }
-
-    /* Success state */
-    .qf-success {
-      max-width: 640px;
-      margin: 0 auto;
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 56px 40px;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
-      text-align: center;
-    }
-    .qf-success[hidden] { display: none; }
-    .qf-success-icon {
-      width: 56px; height: 56px;
-      background: var(--green-pale);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-    }
-    .qf-success-icon svg {
-      width: 26px; height: 26px;
-      stroke: var(--green-dark);
-      fill: none; stroke-width: 2.2;
-      stroke-linecap: round; stroke-linejoin: round;
-    }
-    .qf-success h3 {
-      font-family: var(--serif);
-      font-size: 1.55rem;
-      font-weight: 400;
-      color: var(--ink-dark);
-      margin-bottom: 10px;
-    }
-    .qf-success p {
-      font-size: .92rem;
-      color: var(--ink-light);
-      line-height: 1.65;
-      max-width: 380px;
-      margin: 0 auto 28px;
-    }
-    .qf-success-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* ── HOW IT WORKS ────────────────────────────────────── */
-    .how-it-works { background: var(--cream); padding: 72px 0; }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      margin-top: 48px;
-      position: relative;
-    }
-
-    .step {
-      text-align: center;
-      padding: 0 32px;
-      position: relative;
-    }
-    .step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 22px;
-      right: 0;
-      width: 1px;
-      height: 44px;
-      background: var(--border);
-    }
-
-    .step-num {
-      width: 44px; height: 44px;
-      background: var(--green-dark);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
-      font-weight: 700;
-      margin: 0 auto 20px;
-      font-family: var(--sans);
-    }
-
-    .step-title {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: var(--ink-dark);
-      margin-bottom: 8px;
-    }
-
-    .step-body {
-      font-size: .875rem;
-      color: var(--ink-light);
-      line-height: 1.68;
-      font-weight: 300;
-    }
-
-    /* ── FINAL CTA ────────────────────────────────────────── */
-    .final-cta {
-      background: var(--green-dark);
-      padding: 80px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .final-cta::before {
-      content: '';
-      position: absolute; inset: 0; pointer-events: none;
-      opacity: .04;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
-      background-size: 220px;
-    }
-    .final-cta-inner {
-      position: relative;
-      z-index: 1;
-    }
-    .final-cta .display {
-      color: var(--white);
-      margin-bottom: 32px;
-    }
-    .final-cta .display em { color: rgba(168,201,138,.92); }
-
-    /* trust section intro para */
-    .trust-intro-para {
-      color: rgba(255,255,255,.58);
-      max-width: 500px;
-      margin-top: 14px;
-    }
-
-    /* responsive new sections */
-    @media (max-width: 640px) {
-      .steps-grid { grid-template-columns: 1fr; }
-      .step:not(:last-child)::after { display: none; }
-      .step { padding: 0 8px; }
-      .final-cta { padding: 60px 0; }
-      .how-it-works { padding: 52px 0; }
-    }
-
-    /* ── FOOTER ──────────────────────────────────────────── */
+    /* ── FOOTER ──────────────────────────────────────────────── */
     footer {
       background: var(--green-dark);
-      padding: 40px 0;
-      position: relative; overflow: hidden;
+      padding: 44px 0;
+      position: relative;
+      overflow: hidden;
     }
     footer::before {
       content: '';
-      position: absolute; inset: 0; pointer-events: none;
+      position: absolute;
+      inset: 0;
       opacity: .04;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
       background-size: 220px;
+      pointer-events: none;
     }
 
     .footer-row {
-      position: relative; z-index: 1;
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -911,603 +836,459 @@
       gap: 20px;
     }
 
-    .footer-logo img { height: 73px; width: auto; filter: brightness(0) invert(1); opacity: .80; }
+    .footer-logo .logo-name { color: rgba(255,255,255,.88); }
+    .footer-logo .logo-sub  { color: rgba(255,255,255,.32); }
+    .footer-logo .logo-mark { background: rgba(255,255,255,.10); }
 
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,.34); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,.35); }
 
     .footer-nav { display: flex; gap: 22px; }
-    .footer-nav a { font-size: 12px; color: rgba(255,255,255,.40); transition: color .15s; }
-    .footer-nav a:hover { color: rgba(255,255,255,.80); }
+    .footer-nav a {
+      font-size: 12px;
+      color: rgba(255,255,255,.42);
+      transition: color .15s;
+    }
+    .footer-nav a:hover { color: rgba(255,255,255,.82); }
 
-    /* ── WA FAB ──────────────────────────────────────────── */
+    /* ── FLOATING WHATSAPP ───────────────────────────────────── */
     .wa-fab {
+      display: none;
       position: fixed;
-      bottom: 22px; right: 22px;
+      bottom: 24px; right: 24px;
       z-index: 200;
-      width: 56px; height: 56px;
+      width: 58px; height: 58px;
       background: #25d366;
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 24px rgba(37,211,102,.40);
-      transition: transform .2s, box-shadow .2s;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 26px rgba(37,211,102,.38);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(37,211,102,.52); }
+    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 8px 34px rgba(37,211,102,.52); }
     .wa-fab:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-    .wa-fab svg { width: 26px; height: 26px; fill: #fff; }
+    .wa-fab svg { width: 28px; height: 28px; fill: #fff; }
 
-    /* ── RESPONSIVE ──────────────────────────────────────── */
-
-    /* ── Tablet (≤ 960px) ── */
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
     @media (max-width: 960px) {
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .trust-layout { grid-template-columns: 1fr; }
-      .quote-form { padding: 32px 28px; }
+      .why-grid,
+      .trust-grid,
+      .familia-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .trust-photo { order: -1; aspect-ratio: 16/9; border-radius: var(--radius); }
+      .why-photo   { aspect-ratio: 16/9; border-radius: var(--radius); }
+      .why-float   { right: 8px; bottom: -18px; }
+      .familia-photo { aspect-ratio: 16/9; border-radius: var(--radius); }
+      .familia-pull  { left: 8px; bottom: -18px; }
+
+      .services-grid  { grid-template-columns: 1fr 1fr; }
+      .services-row2  { max-width: 100%; grid-template-columns: 1fr 1fr; }
+
+      .how-steps { grid-template-columns: 1fr; }
     }
 
-    /* ── Mobile nav: hide CTA, larger logo, shrink on scroll (≤ 768px) ── */
-    @media (max-width: 768px) {
-      .nav-cta { display: none; }
-      .site-nav { transition: background .35s ease, border-color .35s ease, box-shadow .35s ease, height .3s ease; }
-      .nav-logo img { transition: filter .35s ease, height .3s ease; }
-      .site-nav.nav-shrunk {
-        height: 62px;
-        background: rgba(248,246,241,.98);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border-bottom-color: var(--border);
-        box-shadow: 0 2px 18px rgba(0,0,0,.07);
-      }
-      .site-nav.nav-shrunk .nav-logo img { height: 48px; }
-    }
-
-    /* ── Mobile (≤ 640px) ── */
     @media (max-width: 640px) {
-      /* Prevent horizontal scroll */
-      html, body { overflow-x: hidden; max-width: 100%; }
-
-      :root { --nav-h: 116px; }
-      .container { padding: 0 18px; }
-
-      /* Nav */
-      .site-nav { height: var(--nav-h); }
-      .nav-logo img { height: 108px; }
-      .nav-right { gap: 8px; }
-      .nav-cta {
-        min-height: 40px;
-        padding: 9px 14px;
-        font-size: 12.5px;
-        white-space: nowrap;
-      }
-
-      /* Hero */
-      .hero { min-height: auto; }
-      .hero-content {
-        padding: calc(var(--nav-h) + 28px) 0 80px;
-        max-width: 100%;
-      }
-      .hero h1 {
-        font-size: clamp(1.9rem, 8.5vw, 2.4rem);
-        margin-bottom: 14px;
-      }
-      .hero-sub {
-        font-size: .92rem;
-        max-width: 100%;
-        margin-bottom: 26px;
-      }
-      /* Stack CTA buttons vertically, full width */
-      .hero-actions {
-        flex-direction: column;
-        gap: 10px;
-        align-items: stretch;
-      }
-      .hero-actions .btn {
-        width: 100%;
-        min-height: 50px;
-        font-size: 15px;
-        justify-content: center;
-      }
-      .hero-microcopy { margin-top: 12px; }
-
-      /* Display headings scale down */
-      .display { font-size: clamp(1.7rem, 6.5vw, 2.2rem); }
-
-      /* Section padding */
-      .services { padding: 52px 0 80px; }
-      .trust    { padding: 52px 0; }
-      .quote    { padding: 52px 0 100px; } /* extra bottom so WA FAB doesn't cover submit */
-      footer    { padding: 40px 0; }
-      .section-head { margin-bottom: 28px; }
-
-      /* Service cards: single column */
-      .services-grid { grid-template-columns: 1fr; }
-      .svc-card { transform: none !important; }
-
-      /* Trust / Why Selva */
-      .trust-layout { margin-top: 32px; gap: 28px; }
-      .trust-aside { padding: 26px 22px; }
-      .trust-aside .btn {
-        display: flex;
-        width: 100%;
-        min-height: 50px;
-        justify-content: center;
-      }
-
-      /* Quote form */
-      .quote-form { padding: 24px 18px; }
-      .qf-success { padding: 44px 22px; }
-      .form-grid { grid-template-columns: 1fr; }
-      /* font-size 16px prevents iOS auto-zoom on focus */
-      .form-control       { min-height: 50px; font-size: 16px; }
-      select.form-control { min-height: 50px; font-size: 16px; }
-      .form-submit-row .btn {
-        min-height: 54px;
-        font-size: 15px;
-      }
-
-      /* Footer */
-      .footer-row {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 16px;
-      }
-      .footer-nav {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px 18px;
-      }
-
-      /* WA FAB — slightly repositioned, won't cover content due to quote padding */
-      .wa-fab {
-        bottom: 18px;
-        right: 18px;
-        width: 52px;
-        height: 52px;
-      }
+      section { padding: 48px 0; }
+      .services-grid,
+      .services-row2 { grid-template-columns: 1fr; }
+      .services-head { gap: 20px; }
+      .footer-row { flex-direction: column; text-align: center; }
+      .footer-nav { justify-content: center; }
+      .wa-fab { display: flex; }
+      .hero-content { padding: 44px 0 56px; }
+      .hero h1 { font-size: 2.6rem; }
     }
 
-    /* ── Small phones (≤ 390px — iPhone SE / 14) ── */
-    @media (max-width: 390px) {
-      .container { padding: 0 16px; }
-      .nav-logo img { height: 96px; }
-      .hero h1 { font-size: 1.85rem; }
-      .display { font-size: 1.65rem; }
-      .hero-actions .btn,
-      .trust-aside .btn,
-      .form-submit-row .btn { font-size: 14px; }
-      .svc-card { transform: none !important; }
+    /* ── Entrance animations ─────────────────────────────────── */
+    .js-reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .js-reveal.revealed {
+      opacity: 1;
+      transform: none;
     }
 
-    /* ── LANGUAGE TOGGLE ─────────────────────────────────── */
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    @media (prefers-reduced-motion: reduce) {
+      .js-reveal { opacity: 1; transform: none; transition: none; }
+      .hero-scroll-bar { animation: none; }
     }
-
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      background: rgba(255,255,255,.13);
-      border: 1.5px solid rgba(255,255,255,.40);
-      border-radius: 6px;
-      padding: 2px;
-      backdrop-filter: blur(6px);
-    }
-
-    .lang-btn {
-      background: transparent;
-      border: none;
-      padding: 5px 10px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .9px;
-      color: rgba(255,255,255,.60);
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background .15s, color .15s;
-      font-family: var(--sans);
-      line-height: 1;
-    }
-    .lang-btn.active {
-      background: rgba(255,255,255,.25);
-      color: var(--white);
-    }
-    .site-nav.scrolled .lang-toggle {
-      background: var(--green-pale);
-      border-color: rgba(45,90,27,.20);
-    }
-    .site-nav.scrolled .lang-btn { color: var(--ink-light); }
-    .site-nav.scrolled .lang-btn.active {
-      background: var(--green-dark);
-      color: var(--white);
-    }
-
   </style>
 </head>
 <body>
 
-  <!-- ── NAV ──────────────────────────────────────────────────── -->
-  <nav class="site-nav" id="site-nav">
+  <!-- ── NAV ───────────────────────────────────────────────────── -->
+  <nav id="site-nav">
     <div class="container nav-inner">
-      <a href="#" class="nav-logo" aria-label="Selva Cleaning Services — home">
-        <img src="logo@2x.png" alt="Selva Cleaning Services" />
-      </a>
-      <div class="nav-right">
-        <div class="lang-toggle" role="group" aria-label="Language">
-          <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+      <a href="#" class="logo" aria-label="Selva Cleaning Services — home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24"><path d="M12 22C6 16 4 10 6 4c4 0 10 2 12 8-2 2-4 3-6 3 1-2 1-4 0-6-2 4-2 8 0 13"/></svg>
         </div>
-        <a href="#quote" class="btn btn-primary nav-cta" data-en="Request Service" data-es="Solicitar servicio">Request Service</a>
-      </div>
+        <div class="logo-wordmark">
+          <span class="logo-name">Selva Cleaning</span>
+          <span class="logo-sub">Nosara · Costa Rica</span>
+        </div>
+      </a>
+      <a href="#contact" class="btn btn-primary nav-btn">Book now</a>
     </div>
   </nav>
 
-  <!-- ── HERO ─────────────────────────────────────────────────── -->
-  <section class="hero" aria-label="Hero">
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <section class="hero">
     <div class="hero-bg">
       <img
-        src="african-descent-woma.jpg"
-        alt="Professional cleaning service"
+        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&auto=format&fit=crop&q=80"
+        alt="Clean, sunlit home interior"
         loading="eager"
       />
     </div>
+    <div class="hero-grain" aria-hidden="true"></div>
 
     <div class="container">
       <div class="hero-content">
-        <h1 data-en="Cleaner spaces,<em>naturally cared for.</em>" data-es="Espacios más limpios,<em>cuidados naturalmente.</em>">
+        <div class="hero-pill">
+          <span class="hero-dot"></span>
+          Eco-certified &nbsp;·&nbsp; Nosara, Costa Rica
+        </div>
+        <h1>
           Cleaner spaces,
           <em>naturally cared for.</em>
         </h1>
-        <p class="hero-sub" data-en="Reliable cleaning services in Nosara for Airbnb hosts and residential homes, using safe, non-toxic products that are better for your space and everyone in it." data-es="Servicios de limpieza confiables en Nosara para anfitriones de Airbnb y hogares, con productos seguros y no tóxicos que son mejores para tu espacio y todos en él.">Reliable cleaning services in Nosara for Airbnb hosts and residential homes, using safe, non-toxic products that are better for your space and everyone in it.</p>
+        <p class="hero-sub">Professional cleaning services in Nosara — powered by eco-friendly products that are safe for your family, your pets, and the environment.</p>
         <div class="hero-actions">
-          <a href="#quote" class="btn btn-primary">
-            <span data-en="Request Service" data-es="Solicitar servicio">Request Service</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <a
-            href="https://wa.me/50672039783?text=Hola%20Selva!%20Me%20interesa%20solicitar%20el%20servicio%20de%20limpieza."
-            class="btn btn-wa"
-            target="_blank"
-            rel="noopener"
-          >
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp
-          </a>
+          <a href="#contact" class="btn btn-primary">Book a cleaning →</a>
+          <a href="#services" class="btn btn-ghost">See our services</a>
         </div>
-        <p class="hero-microcopy" data-en="Quick response via WhatsApp." data-es="Respuesta rápida por WhatsApp.">Quick response via WhatsApp.</p>
       </div>
     </div>
 
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="hero-scroll-bar"></span>
+    </div>
+
     <div class="hero-wave" aria-hidden="true">
-      <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 32C240 64 480 0 720 32C960 64 1200 0 1440 32V64H0V32Z" fill="#f4f1ec"/>
+      <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 36C200 72 400 0 720 36C1040 72 1240 0 1440 36V72H0V36Z" fill="#FAF6F1"/>
       </svg>
+    </div>
+  </section>
+
+  <!-- ── WHY SELVA ─────────────────────────────────────────────── -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why-grid">
+
+        <div class="why-visual">
+          <div class="why-photo">
+            <img
+              src="images/mama-selva.png"
+              alt="Co-fundadora de Selva cuidando las plantas del hogar en Nosara"
+              loading="lazy"
+            />
+          </div>
+          <div class="why-float js-reveal" aria-hidden="true">
+            <div class="why-float-num">100%</div>
+            <div class="why-float-label">Eco-certified<br>products</div>
+          </div>
+        </div>
+
+        <div class="why-body">
+          <span class="eyebrow">Why Selva</span>
+          <h2 class="display">Clean spaces, <em>naturally cared for.</em></h2>
+          <p class="body-copy" style="margin-top:20px;margin-bottom:40px;">
+            We believe a clean space shouldn't come at the cost of the world outside your door. That's why every product we use is biodegradable, non-toxic, and locally sourced when possible — without compromising on results. Trusted by Nosara families, vacation rentals, and expat residents who expect more.
+          </p>
+          <div class="why-stats">
+            <div class="stat-row js-reveal">
+              <span class="stat-val">5★</span>
+              <span class="stat-label">Vacation rental reviews</span>
+            </div>
+            <div class="stat-row js-reveal">
+              <span class="stat-val">Local</span>
+              <span class="stat-label">Rooted in Nosara</span>
+            </div>
+            <div class="stat-row js-reveal">
+              <span class="stat-val">Insured</span>
+              <span class="stat-label">Background-checked team</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <!-- ── SERVICES ──────────────────────────────────────────────── -->
   <section class="services" id="services">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow" data-en="Services" data-es="Servicios">Services</span>
-        <h2 class="display" data-en="What we<br><em>offer</em>" data-es="Lo que<br><em>ofrecemos</em>">What we<br><em>offer</em></h2>
-        <p class="body-copy services-intro" data-en="A clean space changes how you feel in it. We do it right from the first visit, with non-toxic products, attention to detail, and clear communication every time." data-es="Un espacio limpio cambia cómo te sientes en él. Lo hacemos bien desde la primera vez, con productos no tóxicos, atención al detalle y comunicación clara en cada visita.">
-          A clean space changes how you feel in it. We do it right from the first visit, with non-toxic products, attention to detail, and clear communication every time.
-        </p>
+      <div class="services-head">
+        <div>
+          <span class="eyebrow">Services</span>
+          <h2 class="display">Everything your<br><em>space needs.</em></h2>
+        </div>
+        <a href="#contact" class="btn btn-outline">Get a quote →</a>
       </div>
 
       <div class="services-grid">
 
-        <!-- Card 1: Airbnb Turnovers -->
-        <div class="svc-card">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
-          </div>
-          <h3 data-en="Airbnb Turnovers" data-es="Turnovers de Airbnb">Airbnb Turnovers</h3>
-          <div class="svc-card-desc">
-            <p data-en="Fast, reliable cleaning that keeps your property guest-ready, every time." data-es="Limpieza rápida y confiable que mantiene tu propiedad lista para huéspedes, siempre.">Fast, reliable cleaning that keeps your property guest-ready, every time.</p>
-            <p data-en="We focus on consistency, attention to detail, and making sure your space is ready for check-in without stress. Cleaned using safe, non-toxic products for every guest." data-es="Nos enfocamos en la consistencia, la atención al detalle y en asegurarnos de que tu espacio esté listo para el check-in sin estrés. Limpiado con productos seguros y no tóxicos para cada huésped.">We focus on consistency, attention to detail, and making sure your space is ready for check-in without stress. Cleaned using safe, non-toxic products for every guest.</p>
-          </div>
-          <a href="#quote" class="svc-card-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
-        </div>
-
-        <!-- Card 2: Residential Cleaning -->
-        <div class="svc-card">
+        <div class="svc-card js-reveal">
+          <div class="svc-num">01</div>
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
           </div>
-          <h3 data-en="Residential Cleaning" data-es="Limpieza Residencial">Residential Cleaning</h3>
-          <div class="svc-card-desc">
-            <p data-en="A cleaning service you can rely on, without having to think about it." data-es="Un servicio de limpieza en el que puedes confiar, sin tener que pensar en ello.">A cleaning service you can rely on, without having to think about it.</p>
-            <p data-en="We provide consistent, detail-focused cleaning using safe, non-toxic products, so your home always feels clean, fresh, and taken care of." data-es="Ofrecemos limpieza consistente y detallada con productos seguros y no tóxicos, para que tu hogar siempre se sienta limpio, fresco y bien cuidado.">We provide consistent, detail-focused cleaning using safe, non-toxic products, so your home always feels clean, fresh, and taken care of.</p>
-          </div>
-          <a href="#quote" class="svc-card-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
+          <h3>Regular Home Cleaning</h3>
+          <p>Weekly, biweekly, or monthly. We keep your home consistently fresh so you never have to think about it.</p>
         </div>
 
-        <!-- Card 3: Property Reset (accent) -->
-        <div class="svc-card svc-card--accent">
+        <div class="svc-card js-reveal">
+          <div class="svc-num">02</div>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 8l2 2 4-4"/></svg>
+          </div>
+          <h3>Airbnb &amp; Vacation Rental Turnover</h3>
+          <p>Fast, thorough, and guest-ready. We work with your checkout and check-in times so your reviews stay five stars.</p>
+        </div>
+
+        <div class="svc-card js-reveal">
+          <div class="svc-num">03</div>
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
           </div>
-          <h3 data-en="Property Reset" data-es="Reset de Propiedad">Property Reset</h3>
-          <div class="svc-card-desc">
-            <p data-en="A complete reset for your space." data-es="Un reset completo para tu espacio.">A complete reset for your space.</p>
-            <p data-en="Ideal for first-time service, seasonal refresh, or when your property needs extra attention. Thorough, detailed, and done with safe, non-toxic products." data-es="Ideal para el primer servicio, una puesta a punto estacional o cuando tu propiedad necesita atención extra. A fondo, detallado y con productos seguros y no tóxicos.">Ideal for first-time service, seasonal refresh, or when your property needs extra attention. Thorough, detailed, and done with safe, non-toxic products.</p>
-          </div>
-          <a href="#quote" class="svc-card-cta" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
+          <h3>Deep Cleaning</h3>
+          <p>Moving in, moving out, or just due for a reset. Every corner, every surface — done right.</p>
         </div>
 
       </div>
 
-      <div class="services-note" data-en="&lt;strong&gt;Have a large property or specific requirements?&lt;/strong&gt; We'll work with you to put together the right plan. &lt;a href='#quote' style='color:var(--green-dark);font-weight:500;'&gt;Request a free estimate →&lt;/a&gt;" data-es="&lt;strong&gt;¿Tienes una propiedad grande o requisitos específicos?&lt;/strong&gt; Trabajamos contigo para diseñar el plan correcto. &lt;a href='#quote' style='color:var(--green-dark);font-weight:500;'&gt;Solicita una estimación gratuita →&lt;/a&gt;">
-        <strong>Have a large property or specific requirements?</strong> We'll work with you to put together the right plan. <a href="#quote" style="color:var(--green-dark);font-weight:500;">Request a free estimate →</a>
+      <div class="services-row2">
+
+        <div class="svc-card js-reveal">
+          <div class="svc-num">04</div>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <h3>Office &amp; Commercial Cleaning</h3>
+          <p>A clean workspace is a productive workspace. Flexible scheduling around your business hours.</p>
+        </div>
+
+        <div class="svc-card js-reveal">
+          <div class="svc-num">05</div>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3>Specific Services</h3>
+          <p>Only need the windows, the oven, or one room? We adapt to exactly what you need — without paying for what you don't.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ── TRUST ─────────────────────────────────────────────────── -->
+  <!-- ── HOW IT WORKS ───────────────────────────────────────────── -->
+  <section class="how" id="how">
+    <div class="container how-inner">
+      <div class="how-header">
+        <span class="eyebrow">How it works</span>
+        <h2 class="display">Three steps to a<br><em>spotless home.</em></h2>
+      </div>
+
+      <div class="how-steps">
+
+        <div class="how-step js-reveal">
+          <span class="how-step-num" aria-hidden="true">01</span>
+          <div class="how-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+          </div>
+          <h3>Book online</h3>
+          <p>Pick your service, date, and time in minutes.</p>
+        </div>
+
+        <div class="how-step js-reveal">
+          <span class="how-step-num" aria-hidden="true">02</span>
+          <div class="how-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>We show up</h3>
+          <p>Punctual, equipped, and ready to work.</p>
+        </div>
+
+        <div class="how-step js-reveal">
+          <span class="how-step-num" aria-hidden="true">03</span>
+          <div class="how-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>You enjoy it</h3>
+          <p>Come home to a space that actually feels clean.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY NOSARA TRUSTS US ───────────────────────────────────── -->
   <section class="trust" id="trust">
-    <div class="container trust-inner">
-      <span class="eyebrow" data-en="Why Selva" data-es="Por qué Selva">Why Selva</span>
-      <h2 class="display" data-en="Every detail.<br><em>Every time.</em>" data-es="Cada detalle.<br><em>Cada vez.</em>">Every detail.<br><em>Every time.</em></h2>
-      <p class="body-copy trust-intro-para" data-en="Every product we use is non-toxic, biodegradable, and safe." data-es="Cada producto que usamos es no tóxico, biodegradable y seguro.">Every product we use is non-toxic, biodegradable, and safe.</p>
+    <div class="container">
+      <div class="trust-grid">
 
-      <div class="trust-layout">
-
-        <div>
-          <ul class="trust-bullets" role="list">
-            <li class="trust-bullet">
-              <div class="trust-icon">
-                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-              </div>
-              <span class="trust-bullet-label" data-en="Better for your guests. Better for your family. Better for Nosara." data-es="Mejor para tus huéspedes. Mejor para tu familia. Mejor para Nosara.">Better for your guests. Better for your family. Better for Nosara.</span>
-            </li>
-            <li class="trust-bullet">
-              <div class="trust-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <span class="trust-bullet-label" data-en="No harsh chemicals. No strong fumes. Just cleaner spaces." data-es="Sin químicos agresivos. Sin olores fuertes. Solo espacios más limpios.">No harsh chemicals. No strong fumes. Just cleaner spaces.</span>
-            </li>
-            <li class="trust-bullet">
-              <div class="trust-icon">
-                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              </div>
-              <span class="trust-bullet-label" data-en="Eco-friendly products on every single clean. No exceptions." data-es="Productos ecológicos en cada limpieza. Sin excepciones.">Eco-friendly products on every single clean. No exceptions.</span>
-            </li>
-            <li class="trust-bullet">
-              <div class="trust-icon">
-                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-              </div>
-              <span class="trust-bullet-label" data-en="Safe for pets, children, and sensitive spaces." data-es="Seguros para mascotas, niños y espacios sensibles.">Safe for pets, children, and sensitive spaces.</span>
-            </li>
-            <li class="trust-bullet">
-              <div class="trust-icon">
+        <div class="trust-content">
+          <span class="eyebrow">Why Nosara trusts us</span>
+          <h2 class="display">Every detail.<br><em>Every time.</em></h2>
+          <ul class="trust-list" role="list">
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span class="trust-bullet-label" data-en="Reliable, consistent results without compromising on safety." data-es="Resultados confiables y consistentes sin sacrificar la seguridad.">Reliable, consistent results without compromising on safety.</span>
+              <span class="trust-item-label">Eco-certified cleaning products — safe for kids, pets, and the reef</span>
+            </li>
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="trust-item-label">Punctual, reliable, and detail-oriented</span>
+            </li>
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="trust-item-label">Flexible scheduling — we work around your calendar</span>
+            </li>
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="trust-item-label">Locally rooted in Nosara</span>
+            </li>
+            <li class="trust-item js-reveal">
+              <div class="trust-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="trust-item-label">Fully insured and background-checked team</span>
             </li>
           </ul>
-          <p class="trust-note" data-en="A professional cleaning service based in Nosara. Reliable, safe, and done right every time." data-es="Servicio de limpieza profesional en Nosara. Confiable, seguro y bien hecho siempre.">A professional cleaning service based in Nosara. Reliable, safe, and done right every time.</p>
         </div>
 
-        <div class="trust-aside">
-          <div class="trust-aside-title" data-en="Ready to get<br><em>started?</em>" data-es="¿Listo para<br><em>comenzar?</em>">Ready to get<br><em>started?</em></div>
-          <ul class="trust-aside-list">
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Free estimate, no commitment" data-es="Estimación gratuita, sin compromiso">Free estimate, no commitment</span></li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Quick response via WhatsApp" data-es="Respuesta rápida por WhatsApp">Quick response via WhatsApp</span></li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Based in Nosara" data-es="Con base en Nosara">Based in Nosara</span></li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Flexible scheduling" data-es="Horarios flexibles">Flexible scheduling</span></li>
-          </ul>
-          <a href="#quote" class="btn btn-primary" style="width:100%;justify-content:center;" data-en="Request Service" data-es="Solicitar servicio">
-            Request Service
-          </a>
+        <div class="trust-photo">
+          <img
+            src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&auto=format&fit=crop&q=80"
+            alt="Professional cleaning team at work"
+            loading="lazy"
+          />
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ── HOW IT WORKS ────────────────────────────────────────────── -->
-  <section class="how-it-works" id="how-it-works">
+  <!-- ── EMPRESA FAMILIAR ─────────────────────────────────────────── -->
+  <section class="familia" id="familia">
     <div class="container">
-      <div class="section-head centered">
-        <span class="eyebrow" data-en="How it works" data-es="Cómo funciona">How it works</span>
-        <h2 class="display" data-en="Simple process,<br><em>reliable results.</em>" data-es="Proceso simple,<br><em>resultados confiables.</em>">Simple process,<br><em>reliable results.</em></h2>
-      </div>
-      <div class="steps-grid">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-title" data-en="Request service" data-es="Solicita el servicio">Request service</div>
-          <p class="step-body" data-en="Fill out the form or message us on WhatsApp" data-es="Completa el formulario o escríbenos por WhatsApp">Fill out the form or message us on WhatsApp</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-title" data-en="We confirm details" data-es="Confirmamos los detalles">We confirm details</div>
-          <p class="step-body" data-en="Service type, date, and access. All via WhatsApp." data-es="Tipo de servicio, fecha y acceso. Todo por WhatsApp.">Service type, date, and access. All via WhatsApp.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-title" data-en="We deliver" data-es="Entregamos resultados">We deliver</div>
-          <p class="step-body" data-en="Consistent, reliable results every time" data-es="Resultados consistentes y confiables siempre">Consistent, reliable results every time</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="familia-grid">
 
-  <!-- ── QUOTE FORM ────────────────────────────────────────────── -->
-  <section class="quote" id="quote">
-    <div class="container">
-
-      <div class="quote-intro">
-        <span class="eyebrow" data-en="Request service" data-es="Solicitar servicio">Request service</span>
-        <h2 class="display" data-en="Reliable Cleaning Services<br><em>in Nosara</em>" data-es="Servicio de Limpieza Confiable<br><em>en Nosara</em>">Reliable Cleaning Services<br><em>in Nosara</em></h2>
-        <p class="quote-sub" data-en="For Airbnb hosts and residential homes" data-es="Para anfitriones de Airbnb y hogares residenciales">For Airbnb hosts and residential homes</p>
-      </div>
-
-      <form class="quote-form" id="quote-form" novalidate>
-
-        <!-- Section 1 — Contact -->
-        <div class="form-section-divider"><span data-en="Contact information" data-es="Información de contacto">Contact information</span></div>
-        <div class="form-grid">
-          <div class="form-group">
-            <label class="form-label" for="full_name" data-en="Full name <span class='req'>*</span>" data-es="Nombre completo <span class='req'>*</span>">Full name <span class="req">*</span></label>
-            <input class="form-control" type="text" id="full_name" name="full_name"
-              placeholder="Jane Smith"
-              data-en-placeholder="Jane Smith"
-              data-es-placeholder="Juan Pérez"
-              autocomplete="name" required />
+        <div class="familia-visual">
+          <div class="familia-photo js-reveal">
+            <img
+              src="images/mama-selva.png"
+              alt="Co-fundadora de Selva Cleaning cuidando las plantas del hogar"
+              loading="lazy"
+            />
           </div>
-          <div class="form-group">
-            <label class="form-label" for="phone" data-en="Phone / WhatsApp <span class='req'>*</span>" data-es="Teléfono / WhatsApp <span class='req'>*</span>">Phone / WhatsApp <span class="req">*</span></label>
-            <input class="form-control" type="tel" id="phone" name="phone"
-              placeholder="+506 8888 0000"
-              data-en-placeholder="+506 8888 0000"
-              data-es-placeholder="+506 8888 0000"
-              autocomplete="tel" required />
-          </div>
-          <div class="form-group form-full">
-            <label class="form-label" for="email" data-en="Email <span class='req'>*</span>" data-es="Correo electrónico <span class='req'>*</span>">Email <span class="req">*</span></label>
-            <input class="form-control" type="email" id="email" name="email"
-              placeholder="you@example.com"
-              data-en-placeholder="you@example.com"
-              data-es-placeholder="tu@correo.com"
-              autocomplete="email" required />
+          <div class="familia-pull js-reveal" aria-hidden="true">
+            <p class="familia-pull-text">"Cada casa que tocamos la tratamos como si fuera la nuestra."</p>
+            <p class="familia-pull-attr">— Nosara, Costa Rica</p>
           </div>
         </div>
 
-        <!-- Section 2 — Property -->
-        <div class="form-section-divider"><span data-en="Property details" data-es="Detalles de la propiedad">Property details</span></div>
-        <div class="form-grid">
-          <div class="form-group">
-            <label class="form-label" for="property_type" data-en="Property type <span class='req'>*</span>" data-es="Tipo de propiedad <span class='req'>*</span>">Property type <span class="req">*</span></label>
-            <select class="form-control" id="property_type" name="property_type" required>
-              <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
-              <option value="Apartment" data-en="Apartment" data-es="Apartamento">Apartment</option>
-              <option value="House" data-en="House" data-es="Casa">House</option>
-              <option value="Villa" data-en="Villa" data-es="Villa">Villa</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="bedrooms" data-en="Bedrooms <span class='req'>*</span>" data-es="Habitaciones <span class='req'>*</span>">Bedrooms <span class="req">*</span></label>
-            <select class="form-control" id="bedrooms" name="bedrooms" required>
-              <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
-              <option value="1–2" data-en="1–2 bedrooms" data-es="1–2 habitaciones">1–2 bedrooms</option>
-              <option value="2–3" data-en="2–3 bedrooms" data-es="2–3 habitaciones">2–3 bedrooms</option>
-              <option value="3–5" data-en="3–5 bedrooms" data-es="3–5 habitaciones">3–5 bedrooms</option>
-              <option value="5+" data-en="5+ bedrooms" data-es="5+ habitaciones">5+ bedrooms</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="service_type" data-en="Service type <span class='req'>*</span>" data-es="Tipo de servicio <span class='req'>*</span>">Service type <span class="req">*</span></label>
-            <select class="form-control" id="service_type" name="service_type" required>
-              <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
-              <option value="Airbnb Turnover" data-en="Airbnb Turnover" data-es="Cambio de Airbnb">Airbnb Turnover</option>
-              <option value="Residential Cleaning" data-en="Residential Cleaning" data-es="Limpieza residencial">Residential Cleaning</option>
-              <option value="Deep Cleaning" data-en="Deep Cleaning" data-es="Limpieza profunda">Deep Cleaning</option>
-              <option value="One-time Cleaning" data-en="One-time Cleaning" data-es="Limpieza única">One-time Cleaning</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="frequency" data-en="Frequency <span class='req'>*</span>" data-es="Frecuencia <span class='req'>*</span>">Frequency <span class="req">*</span></label>
-            <select class="form-control" id="frequency" name="frequency" required>
-              <option value="" disabled selected data-en="Select…" data-es="Seleccionar…">Select…</option>
-              <option value="Occasional" data-en="Occasional" data-es="Ocasional">Occasional</option>
-              <option value="Weekly" data-en="Weekly" data-es="Semanal">Weekly</option>
-              <option value="Multiple times per week" data-en="Multiple times per week" data-es="Varias veces por semana">Multiple times per week</option>
-            </select>
-          </div>
-        </div>
+        <div class="familia-body">
+          <span class="eyebrow">Nuestra historia</span>
+          <h2 class="display">Una empresa de <em>familia.</em></h2>
+          <p class="body-copy" style="margin-top:20px;margin-bottom:18px;">
+            Selva nació del amor por los espacios bien cuidados y del respeto profundo por el entorno. Somos una empresa familiar arraigada en Nosara que cree que limpiar un hogar es también cuidar de las personas que lo habitan.
+          </p>
+          <p class="body-copy">
+            Cada producto que elegimos, cada detalle que revisamos, cada visita que hacemos — lleva el mismo cuidado con el que tratamos nuestra propia casa.
+          </p>
 
-        <!-- Section 3 — Optional -->
-        <div class="form-section-divider">
-          <span data-en="Additional notes" data-es="Notas adicionales">Additional notes</span>
-        </div>
-        <div class="form-group">
-          <textarea class="form-control" id="notes" name="notes" rows="3"
-            placeholder="Anything we should know about the property?"
-            data-en-placeholder="Anything we should know about the property?"
-            data-es-placeholder="¿Algo que debamos saber sobre la propiedad?"></textarea>
-        </div>
-
-        <!-- Photos -->
-        <div class="form-group" style="margin-top:14px;">
-          <span class="form-label" data-en="Photos <span style='font-weight:400;color:var(--ink-light);'>(optional)</span>" data-es="Fotos <span style='font-weight:400;color:var(--ink-light);'>(opcional)</span>">Photos <span style="font-weight:400;color:var(--ink-light);">(optional)</span></span>
-          <div class="photo-upload-row" style="margin-top:6px;">
-            <div class="photo-btn-wrap">
-              <input type="file" id="photos-gallery" name="photos-gallery" accept="image/*" multiple aria-label="Choose photos from gallery" />
-              <div class="photo-btn photo-btn-filled">
-                <span aria-hidden="true">📁</span>
-                <span data-en="Choose from gallery" data-es="Elegir de galería">Choose from gallery</span>
+          <div class="familia-members">
+            <div class="familia-member js-reveal">
+              <div class="familia-avatar">
+                <img src="images/mama-selva.png" alt="Co-fundadora de Selva" />
+              </div>
+              <div class="familia-member-info">
+                <strong>Co-fundadora · Operaciones</strong>
+                <span>El corazón de Selva Cleaning</span>
               </div>
             </div>
-            <div class="photo-btn-wrap">
-              <input type="file" id="photos-camera" name="photos-camera" accept="image/*" capture="environment" aria-label="Take a photo with camera" />
-              <div class="photo-btn photo-btn-outline">
-                <span aria-hidden="true">📷</span>
-                <span data-en="Take a photo" data-es="Tomar una foto">Take a photo</span>
+            <div class="familia-member js-reveal">
+              <div class="familia-avatar-mono">D</div>
+              <div class="familia-member-info">
+                <strong>Diego · Co-fundador</strong>
+                <span>Gestión & atención al cliente</span>
               </div>
             </div>
           </div>
-          <p class="photo-hint" data-en="Photos help us give you a more accurate estimate" data-es="Las fotos nos ayudan a darte una estimación más precisa">Photos help us give you a more accurate estimate</p>
-          <div class="photo-preview js-photo-preview" role="list" aria-label="Selected photos"></div>
         </div>
 
-        <!-- Trust + CTA -->
-        <p class="form-trust-line" data-en="We focus on reliable, high-quality service using safe, eco-friendly products. We'll get back to you shortly with availability and pricing." data-es="Nos enfocamos en un servicio confiable y de alta calidad con productos seguros y ecológicos. Te contactaremos pronto con disponibilidad y precios.">We focus on reliable, high-quality service using safe, eco-friendly products. We'll get back to you shortly with availability and pricing.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="form-submit-row">
-          <button type="submit" class="btn btn-primary" data-en="Request Service" data-es="Solicitar servicio">Request Service</button>
-          <p style="font-size:12px;color:var(--ink-light);text-align:center;margin-top:4px;" data-en="Quick response via WhatsApp." data-es="Respuesta rápida por WhatsApp.">Quick response via WhatsApp.</p>
-          <div class="form-email-alt">
-            <span data-en="Prefer email?" data-es="¿Prefieres el correo?">Prefer email?</span>
-            <button type="button" class="btn-email" id="btn-send-email" data-en="Send via Email →" data-es="Enviar por Email →">Send via Email →</button>
-          </div>
+  <!-- ── CONTACT ────────────────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <span class="eyebrow">Get in touch</span>
+        <h2 class="display">Ready for a<br><em>cleaner home?</em></h2>
+        <p class="body-copy">Get in touch and we'll put together the right plan for you.</p>
+
+        <div class="contact-meta">
+          <span class="contact-meta-item">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Serving Nosara and surrounding areas
+          </span>
+          <span class="contact-meta-item">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.18 19.79 19.79 0 01.1 5.6C.1 4.5.9 3.6 2 3.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 11a16 16 0 006.09 6.09l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
+            <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." target="_blank" rel="noopener">[WhatsApp number]</a>
+          </span>
+          <span class="contact-meta-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="/cdn-cgi/l/email-protection#7119141d1d1e3102141d0710121d14101f5f121e1c">[email]</a>
+          </span>
         </div>
 
-      </form>
-
-      <!-- Success state -->
-      <div class="qf-success" id="qf-success" hidden>
-        <div class="qf-success-icon">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h3 data-en="Request received." data-es="Solicitud recibida.">Request received.</h3>
-        <p data-en="We'll reach out via WhatsApp shortly to confirm the details and availability." data-es="Te contactaremos por WhatsApp pronto para confirmar los detalles y la disponibilidad.">We'll reach out via WhatsApp shortly to confirm the details and availability.</p>
-        <div class="qf-success-actions">
-          <a href="https://wa.me/50672039783" class="btn btn-primary" target="_blank" rel="noopener" data-en="Message us on WhatsApp" data-es="Escríbenos por WhatsApp">Message us on WhatsApp</a>
+        <div class="contact-btns">
+          <a href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza." class="btn btn-primary" target="_blank" rel="noopener">Get a free quote →</a>
+          <a href="/cdn-cgi/l/email-protection#e088858c8c8fa093858c9681838c85818ece838f8d" class="btn btn-outline">Send an email</a>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ── FINAL CTA ──────────────────────────────────────────────── -->
-  <section class="final-cta">
-    <div class="container final-cta-inner">
-      <h2 class="display" data-en="Cleaner spaces,<br><em>naturally cared for.</em>" data-es="Espacios más limpios,<br><em>cuidados naturalmente.</em>">Cleaner spaces,<br><em>naturally cared for.</em></h2>
-      <a href="#quote" class="btn btn-ghost" style="margin-top:8px;" data-en="Request Service →" data-es="Solicitar servicio →">Request Service →</a>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ───────────────────────────────────────────────── -->
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
   <footer>
     <div class="container footer-row">
-      <a href="#" class="footer-logo" aria-label="Selva Cleaning Services home">
-        <img src="logo@2x.png" alt="Selva Cleaning Services" />
+      <a href="#" class="logo footer-logo" aria-label="Selva Cleaning Services home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22C6 16 4 10 6 4c4 0 10 2 12 8-2 2-4 3-6 3 1-2 1-4 0-6-2 4-2 8 0 13"/>
+          </svg>
+        </div>
+        <div class="logo-wordmark">
+          <span class="logo-name">Selva Cleaning</span>
+          <span class="logo-sub">Nosara · Costa Rica</span>
+        </div>
       </a>
-      <p class="footer-copy">© 2025 Selva Cleaning Services · Nosara, Costa Rica</p>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="#services" data-en="Services" data-es="Servicios">Services</a>
-        <a href="#trust" data-en="About" data-es="Acerca de">About</a>
-        <a href="#quote" data-en="Request Service" data-es="Solicitar servicio">Request Service</a>
+      <p class="footer-copy">© 2025 Selva Cleaning Services. Nosara, Costa Rica.</p>
+      <nav class="footer-nav" aria-label="Footer links">
+        <a href="#why">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </footer>
 
-  <!-- ── FLOATING WHATSAPP ─────────────────────────────────────── -->
+  <!-- ── FLOATING WHATSAPP (mobile) ────────────────────────────── -->
   <a
-    href="https://wa.me/50672039783?text=Hola%20Selva!%20Me%20interesa%20solicitar%20el%20servicio%20de%20limpieza."
+    href="https://wa.me/50600000000?text=Hola%20Selva!%20Me%20interesa%20una%20cotizaci%C3%B3n%20para%20limpieza."
     class="wa-fab"
     aria-label="Chat on WhatsApp"
     target="_blank"
@@ -1518,188 +1299,32 @@
     </svg>
   </a>
 
-  <script>
-    // Nav scroll shadow
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Nav scroll class
     const nav = document.getElementById('site-nav');
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 8);
-      nav.classList.toggle('nav-shrunk', window.scrollY > 60);
+      nav.classList.toggle('is-scrolled', window.scrollY > 8);
     }, { passive: true });
 
-    // Smooth scroll for anchor links
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // Staggered entrance — rootMargin ensures elements already in view on load fire immediately
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('revealed'), i * 40);
+          observer.unobserve(entry.target);
         }
       });
-    });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
 
-    // Photo upload — dual-input preview (gallery + camera)
-    (function () {
-      const preview = document.querySelector('.js-photo-preview');
-      const galleryInput = document.getElementById('photos-gallery');
-      const cameraInput  = document.getElementById('photos-camera');
-      const selectedFiles = []; // shared store across both inputs
-
-      function addFiles(fileList) {
-        Array.from(fileList).forEach(function(file) {
-          if (!file.type.startsWith('image/')) return;
-          var index = selectedFiles.length;
-          selectedFiles.push(file);
-          renderThumb(file, index);
-        });
-      }
-
-      function renderThumb(file, index) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          var wrap = document.createElement('div');
-          wrap.className = 'photo-thumb';
-          wrap.setAttribute('role', 'listitem');
-          wrap.dataset.index = index;
-
-          var img = document.createElement('img');
-          img.src = e.target.result;
-          img.alt = file.name;
-
-          var btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'photo-thumb-remove';
-          btn.setAttribute('aria-label', 'Remove ' + file.name);
-          btn.textContent = '×';
-          btn.addEventListener('click', function() {
-            selectedFiles[index] = null;
-            wrap.remove();
-          });
-
-          wrap.appendChild(img);
-          wrap.appendChild(btn);
-          preview.appendChild(wrap);
-        };
-        reader.readAsDataURL(file);
-      }
-
-      galleryInput.addEventListener('change', function() {
-        addFiles(this.files);
-        this.value = '';
-      });
-
-      cameraInput.addEventListener('change', function() {
-        addFiles(this.files);
-        this.value = '';
-      });
-
-      // Expose for WhatsApp message builder
-      window._photoFiles = selectedFiles;
-    })();
-
-    // Form submit → build WhatsApp message + show success
-    document.getElementById('quote-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const f = this;
-
-      // Validate required fields
-      const required = ['full_name', 'phone', 'email', 'property_type', 'bedrooms', 'service_type', 'frequency'];
-      let firstError = null;
-      required.forEach(function(name) {
-        const el = f.querySelector('[name="' + name + '"]');
-        if (!el) return;
-        const empty = !el.value.trim();
-        el.classList.toggle('error', empty);
-        if (empty && !firstError) firstError = el;
-      });
-      if (firstError) {
-        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        firstError.focus();
-        return;
-      }
-
-      const hasPhotos = (window._photoFiles || []).some(Boolean);
-      const notes = (f.notes.value || '').trim();
-
-      const msg =
-        'Hola Selva! Me interesa solicitar el servicio de limpieza.\n\n' +
-        'Nombre: ' + f.full_name.value + '\n' +
-        'Teléfono: ' + f.phone.value + '\n' +
-        'Email: ' + f.email.value + '\n\n' +
-        'Tipo de propiedad: ' + f.property_type.value + '\n' +
-        'Habitaciones: ' + f.bedrooms.value + '\n' +
-        'Servicio: ' + f.service_type.value + '\n' +
-        'Frecuencia: ' + f.frequency.value + '\n' +
-        'Notas: ' + (notes || 'Sin notas adicionales') + '\n' +
-        'Fotos: ' + (hasPhotos ? 'Adjuntaré fotos en el chat' : 'Sin fotos');
-
-      window.open('https://wa.me/50672039783?text=' + encodeURIComponent(msg), '_blank');
-
-      // Show success state
-      f.hidden = true;
-      const success = document.getElementById('qf-success');
-      success.hidden = false;
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-
-    // Clear error class on input
-    document.getElementById('quote-form').addEventListener('input', function(e) {
-      if (e.target.classList.contains('error')) e.target.classList.remove('error');
-    });
-
-    // Email fallback
-    document.getElementById('btn-send-email').addEventListener('click', function() {
-      const f = document.getElementById('quote-form');
-      const notes = (f.notes.value || '').trim();
-
-      const body =
-        'Hello Selva! I would like to check availability:\n\n' +
-        'Name: ' + (f.full_name.value || '[your name]') + '\n' +
-        'Phone / WhatsApp: ' + (f.phone.value || '[your number]') + '\n' +
-        'Email: ' + (f.email.value || '[your email]') + '\n\n' +
-        'Property type: ' + (f.property_type.value || '[please fill in]') + '\n' +
-        'Bedrooms: ' + (f.bedrooms.value || '[please fill in]') + '\n' +
-        'Service: ' + (f.service_type.value || '[please fill in]') + '\n' +
-        'Frequency: ' + (f.frequency.value || '[please fill in]') + '\n\n' +
-        'Notes: ' + (notes || 'None') + '\n\n' +
-        'Please let me know your availability and pricing. Thank you!';
-
-      window.location.href =
-        'mailto:hello@selvaclean.com' +
-        '?subject=' + encodeURIComponent('Availability Request — Selva Cleaning Services') +
-        '&body=' + encodeURIComponent(body);
-    });
-
-    // ── Language toggle ────────────────────────────────────
-    function setLang(lang) {
-      // Swap innerHTML for all elements with data-en / data-es
-      document.querySelectorAll('[data-en]').forEach(function(el) {
-        el.innerHTML = el.getAttribute('data-' + lang);
-      });
-      // Swap placeholders
-      document.querySelectorAll('[data-en-placeholder]').forEach(function(el) {
-        el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
-      });
-      // Update toggle button states
-      document.querySelectorAll('.lang-btn').forEach(function(btn) {
-        var active = btn.dataset.lang === lang;
-        btn.classList.toggle('active', active);
-        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-      });
-      // Set data-lang on <html> for CSS overrides (e.g. mobile tap hint)
-      document.documentElement.setAttribute('data-lang', lang);
-      // Persist
-      try { localStorage.setItem('selva_lang', lang); } catch(e) {}
-    }
-
-    // Init on load
-    (function() {
-      var saved = 'en';
-      try { saved = localStorage.getItem('selva_lang') || 'en'; } catch(e) {}
-      setLang(saved);
-      document.querySelectorAll('.lang-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() { setLang(btn.dataset.lang); });
-      });
-    })();
+    document.querySelectorAll('.js-reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
