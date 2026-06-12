@@ -893,92 +893,112 @@
       .how-it-works { padding: 52px 0; }
     }
 
-    /* ── FAMILIA ────────────────────────────────────────────── */
-    .familia { background: var(--off-white); padding: 80px 0; }
+    /* ── FAMILIA SELVA ──────────────────────────────────────── */
+    .familia { background: var(--cream); padding: 96px 0; }
 
     .familia-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      gap: 72px;
       align-items: center;
     }
 
-    .familia-visual { position: relative; }
-
-    .familia-photo {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      aspect-ratio: 4/5;
-      box-shadow: var(--shadow-lg);
-    }
-    .familia-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-
-    .familia-pull {
-      position: absolute;
-      bottom: -24px;
-      right: -24px;
-      background: var(--green-dark);
-      border-radius: var(--radius-lg);
-      padding: 20px 24px;
-      box-shadow: var(--shadow-md);
-      max-width: 210px;
-    }
-    .familia-pull-text {
-      font-family: var(--serif);
-      font-size: .98rem;
-      font-style: italic;
-      color: rgba(255,255,255,.90);
-      line-height: 1.52;
-    }
-    .familia-pull-attr {
+    /* Text column */
+    .familia-label {
+      display: inline-block;
       font-size: 10.5px;
-      color: var(--green-light);
-      margin-top: 9px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-style: normal;
       font-weight: 600;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 16px;
     }
 
-    .familia-body { padding-bottom: 4px; }
-    .familia-body .display { margin-bottom: 18px; }
+    .familia-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -.2px;
+      color: var(--ink-dark);
+      margin-bottom: 20px;
+    }
+    .familia-title em {
+      font-family: 'ivymode', sans-serif;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--green-dark);
+    }
 
-    .familia-members {
+    .familia-desc {
+      font-size: 1rem;
+      line-height: 1.78;
+      color: var(--ink-light);
+      font-weight: 300;
+      max-width: 420px;
+    }
+
+    .familia-team {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-top: 32px;
+      gap: 16px;
+      margin-top: 36px;
       padding-top: 28px;
       border-top: 1px solid var(--border);
     }
 
-    .familia-member {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .familia-avatar {
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
-      border: 2px solid var(--green-light);
-      box-shadow: var(--shadow-sm);
-    }
-    .familia-avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-    .familia-member-info strong {
+    .familia-person-name {
       display: block;
-      font-size: .93rem;
+      font-size: .95rem;
+      font-weight: 600;
       color: var(--ink-dark);
-      font-weight: 500;
+      letter-spacing: .1px;
       line-height: 1.3;
     }
-    .familia-member-info span {
-      font-size: .80rem;
+
+    .familia-person-role {
+      display: block;
+      font-size: .82rem;
       color: var(--ink-light);
       font-weight: 300;
+    }
+
+    /* Photos column — collage overlap */
+    .familia-photos {
+      position: relative;
+      padding-bottom: 36px; /* room for the floating card */
+    }
+
+    .familia-img-main {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 1;
+    }
+    .familia-img-main img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .familia-img-float {
+      position: absolute;
+      bottom: 0;
+      left: -28px;
+      width: 44%;
+      aspect-ratio: 3/4;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+      border: 3px solid var(--cream);
+      z-index: 2;
+    }
+    .familia-img-float img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
     /* ── FOOTER ──────────────────────────────────────────── */
@@ -1035,9 +1055,9 @@
       .services-grid { grid-template-columns: 1fr 1fr; }
       .trust-layout { grid-template-columns: 1fr; }
       .quote-form { padding: 32px 28px; }
-      .familia-grid { grid-template-columns: 1fr; gap: 40px; }
-      .familia-photo { aspect-ratio: 4/3; }
-      .familia-pull { right: 8px; bottom: -18px; }
+      .familia-grid { grid-template-columns: 1fr; gap: 48px; }
+      .familia-img-main { aspect-ratio: 4/3; }
+      .familia-img-float { left: auto; right: -16px; bottom: 0; width: 38%; }
     }
 
     /* ── Mobile nav: hide CTA, larger logo, shrink on scroll (≤ 768px) ── */
@@ -1110,7 +1130,8 @@
       /* Section padding */
       .services { padding: 52px 0 80px; }
       .trust    { padding: 52px 0; }
-      .familia  { padding: 52px 0; }
+      .familia  { padding: 56px 0 80px; }
+      .familia-img-float { right: -8px; width: 42%; }
       .quote    { padding: 52px 0 100px; } /* extra bottom so WA FAB doesn't cover submit */
       footer    { padding: 40px 0; }
       .section-head { margin-bottom: 28px; }
@@ -1405,54 +1426,48 @@
     </div>
   </section>
 
-  <!-- ── EMPRESA FAMILIAR ─────────────────────────────────────────── -->
+  <!-- ── FAMILIA SELVA ────────────────────────────────────────────── -->
   <section class="familia" id="familia">
     <div class="container">
       <div class="familia-grid">
 
-        <div class="familia-visual">
-          <div class="familia-photo">
-            <img
-              src="images/familia-juntos.png"
-              alt="Selva Cleaning founders in Nosara, Costa Rica"
-              loading="lazy"
-            />
-          </div>
-          <div class="familia-pull" aria-hidden="true">
-            <p class="familia-pull-text">"Every home we clean, we treat as if it were our own."</p>
-            <p class="familia-pull-attr">Nosara · Costa Rica</p>
+        <!-- Columna izquierda: texto -->
+        <div class="familia-text">
+          <span class="familia-label" data-en="Familia Selva" data-es="Familia Selva">Familia Selva</span>
+          <h2 class="familia-title"
+            data-en="A <em>family</em> business."
+            data-es="Un negocio <em>familiar</em>.">A <em>family</em> business.</h2>
+          <p class="familia-desc"
+            data-en="Selva is Diego Mora and Dinora Portillo — a mother-and-son team based in Nosara who personally lead every service. No subcontractors, no shortcuts. Just two people who care deeply about every home they clean."
+            data-es="Selva somos Diego Mora y Dinora Portillo — un equipo de madre e hijo con base en Nosara que lidera personalmente cada servicio. Sin subcontratistas, sin atajos. Solo dos personas que se preocupan profundamente por cada hogar que limpian.">Selva is Diego Mora and Dinora Portillo — a mother-and-son team based in Nosara who personally lead every service. No subcontractors, no shortcuts. Just two people who care deeply about every home they clean.</p>
+
+          <div class="familia-team">
+            <div>
+              <span class="familia-person-name">Diego Mora</span>
+              <span class="familia-person-role" data-en="Founder &amp; Team Lead" data-es="Fundador &amp; Líder del equipo">Founder &amp; Team Lead</span>
+            </div>
+            <div>
+              <span class="familia-person-name">Dinora Portillo</span>
+              <span class="familia-person-role" data-en="Operations" data-es="Operaciones">Operations</span>
+            </div>
           </div>
         </div>
 
-        <div class="familia-body">
-          <span class="eyebrow" data-en="Our story" data-es="Nuestra historia">Our story</span>
-          <h2 class="display" data-en="A family business,<br><em>rooted in Nosara.</em>" data-es="Una empresa familiar,<br><em>con raíces en Nosara.</em>">A family business,<br><em>rooted in Nosara.</em></h2>
-          <p class="body-copy" style="margin-top:16px;margin-bottom:14px;"
-            data-en="Selva was born from a deep love for well-kept spaces and a deep respect for the environment around us. We're a family business rooted in Nosara — we believe that cleaning a home is also about caring for the people who live in it."
-            data-es="Selva nació del amor por los espacios bien cuidados y del respeto profundo por el entorno que nos rodea. Somos una empresa familiar arraigada en Nosara que cree que limpiar un hogar es también cuidar de las personas que lo habitan.">Selva was born from a deep love for well-kept spaces and a deep respect for the environment around us. We're a family business rooted in Nosara — we believe that cleaning a home is also about caring for the people who live in it.</p>
-          <p class="body-copy"
-            data-en="Every product we choose, every detail we check, every visit we make — carries the same care we put into our own home."
-            data-es="Cada producto que elegimos, cada detalle que revisamos, cada visita que hacemos — lleva el mismo cuidado con el que tratamos nuestra propia casa.">Every product we choose, every detail we check, every visit we make — carries the same care we put into our own home.</p>
-
-          <div class="familia-members">
-            <div class="familia-member">
-              <div class="familia-avatar">
-                <img src="images/familia-juntos.png" alt="Co-founder" style="object-position:18% top;" />
-              </div>
-              <div class="familia-member-info">
-                <strong data-en="Co-founder · Operations" data-es="Co-fundadora · Operaciones">Co-founder · Operations</strong>
-                <span data-en="The heart of Selva Cleaning" data-es="El corazón de Selva Cleaning">The heart of Selva Cleaning</span>
-              </div>
-            </div>
-            <div class="familia-member">
-              <div class="familia-avatar">
-                <img src="images/familia-juntos.png" alt="Diego, co-founder" style="object-position:78% top;" />
-              </div>
-              <div class="familia-member-info">
-                <strong data-en="Diego · Co-founder" data-es="Diego · Co-fundador">Diego · Co-founder</strong>
-                <span data-en="Client management & growth" data-es="Gestión de clientes y crecimiento">Client management & growth</span>
-              </div>
-            </div>
+        <!-- Columna derecha: collage de fotos -->
+        <div class="familia-photos">
+          <div class="familia-img-main">
+            <img
+              src="images/familia-juntos.png"
+              alt="Diego Mora and Dinora Portillo — Selva Cleaning, Nosara"
+              loading="lazy"
+            />
+          </div>
+          <div class="familia-img-float">
+            <img
+              src="images/mama-plantas.png"
+              alt="Attention to detail — Selva Cleaning"
+              loading="lazy"
+            />
           </div>
         </div>
 
