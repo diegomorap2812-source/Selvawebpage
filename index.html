@@ -390,6 +390,26 @@
     .trust .display { color: var(--white); }
     .trust .display em { color: var(--green-light); }
 
+    .trust-header {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 56px;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+
+    .trust-header-img {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow-lg);
+    }
+    .trust-header-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
     .trust-layout {
       margin-top: 44px;
       display: grid;
@@ -938,64 +958,16 @@
       max-width: 420px;
     }
 
-    .familia-team {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 36px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
-    }
-
-    .familia-person-name {
-      display: block;
-      font-size: .95rem;
-      font-weight: 600;
-      color: var(--ink-dark);
-      letter-spacing: .1px;
-      line-height: 1.3;
-    }
-
-    .familia-person-role {
-      display: block;
-      font-size: .82rem;
-      color: var(--ink-light);
-      font-weight: 300;
-    }
-
-    /* Photos column — collage overlap */
-    .familia-photos {
-      position: relative;
-      padding-bottom: 36px; /* room for the floating card */
-    }
+    /* Photos column */
+    .familia-photos { position: relative; }
 
     .familia-img-main {
       border-radius: 16px;
       overflow: hidden;
       aspect-ratio: 4/5;
       box-shadow: var(--shadow-lg);
-      position: relative;
-      z-index: 1;
     }
     .familia-img-main img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    .familia-img-float {
-      position: absolute;
-      bottom: 0;
-      left: -28px;
-      width: 44%;
-      aspect-ratio: 3/4;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,.18);
-      border: 3px solid var(--cream);
-      z-index: 2;
-    }
-    .familia-img-float img {
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: center top;
@@ -1053,11 +1025,11 @@
     /* ── Tablet (≤ 960px) ── */
     @media (max-width: 960px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
+      .trust-header { grid-template-columns: 1fr; gap: 32px; }
       .trust-layout { grid-template-columns: 1fr; }
       .quote-form { padding: 32px 28px; }
-      .familia-grid { grid-template-columns: 1fr; gap: 48px; }
+      .familia-grid { grid-template-columns: 1fr; gap: 40px; }
       .familia-img-main { aspect-ratio: 4/3; }
-      .familia-img-float { left: auto; right: -16px; bottom: 0; width: 38%; }
     }
 
     /* ── Mobile nav: hide CTA, larger logo, shrink on scroll (≤ 768px) ── */
@@ -1130,8 +1102,7 @@
       /* Section padding */
       .services { padding: 52px 0 80px; }
       .trust    { padding: 52px 0; }
-      .familia  { padding: 56px 0 80px; }
-      .familia-img-float { right: -8px; width: 42%; }
+      .familia  { padding: 56px 0; }
       .quote    { padding: 52px 0 100px; } /* extra bottom so WA FAB doesn't cover submit */
       footer    { padding: 40px 0; }
       .section-head { margin-bottom: 28px; }
@@ -1141,6 +1112,8 @@
       .svc-card { transform: none !important; }
 
       /* Trust / Why Selva */
+      .trust-header { margin-bottom: 36px; }
+      .trust-header-img { order: -1; aspect-ratio: 16/10; }
       .trust-layout { margin-top: 32px; gap: 28px; }
       .trust-aside { padding: 26px 22px; }
       .trust-aside .btn {
@@ -1367,9 +1340,21 @@
   <!-- ── TRUST ─────────────────────────────────────────────────── -->
   <section class="trust" id="trust">
     <div class="container trust-inner">
-      <span class="eyebrow" data-en="Why Selva" data-es="Por qué Selva">Why Selva</span>
-      <h2 class="display" data-en="Every detail.<br><em>Every time.</em>" data-es="Cada detalle.<br><em>Cada vez.</em>">Every detail.<br><em>Every time.</em></h2>
-      <p class="body-copy trust-intro-para" data-en="Every product we use is non-toxic, biodegradable, and safe." data-es="Cada producto que usamos es no tóxico, biodegradable y seguro.">Every product we use is non-toxic, biodegradable, and safe.</p>
+
+      <div class="trust-header">
+        <div class="trust-header-text">
+          <span class="eyebrow" data-en="Why Selva" data-es="Por qué Selva">Why Selva</span>
+          <h2 class="display" data-en="Every detail.<br><em>Every time.</em>" data-es="Cada detalle.<br><em>Cada vez.</em>">Every detail.<br><em>Every time.</em></h2>
+          <p class="body-copy trust-intro-para" data-en="Every product we use is non-toxic, biodegradable, and safe." data-es="Cada producto que usamos es no tóxico, biodegradable y seguro.">Every product we use is non-toxic, biodegradable, and safe.</p>
+        </div>
+        <div class="trust-header-img">
+          <img
+            src="images/mama-plantas.png"
+            alt="Selva Cleaning — care and attention to detail"
+            loading="lazy"
+          />
+        </div>
+      </div>
 
       <div class="trust-layout">
 
@@ -1438,34 +1423,16 @@
             data-en="A <em>family</em> business."
             data-es="Un negocio <em>familiar</em>.">A <em>family</em> business.</h2>
           <p class="familia-desc"
-            data-en="Selva is Diego Mora and Dinora Portillo — a mother-and-son team based in Nosara who personally lead every service. No subcontractors, no shortcuts. Just two people who care deeply about every home they clean."
-            data-es="Selva somos Diego Mora y Dinora Portillo — un equipo de madre e hijo con base en Nosara que lidera personalmente cada servicio. Sin subcontratistas, sin atajos. Solo dos personas que se preocupan profundamente por cada hogar que limpian.">Selva is Diego Mora and Dinora Portillo — a mother-and-son team based in Nosara who personally lead every service. No subcontractors, no shortcuts. Just two people who care deeply about every home they clean.</p>
-
-          <div class="familia-team">
-            <div>
-              <span class="familia-person-name">Diego Mora</span>
-              <span class="familia-person-role" data-en="Founder &amp; Team Lead" data-es="Fundador &amp; Líder del equipo">Founder &amp; Team Lead</span>
-            </div>
-            <div>
-              <span class="familia-person-name">Dinora Portillo</span>
-              <span class="familia-person-role" data-en="Operations" data-es="Operaciones">Operations</span>
-            </div>
-          </div>
+            data-en="Selva is Diego and Dinora — a mother-and-son team who personally oversee every job we take on. Whoever is on the team that day, the standard stays the same: they set it, they maintain it, and they stand behind it. You always have a direct line to them — no layers, no middlemen."
+            data-es="Selva somos Diego y Dinora — un equipo de madre e hijo que supervisa personalmente cada trabajo que tomamos. Sin importar quién esté en el equipo ese día, el estándar es siempre el mismo: ellos lo establecen, lo mantienen y lo respaldan. Siempre tienes contacto directo con ellos — sin intermediarios.">Selva is Diego and Dinora — a mother-and-son team who personally oversee every job we take on. Whoever is on the team that day, the standard stays the same: they set it, they maintain it, and they stand behind it. You always have a direct line to them — no layers, no middlemen.</p>
         </div>
 
-        <!-- Columna derecha: collage de fotos -->
+        <!-- Columna derecha: foto principal -->
         <div class="familia-photos">
           <div class="familia-img-main">
             <img
               src="images/familia-juntos.png"
-              alt="Diego Mora and Dinora Portillo — Selva Cleaning, Nosara"
-              loading="lazy"
-            />
-          </div>
-          <div class="familia-img-float">
-            <img
-              src="images/mama-plantas.png"
-              alt="Attention to detail — Selva Cleaning"
+              alt="Diego and Dinora — Selva Cleaning, Nosara"
               loading="lazy"
             />
           </div>
